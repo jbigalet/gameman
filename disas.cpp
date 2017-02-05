@@ -17,7 +17,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -43,7 +43,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -69,7 +69,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -95,7 +95,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -121,7 +121,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -147,7 +147,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -173,7 +173,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -199,7 +199,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -225,7 +225,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -251,7 +251,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -277,7 +277,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -303,7 +303,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -329,7 +329,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -355,7 +355,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -381,7 +381,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -407,7 +407,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -433,7 +433,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -459,7 +459,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -485,7 +485,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -511,7 +511,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -537,7 +537,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -563,7 +563,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -589,7 +589,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -615,7 +615,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -641,7 +641,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -667,7 +667,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -693,7 +693,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -719,7 +719,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -745,7 +745,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -771,7 +771,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -797,7 +797,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -823,7 +823,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -849,7 +849,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -875,7 +875,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -901,7 +901,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -927,7 +927,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -953,7 +953,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -979,7 +979,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1005,7 +1005,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -1031,7 +1031,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1057,7 +1057,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1083,7 +1083,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1109,7 +1109,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1135,7 +1135,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1161,7 +1161,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1187,7 +1187,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1213,7 +1213,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -1239,7 +1239,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1265,7 +1265,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1291,7 +1291,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1317,7 +1317,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1343,7 +1343,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1369,7 +1369,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1395,7 +1395,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1421,7 +1421,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -1447,7 +1447,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1473,7 +1473,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1499,7 +1499,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1525,7 +1525,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1551,7 +1551,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1577,7 +1577,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1603,7 +1603,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1629,7 +1629,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -1655,7 +1655,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -1681,12 +1681,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1707,12 +1707,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1733,12 +1733,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1759,12 +1759,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1785,12 +1785,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1811,12 +1811,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1837,12 +1837,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1863,12 +1863,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1889,12 +1889,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1915,12 +1915,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1941,12 +1941,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1967,12 +1967,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -1993,12 +1993,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2019,12 +2019,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2045,12 +2045,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2071,12 +2071,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2097,12 +2097,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2123,12 +2123,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2149,12 +2149,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2175,12 +2175,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2201,12 +2201,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2227,12 +2227,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2253,12 +2253,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2279,12 +2279,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2305,12 +2305,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2331,12 +2331,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2357,12 +2357,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2383,12 +2383,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2409,12 +2409,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2435,12 +2435,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2461,12 +2461,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2487,12 +2487,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2513,12 +2513,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2539,12 +2539,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2565,12 +2565,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2591,12 +2591,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2617,12 +2617,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2643,12 +2643,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2669,12 +2669,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2695,12 +2695,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2721,12 +2721,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2747,12 +2747,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2773,12 +2773,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2799,12 +2799,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2825,12 +2825,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2851,12 +2851,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2877,12 +2877,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2903,12 +2903,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2929,12 +2929,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2955,12 +2955,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -2981,12 +2981,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3007,12 +3007,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3033,12 +3033,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3059,12 +3059,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3085,12 +3085,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3111,12 +3111,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3137,12 +3137,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3163,12 +3163,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3189,12 +3189,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3215,12 +3215,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3241,12 +3241,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3267,12 +3267,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3293,12 +3293,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3319,12 +3319,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,1";
+                str += " flags: Z,0,1,-";
             }
 
             return str;
@@ -3345,12 +3345,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3371,12 +3371,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3397,12 +3397,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3423,12 +3423,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3449,12 +3449,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3475,12 +3475,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3501,12 +3501,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3527,12 +3527,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3553,12 +3553,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3579,12 +3579,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3605,12 +3605,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3631,12 +3631,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3657,12 +3657,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3683,12 +3683,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3709,12 +3709,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3735,12 +3735,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3761,12 +3761,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3787,12 +3787,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3813,12 +3813,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3839,12 +3839,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3865,12 +3865,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3891,12 +3891,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3917,12 +3917,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3943,12 +3943,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3969,12 +3969,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -3995,12 +3995,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4021,12 +4021,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4047,12 +4047,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4073,12 +4073,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4099,12 +4099,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4125,12 +4125,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4151,12 +4151,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4177,12 +4177,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4203,12 +4203,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4229,12 +4229,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4255,12 +4255,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4281,12 +4281,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4307,12 +4307,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4333,12 +4333,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4359,12 +4359,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4385,12 +4385,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4411,12 +4411,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4437,12 +4437,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4463,12 +4463,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4489,12 +4489,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4515,12 +4515,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4541,12 +4541,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4567,12 +4567,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4593,12 +4593,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4619,12 +4619,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4645,12 +4645,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4671,12 +4671,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4697,12 +4697,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4723,12 +4723,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4749,12 +4749,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4775,12 +4775,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4801,12 +4801,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4827,12 +4827,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4853,12 +4853,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4879,12 +4879,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4905,12 +4905,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4931,12 +4931,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4957,12 +4957,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -4983,12 +4983,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5009,12 +5009,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5035,12 +5035,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5061,12 +5061,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5087,12 +5087,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5113,12 +5113,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5139,12 +5139,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5165,12 +5165,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5191,12 +5191,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5217,12 +5217,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5243,12 +5243,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5269,12 +5269,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5295,12 +5295,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5321,12 +5321,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5347,12 +5347,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5373,12 +5373,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5399,12 +5399,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5425,12 +5425,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5451,12 +5451,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5477,12 +5477,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5503,12 +5503,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5529,12 +5529,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5555,12 +5555,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5581,12 +5581,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5607,12 +5607,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5633,12 +5633,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5659,12 +5659,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5685,12 +5685,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5711,12 +5711,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5737,12 +5737,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5763,12 +5763,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5789,12 +5789,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5815,12 +5815,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5841,12 +5841,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5867,12 +5867,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5893,12 +5893,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5919,12 +5919,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5945,12 +5945,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5971,12 +5971,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -5997,12 +5997,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6023,12 +6023,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6049,12 +6049,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6075,12 +6075,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6101,12 +6101,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6127,12 +6127,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6153,12 +6153,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6179,12 +6179,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6205,12 +6205,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6231,12 +6231,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6257,12 +6257,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6283,12 +6283,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6309,12 +6309,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6335,12 +6335,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6361,12 +6361,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6387,12 +6387,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6413,12 +6413,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6439,12 +6439,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6465,12 +6465,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6491,12 +6491,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6517,12 +6517,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6543,12 +6543,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6569,12 +6569,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6595,12 +6595,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6621,12 +6621,12 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6658,12 +6658,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6685,12 +6685,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6710,12 +6710,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6735,12 +6735,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6760,12 +6760,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,H";
+                str += " flags: Z,0,H,-";
             }
 
             return str;
@@ -6785,12 +6785,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,1,H";
+                str += " flags: Z,1,H,-";
             }
 
             return str;
@@ -6812,12 +6812,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6837,7 +6837,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -6864,12 +6864,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 20";
+                str += " cycles: 20";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6889,12 +6889,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: 0,H,C";
+                str += " flags: -,0,H,C";
             }
 
             return str;
@@ -6914,12 +6914,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6939,12 +6939,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -6964,12 +6964,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,H";
+                str += " flags: Z,0,H,-";
             }
 
             return str;
@@ -6989,12 +6989,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,1,H";
+                str += " flags: Z,1,H,-";
             }
 
             return str;
@@ -7016,12 +7016,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7041,7 +7041,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -7066,12 +7066,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7093,12 +7093,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7118,12 +7118,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7143,12 +7143,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7168,12 +7168,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,H";
+                str += " flags: Z,0,H,-";
             }
 
             return str;
@@ -7193,12 +7193,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,1,H";
+                str += " flags: Z,1,H,-";
             }
 
             return str;
@@ -7220,12 +7220,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7245,7 +7245,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -7272,12 +7272,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7297,12 +7297,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: 0,H,C";
+                str += " flags: -,0,H,C";
             }
 
             return str;
@@ -7322,12 +7322,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7347,12 +7347,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7372,12 +7372,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,H";
+                str += " flags: Z,0,H,-";
             }
 
             return str;
@@ -7397,12 +7397,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,1,H";
+                str += " flags: Z,1,H,-";
             }
 
             return str;
@@ -7424,12 +7424,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7449,7 +7449,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -7476,12 +7476,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12/8";
+                str += " cycles: 12/8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7503,12 +7503,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7528,12 +7528,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7553,12 +7553,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7578,12 +7578,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,H";
+                str += " flags: Z,0,H,-";
             }
 
             return str;
@@ -7603,12 +7603,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,1,H";
+                str += " flags: Z,1,H,-";
             }
 
             return str;
@@ -7630,12 +7630,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7655,12 +7655,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,C";
+                str += " flags: Z,-,0,C";
             }
 
             return str;
@@ -7682,12 +7682,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12/8";
+                str += " cycles: 12/8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7707,12 +7707,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: 0,H,C";
+                str += " flags: -,0,H,C";
             }
 
             return str;
@@ -7732,12 +7732,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7757,12 +7757,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7782,12 +7782,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,H";
+                str += " flags: Z,0,H,-";
             }
 
             return str;
@@ -7807,12 +7807,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,1,H";
+                str += " flags: Z,1,H,-";
             }
 
             return str;
@@ -7834,12 +7834,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7859,12 +7859,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: 1,1";
+                str += " flags: -,1,1,-";
             }
 
             return str;
@@ -7886,12 +7886,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12/8";
+                str += " cycles: 12/8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7913,12 +7913,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7938,12 +7938,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7963,12 +7963,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -7988,12 +7988,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,H";
+                str += " flags: Z,0,H,-";
             }
 
             return str;
@@ -8013,12 +8013,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,1,H";
+                str += " flags: Z,1,H,-";
             }
 
             return str;
@@ -8040,12 +8040,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8065,12 +8065,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: 0,0,1";
+                str += " flags: -,0,0,1";
             }
 
             return str;
@@ -8092,12 +8092,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12/8";
+                str += " cycles: 12/8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8117,12 +8117,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: 0,H,C";
+                str += " flags: -,0,H,C";
             }
 
             return str;
@@ -8142,12 +8142,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8167,12 +8167,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8192,12 +8192,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,0,H";
+                str += " flags: Z,0,H,-";
             }
 
             return str;
@@ -8217,12 +8217,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: Z,1,H";
+                str += " flags: Z,1,H,-";
             }
 
             return str;
@@ -8244,12 +8244,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8269,12 +8269,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " flags: 0,0,C";
+                str += " flags: -,0,0,C";
             }
 
             return str;
@@ -8294,12 +8294,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8319,12 +8319,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8344,12 +8344,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8369,12 +8369,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8394,12 +8394,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8419,12 +8419,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8444,12 +8444,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8469,12 +8469,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8494,12 +8494,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8519,12 +8519,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8544,12 +8544,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8569,12 +8569,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8594,12 +8594,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8619,12 +8619,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8644,12 +8644,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8669,12 +8669,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8694,12 +8694,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8719,12 +8719,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8744,12 +8744,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8769,12 +8769,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8794,12 +8794,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8819,12 +8819,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8844,12 +8844,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8869,12 +8869,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8894,12 +8894,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8919,12 +8919,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8944,12 +8944,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8969,12 +8969,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -8994,12 +8994,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9019,12 +9019,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9044,12 +9044,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9069,12 +9069,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9094,12 +9094,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9119,12 +9119,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9144,12 +9144,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9169,12 +9169,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9194,12 +9194,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9219,12 +9219,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9244,12 +9244,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9269,12 +9269,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9294,12 +9294,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9319,12 +9319,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9344,12 +9344,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9369,12 +9369,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9394,12 +9394,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9419,12 +9419,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9444,12 +9444,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9469,12 +9469,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9494,12 +9494,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9519,12 +9519,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9544,12 +9544,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9569,12 +9569,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9594,12 +9594,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9619,12 +9619,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9644,12 +9644,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9669,12 +9669,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9694,12 +9694,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9719,12 +9719,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9744,12 +9744,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9769,12 +9769,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9794,12 +9794,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9819,12 +9819,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9844,12 +9844,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9869,12 +9869,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -9894,7 +9894,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -9919,7 +9919,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -9944,7 +9944,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -9969,7 +9969,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -9994,7 +9994,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10019,7 +10019,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10044,7 +10044,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -10069,7 +10069,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10094,7 +10094,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10119,7 +10119,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10144,7 +10144,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10169,7 +10169,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10194,7 +10194,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10219,7 +10219,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10244,7 +10244,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -10269,7 +10269,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10294,7 +10294,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10319,7 +10319,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10344,7 +10344,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10369,7 +10369,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10394,7 +10394,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10419,7 +10419,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10444,7 +10444,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -10469,7 +10469,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10494,7 +10494,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10519,7 +10519,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10544,7 +10544,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10569,7 +10569,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10594,7 +10594,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10619,7 +10619,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10644,7 +10644,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -10669,7 +10669,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10694,7 +10694,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10719,7 +10719,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10744,7 +10744,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10769,7 +10769,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10794,7 +10794,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10819,7 +10819,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10844,7 +10844,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -10869,7 +10869,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10894,7 +10894,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10919,7 +10919,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10944,7 +10944,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10969,7 +10969,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -10994,7 +10994,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11019,7 +11019,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11044,7 +11044,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -11069,7 +11069,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11094,7 +11094,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11119,7 +11119,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11144,7 +11144,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11169,7 +11169,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11194,7 +11194,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11219,7 +11219,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11244,7 +11244,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -11269,7 +11269,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11294,7 +11294,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11319,7 +11319,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11344,7 +11344,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11369,7 +11369,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11394,7 +11394,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11419,7 +11419,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11444,7 +11444,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -11469,7 +11469,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
@@ -11494,12 +11494,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 20/8";
+                str += " cycles: 20/8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11519,12 +11519,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11546,12 +11546,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16/12";
+                str += " cycles: 16/12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11573,12 +11573,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11600,12 +11600,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 24/12";
+                str += " cycles: 24/12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11625,12 +11625,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11652,7 +11652,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -11677,12 +11677,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11702,12 +11702,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 20/8";
+                str += " cycles: 20/8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11727,12 +11727,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11754,12 +11754,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16/12";
+                str += " cycles: 16/12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11781,12 +11781,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 24/12";
+                str += " cycles: 24/12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11808,12 +11808,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 24";
+                str += " cycles: 24";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11835,7 +11835,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -11860,12 +11860,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11885,12 +11885,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 20/8";
+                str += " cycles: 20/8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11910,12 +11910,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11937,12 +11937,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16/12";
+                str += " cycles: 16/12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11964,12 +11964,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 24/12";
+                str += " cycles: 24/12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -11989,12 +11989,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12016,7 +12016,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -12041,12 +12041,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12066,12 +12066,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 20/8";
+                str += " cycles: 20/8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12091,12 +12091,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12118,12 +12118,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16/12";
+                str += " cycles: 16/12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12145,12 +12145,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 24/12";
+                str += " cycles: 24/12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12172,7 +12172,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -12197,12 +12197,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12220,16 +12220,16 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
                 str.insert(str.size(), 12-str.size(), ' ');  // align
             }
 
-            str += "LDH ($" + to_hex_string((u16)(65280 + b1)) + "),A";
+            str += "LDH ($" + to_hex_string((u16)(0xff00 + b1)) + "),A";
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12249,12 +12249,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12274,12 +12274,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12299,12 +12299,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12326,7 +12326,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -12351,12 +12351,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12378,7 +12378,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
@@ -12403,12 +12403,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12430,12 +12430,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12457,7 +12457,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -12482,12 +12482,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12505,16 +12505,16 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
                 str.insert(str.size(), 12-str.size(), ' ');  // align
             }
 
-            str += "LDH A,($" + to_hex_string((u16)(65280 + b1)) + ")";
+            str += "LDH A,($" + to_hex_string((u16)(0xff00 + b1)) + ")";
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12534,7 +12534,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -12559,12 +12559,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12584,12 +12584,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12609,12 +12609,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12636,7 +12636,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -12661,12 +12661,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12688,7 +12688,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 12";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -12713,12 +12713,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12740,12 +12740,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12765,12 +12765,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 4";
+                str += " cycles: 4";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;
@@ -12792,7 +12792,7 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 8";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -12817,12 +12817,12 @@ std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: 16";
+                str += " cycles: 16";
             }
 
             if(with_flags) {
                 str.insert(str.size(), 60-str.size(), ' ');  // align
-                str += " no flag";
+                str += " flags: -,-,-,-";
             }
 
             return str;

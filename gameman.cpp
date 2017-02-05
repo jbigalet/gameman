@@ -1,9 +1,6 @@
 #include "util.cpp"
-
 #include "disas.cpp"
-
-struct State {
-};
+#include "cpu.cpp"
 
 i32 main() {
     std::vector<i8> dmg_rom = slurp_file("DMG_ROM.bin");

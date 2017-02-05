@@ -27,7 +27,7 @@ std::string disas{{table_suffix}}(std::vector<i8>::iterator* it, bool with_bytes
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " timings: {{timings}}";
+                str += " cycles: {{timings}}";
             }
 
             if(with_flags) {
