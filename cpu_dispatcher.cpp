@@ -1452,7 +1452,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0x20:
         {
-            bool action_taken = JR_flag_const8(!flag.Z, read<i8>(it));
+            bool action_taken = JR_flag_const8(!reg.FZ, read<i8>(it));
             return action_taken ? 12 : 8;
         }
         case 0x21:
@@ -1493,7 +1493,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0x28:
         {
-            bool action_taken = JR_flag_const8(flag.Z, read<i8>(it));
+            bool action_taken = JR_flag_const8(reg.FZ, read<i8>(it));
             return action_taken ? 12 : 8;
         }
         case 0x29:
@@ -1534,7 +1534,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0x30:
         {
-            bool action_taken = JR_flag_const8(!flag.C, read<i8>(it));
+            bool action_taken = JR_flag_const8(!reg.FC, read<i8>(it));
             return action_taken ? 12 : 8;
         }
         case 0x31:
@@ -1575,7 +1575,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0x38:
         {
-            bool action_taken = JR_flag_const8(flag.C, read<i8>(it));
+            bool action_taken = JR_flag_const8(reg.FC, read<i8>(it));
             return action_taken ? 12 : 8;
         }
         case 0x39:
@@ -2256,7 +2256,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xC0:
         {
-            bool action_taken = RET_flag(!flag.Z);
+            bool action_taken = RET_flag(!reg.FZ);
             return action_taken ? 20 : 8;
         }
         case 0xC1:
@@ -2266,7 +2266,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xC2:
         {
-            bool action_taken = JP_flag_const16(!flag.Z, read<u16>(it));
+            bool action_taken = JP_flag_const16(!reg.FZ, read<u16>(it));
             return action_taken ? 16 : 12;
         }
         case 0xC3:
@@ -2276,7 +2276,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xC4:
         {
-            bool action_taken = CALL_flag_const16(!flag.Z, read<u16>(it));
+            bool action_taken = CALL_flag_const16(!reg.FZ, read<u16>(it));
             return action_taken ? 24 : 12;
         }
         case 0xC5:
@@ -2296,7 +2296,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xC8:
         {
-            bool action_taken = RET_flag(flag.Z);
+            bool action_taken = RET_flag(reg.FZ);
             return action_taken ? 20 : 8;
         }
         case 0xC9:
@@ -2306,12 +2306,12 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xCA:
         {
-            bool action_taken = JP_flag_const16(flag.Z, read<u16>(it));
+            bool action_taken = JP_flag_const16(reg.FZ, read<u16>(it));
             return action_taken ? 16 : 12;
         }
         case 0xCC:
         {
-            bool action_taken = CALL_flag_const16(flag.Z, read<u16>(it));
+            bool action_taken = CALL_flag_const16(reg.FZ, read<u16>(it));
             return action_taken ? 24 : 12;
         }
         case 0xCD:
@@ -2331,7 +2331,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xD0:
         {
-            bool action_taken = RET_flag(!flag.C);
+            bool action_taken = RET_flag(!reg.FC);
             return action_taken ? 20 : 8;
         }
         case 0xD1:
@@ -2341,12 +2341,12 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xD2:
         {
-            bool action_taken = JP_flag_const16(!flag.C, read<u16>(it));
+            bool action_taken = JP_flag_const16(!reg.FC, read<u16>(it));
             return action_taken ? 16 : 12;
         }
         case 0xD4:
         {
-            bool action_taken = CALL_flag_const16(!flag.C, read<u16>(it));
+            bool action_taken = CALL_flag_const16(!reg.FC, read<u16>(it));
             return action_taken ? 24 : 12;
         }
         case 0xD5:
@@ -2366,7 +2366,7 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xD8:
         {
-            bool action_taken = RET_flag(flag.C);
+            bool action_taken = RET_flag(reg.FC);
             return action_taken ? 20 : 8;
         }
         case 0xD9:
@@ -2376,12 +2376,12 @@ i32 exec_op(std::vector<i8>::iterator* it) {
         }
         case 0xDA:
         {
-            bool action_taken = JP_flag_const16(flag.C, read<u16>(it));
+            bool action_taken = JP_flag_const16(reg.FC, read<u16>(it));
             return action_taken ? 16 : 12;
         }
         case 0xDC:
         {
-            bool action_taken = CALL_flag_const16(flag.C, read<u16>(it));
+            bool action_taken = CALL_flag_const16(reg.FC, read<u16>(it));
             return action_taken ? 24 : 12;
         }
         case 0xDE:

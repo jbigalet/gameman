@@ -7,7 +7,7 @@ with open('Gameboy_LR35902_OPCODES.html') as f:
     html = BeautifulSoup(f, 'html.parser')
 
 allargs = set()
-prototypes = set()
+prototypes = {}
 opcodes = []
 prefix_cb_opcodes = []
 for table, ops in zip(
@@ -130,9 +130,9 @@ for table, ops in zip(
                                     and len(exec_args) == 0:  # not a jump - reg
 
                                 if arg.startswith('N'):  # inv
-                                    val = "!flag.%s" % arg[1:]
+                                    val = "!reg.F%s" % arg[1:]
                                 else:  # not inv
-                                    val = "flag.%s" % arg
+                                    val = "reg.F%s" % arg
 
                                 exec_args.append({
                                     'type': 'flag',
@@ -148,6 +148,7 @@ for table, ops in zip(
                                     'value': "&reg.%s" % arg
                                 })
 
+            raw_flags = ','.join(sublines[2].split(' '))
 
             func_name = '_'.join([command_args[0]] + [ea['type'] for ea in exec_args])
             call_func = "%s(%s)" % (func_name, ', '.join([ea['value'] for ea in exec_args]))
@@ -159,7 +160,24 @@ for table, ops in zip(
                 special_timings = timings
                 proto_rtype = 'void'
 
-            prototypes.add("%s %s(%s);" % (proto_rtype, func_name, ','.join([ea['realtype'] for ea in exec_args])))
+            proto_name = ("%s %s(%s);" \
+                          % (proto_rtype,
+                             func_name,
+                             ','.join([ea['realtype'] for ea in exec_args])))
+
+            if not proto_name in prototypes:
+                prototypes[proto_name] = {
+                    'usage': [opcode],
+                    'flags': raw_flags,
+                }
+            else:  # check flags & add to usage
+
+                # ignore F1 as it pops to AF, so it does modify the flags as a side effect
+                if prototypes[proto_name]['flags'] != raw_flags and opcode != 'F1':
+                    print prototypes[proto_name]
+                    print opcode + " => " + raw_flags
+                    raise RuntimeError('A prototype cant have different set of flags')
+                prototypes[proto_name]['usage'].append(opcode)
 
             call_funcs = [call_func] + other_ops
 
@@ -170,7 +188,7 @@ for table, ops in zip(
             cmd = ' + '.join(cmd_array)
             cmd = cmd.replace('" + "', '')
 
-            flags = "flags: %s" % ','.join(sublines[2].split(' '))
+            flags = "flags: %s" % raw_flags
 
             ops.append({
                 'opcode': opcode,
@@ -206,6 +224,8 @@ for fname in ['disas', 'cpu_dispatcher']:
     with open('%s.cpp' % fname, 'w') as f:
         f.write(rendered)
 
+proto_funcs = ["// usage: %s\n// flags: %s\n%s" % (','.join(p['usage']), p['flags'], pfunc)
+               for pfunc, p in sorted(prototypes.items(), key=lambda p: p[0].split(' ', 1)[1])]
 with open('cpu_prototypes.cpp', 'w') as f:
-    f.write('\n'.join(sorted(prototypes, key=lambda p: p.split(' ', 1)[1])))
+    f.write('\n\n'.join(proto_funcs))
 

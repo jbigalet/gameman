@@ -1,5 +1,6 @@
 #include "util.cpp"
 #include "disas.cpp"
+#include "mmu.cpp"
 #include "cpu.cpp"
 
 i32 main() {
