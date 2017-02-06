@@ -36,7 +36,6 @@ for table, ops in zip(
             command_args = sublines[0].split(' ')
             printed_args = []
             exec_args = []  # (type reg8-16|flag|mem|const8-16, realtype u8-16|i8-16..., value)
-            other_ops = []
             if len(command_args) > 1:
                 for arg in command_args[1].split(','):
                     allargs.add(arg)
@@ -93,18 +92,19 @@ for table, ops in zip(
                                     exec_val = '0x%s' % (arg[:-1] if arg.endswith('H') else arg)
 
                         if arg.startswith("("):
+                            mod = ''
                             if not exec_val:
                                 if arg == "(HL-)":
-                                    other_ops.append("reg.HL--")
                                     exec_val = "reg.HL"
+                                    mod = 'HLdec'
                                 elif arg == "(HL+)":
-                                    other_ops.append("reg.HL++")
                                     exec_val = "reg.HL"
+                                    mod = 'HLinc'
                                 else:
                                     exec_val = "reg.%s" % arg[1:-1]
 
                             exec_args.append({
-                                'type': 'mem',
+                                'type': 'mem' + mod,
                                 'realtype': 'u16',
                                 'value': exec_val,
                             })
@@ -179,7 +179,7 @@ for table, ops in zip(
                     raise RuntimeError('A prototype cant have different set of flags')
                 prototypes[proto_name]['usage'].append(opcode)
 
-            call_funcs = [call_func] + other_ops
+            call_funcs = [call_func]
 
             cmd_array = ['"%s"' % command_args[0]]
             if printed_args:

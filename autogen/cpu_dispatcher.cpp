@@ -1462,8 +1462,7 @@ i32 exec_op() {
         }
         case 0x22:
         {
-            LD_mem_reg8(reg.HL, &reg.A);
-            reg.HL++;
+            LD_memHLinc_reg8(reg.HL, &reg.A);
             return 8;
         }
         case 0x23:
@@ -1503,8 +1502,7 @@ i32 exec_op() {
         }
         case 0x2A:
         {
-            LD_reg8_mem(&reg.A, reg.HL);
-            reg.HL++;
+            LD_reg8_memHLinc(&reg.A, reg.HL);
             return 8;
         }
         case 0x2B:
@@ -1544,8 +1542,7 @@ i32 exec_op() {
         }
         case 0x32:
         {
-            LD_mem_reg8(reg.HL, &reg.A);
-            reg.HL--;
+            LD_memHLdec_reg8(reg.HL, &reg.A);
             return 8;
         }
         case 0x33:
@@ -1585,8 +1582,7 @@ i32 exec_op() {
         }
         case 0x3A:
         {
-            LD_reg8_mem(&reg.A, reg.HL);
-            reg.HL--;
+            LD_reg8_memHLdec(&reg.A, reg.HL);
             return 8;
         }
         case 0x3B:

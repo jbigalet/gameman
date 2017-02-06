@@ -524,6 +524,21 @@ void CPU::LDH_reg8_mem(u8* r, u16 addr) {
     *r = mmu.read(addr);
 }
 
+// usage: 32
+// flags: -,-,-,-
+void CPU::LD_memHLdec_reg8(u16 addr, u8* r) {
+    reg.HL--;
+    LD_mem_reg8(addr, r);
+}
+
+// usage: 22
+// flags: -,-,-,-
+void CPU::LD_memHLinc_reg8(u16 addr, u8* r) {
+    LD_mem_reg8(addr, r);
+    reg.HL++;
+}
+
+
 // usage: 36
 // flags: -,-,-,-
 void CPU::LD_mem_const8(u16 addr, u8 val) {
@@ -537,7 +552,7 @@ void CPU::LD_mem_reg16(u16 addr, u16* r) {
     mmu.write(addr+1, (u8)(*r >> 8));
 }
 
-// usage: 02,12,22,32,70,71,72,73,74,75,77,E2,EA
+// usage: 02,12,70,71,72,73,74,75,77,E2,EA
 // flags: -,-,-,-
 void CPU::LD_mem_reg8(u16 addr, u8* r) {
     mmu.write(addr, *r);
@@ -572,11 +587,26 @@ void CPU::LD_reg8_const8(u8* r, u8 val) {
     (*r) = val;
 }
 
-// usage: 0A,1A,2A,3A,46,4E,56,5E,66,6E,7E,F2,FA
+// usage: 0A,1A,46,4E,56,5E,66,6E,7E,F2,FA
 // flags: -,-,-,-
 void CPU::LD_reg8_mem(u8* r, u16 addr) {
     (*r) = mmu.read(addr);
 }
+
+// usage: 3A
+// flags: -,-,-,-
+void CPU::LD_reg8_memHLdec(u8* r, u16 addr) {
+    reg.HL--;
+    LD_reg8_mem(r, addr);
+}
+
+// usage: 2A
+// flags: -,-,-,-
+void CPU::LD_reg8_memHLinc(u8* r, u16 addr) {
+    LD_reg8_mem(r, addr);
+    reg.HL++;
+}
+
 
 // usage: 40,41,42,43,44,45,47,48,49,4A,4B,4C,4D,4F,50,51,52,53,54,55,57,58,59,5A,5B,5C,5D,5F,60,61,62,63,64,65,67,68,69,6A,6B,6C,6D,6F,78,79,7A,7B,7C,7D,7F
 // flags: -,-,-,-

@@ -36,10 +36,10 @@ i32 main() {
         /* if(cpu.reg.PC == 0x00E9) cpu.reg.FZ = true; */
         /* if(cpu.reg.PC == 0x00FA) cpu.reg.FZ = true; */
         auto it = &cpu.mmu.mem[cpu.reg.PC];
-        /* std::cout << disas(&it) << std::endl; */
+        std::cout << disas(&it) << std::endl;
         cpu.exec_op();
-        /* cpu.reg.print(); */
-        /* std::cout << "\n\n" << std::endl; */
+        cpu.reg.print();
+        std::cout << "\n\n" << std::endl;
     }
     /* while(it != dmg_rom.end()) */
     /*     std::cout << disas(&it) << std::endl; */
