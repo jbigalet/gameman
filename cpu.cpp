@@ -34,19 +34,6 @@ struct Registers {
     DOUBLE_REG(H, L);
     u16 SP;
     u16 PC;
-
-    void print() {
-        std::string flags = FZ ? "Z" : "-";
-        flags += FN ? " N" : " -";
-        flags += FH ? " H" : " -";
-        flags += FC ? " C" : " -";
-
-        std::cout << "A: " << to_hex_string(A) << "   F: " << to_hex_string(F) << " (" << flags << ")" << std::endl;
-        std::cout << "B: " << to_hex_string(B) << "   C: " << to_hex_string(C) << std::endl;
-        std::cout << "D: " << to_hex_string(D) << "   E: " << to_hex_string(E) << std::endl;
-        std::cout << "H: " << to_hex_string(H) << "   L: " << to_hex_string(L) << std::endl;
-        std::cout << "SP: " << to_hex_string(SP) << "   PC: " << to_hex_string(PC) << std::endl;
-    }
 };
 
 struct CPU {
@@ -54,6 +41,59 @@ struct CPU {
     MMU mmu;
 
     bool IME;  // Interrupt Master Enable Flag
+
+
+
+    void print_reg() {
+        std::string flags = reg.FZ ? "Z" : "-";
+        flags += reg.FN ? " N" : " -";
+        flags += reg.FH ? " H" : " -";
+        flags += reg.FC ? " C" : " -";
+
+        std::cout << "A: " << to_hex_string(reg.A);
+        std::cout << "   F: " << to_hex_string(reg.F) << " (" << flags << ")" << std::endl;
+
+        std::cout << "B: " << to_hex_string(reg.B);
+        std::cout << "   C: " << to_hex_string(reg.C) << std::endl;
+
+        std::cout << "D: " << to_hex_string(reg.D);
+        std::cout << "   E: " << to_hex_string(reg.E) << std::endl;
+
+        std::cout << "H: " << to_hex_string(reg.H);
+        std::cout << "   L: " << to_hex_string(reg.L) << std::endl;
+
+        std::cout << "SP: " << to_hex_string(reg.SP);
+        std::cout << "   PC: " << to_hex_string(reg.PC) << std::endl;
+    }
+
+
+    void print_reg_diff(Registers old) {
+        std::string flags;
+        flags += bold(reg.FZ ?  "Z" : "-", reg.FZ != old.FZ);;
+        flags += bold(reg.FN ?  "N" : "-", reg.FN != old.FN);;
+        flags += bold(reg.FH ?  "H" : "-", reg.FH != old.FH);;
+        flags += bold(reg.FC ?  "C" : "-", reg.FC != old.FC);;
+
+        std::string all;
+
+        all += bold("A: " + to_hex_string(reg.A), reg.A != old.A);
+        all += bold("   F: " + to_hex_string(reg.F), reg.F != old.F) + " (" + flags + ")" + "\n";
+
+        all += bold("B: " + to_hex_string(reg.B), reg.B != old.B);
+        all += bold("   C: " + to_hex_string(reg.C), reg.C != old.C) + "\n";
+
+        all += bold("D: " + to_hex_string(reg.D), reg.D != old.D);
+        all += bold("   E: " + to_hex_string(reg.E), reg.E != old.E) + "\n";
+
+        all += bold("H: " + to_hex_string(reg.H), reg.H != old.H);
+        all += bold("   L: " + to_hex_string(reg.L), reg.L != old.L) + "\n";
+
+        all += bold("SP: " + to_hex_string(reg.SP), reg.SP != old.SP);
+        all += bold("   PC: " + to_hex_string(reg.PC), reg.PC != old.PC) + "\n";
+
+        std::cout << all << std::endl;
+    }
+
 
 
     // post boot set values
@@ -98,13 +138,28 @@ struct CPU {
     }
 
 
-    // opcode implementation helpers
-    template<typename T>
-    T read_pc() {
-        T v = *(T*)(&mmu.mem[reg.PC]);
-        reg.PC += sizeof(T);
-        return v;
+    u8 read_pc_u8() {
+        u8 res = mmu.read(reg.PC, false);
+        reg.PC++;
+        return res;
     }
+
+    i8 read_pc_i8() {
+        i8 res = mmu.read(reg.PC, false);
+        reg.PC++;
+        return res;
+    }
+
+    u16 read_pc_u16() {
+        u16 res = mmu.read(reg.PC, false);
+        reg.PC++;
+        res |= mmu.read(reg.PC, false) << 8;
+        reg.PC++;
+        return res;
+    }
+
+
+    // opcode implementation helpers
 
     void _add(u8* r, u16 toadd, bool with_carry=false) {
         u16 res = (u16)(*r) + toadd;
@@ -166,7 +221,7 @@ struct CPU {
     }
 
     void _cp(u8 tosub) {
-        u16 res = (u16)reg.A - tosub;
+        u16 res = (u16)reg.A - (u16)tosub;
         u16 low = (reg.A & 0x0f) - (tosub & 0x0f);
 
         reg.FZ = ((u8)res) == 0;
@@ -252,6 +307,7 @@ struct CPU {
 
 #include "autogen/cpu_prototypes.cpp"
 #include "autogen/cpu_dispatcher.cpp"
+#include "autogen/disas.cpp"
 };
 
 
@@ -594,7 +650,7 @@ void CPU::LD_mem_const8(u16 addr, u8 val) {
 // flags: -,-,-,-
 void CPU::LD_mem_reg16(u16 addr, u16* r) {
     mmu.write(addr, (u8)(*r));
-    mmu.write(addr+1, (u8)(*r >> 8));
+    mmu.write(addr+1, (u8)((*r) >> 8));
 }
 
 // usage: 02,12,70,71,72,73,74,75,77,E2,EA

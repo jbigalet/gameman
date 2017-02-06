@@ -1,12 +1,12 @@
 {{#table_kind}}
-std::string disas{{table_suffix}}(u8** it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
-    u8 opcode = read<u8>(it);
+std::string disas{{table_suffix}}(bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
+    u8 opcode = read_pc_u8();
     switch(opcode) {
         {{#opcodes}}
         case 0x{{opcode}}:
         {
             {{#toread}}
-            {{type}} {{name}} = read<{{type}}>(it);
+            {{type}} {{name}} = read_pc_{{type}}();
             {{/toread}}
             std::string str;
             if(with_bytes) {
@@ -40,7 +40,7 @@ std::string disas{{table_suffix}}(u8** it, bool with_bytes=true, bool with_timin
         {{/opcodes}}
 
         case 0xCB:
-            return disas_prefix(it, with_bytes, with_timings, with_flags);
+            return disas_prefix(with_bytes, with_timings, with_flags);
     }
 
     return "Unkown upcode " + to_hex_string(opcode);

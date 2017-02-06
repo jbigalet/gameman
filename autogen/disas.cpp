@@ -1,5 +1,5 @@
-std::string disas_prefix(u8** it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
-    u8 opcode = read<u8>(it);
+std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
+    u8 opcode = read_pc_u8();
     switch(opcode) {
         case 0x00:
         {
@@ -5867,7 +5867,7 @@ std::string disas_prefix(u8** it, bool with_bytes=true, bool with_timings=true, 
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 8";
+                str += " cycles: 1";
             }
 
             if(with_flags) {
@@ -6283,7 +6283,7 @@ std::string disas_prefix(u8** it, bool with_bytes=true, bool with_timings=true, 
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 8";
+                str += " cycles: 1";
             }
 
             if(with_flags) {
@@ -6633,15 +6633,15 @@ std::string disas_prefix(u8** it, bool with_bytes=true, bool with_timings=true, 
         }
 
         case 0xCB:
-            return disas_prefix(it, with_bytes, with_timings, with_flags);
+            return disas_prefix(with_bytes, with_timings, with_flags);
     }
 
     return "Unkown upcode " + to_hex_string(opcode);
 }
 
 
-std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
-    u8 opcode = read<u8>(it);
+std::string disas(bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
+    u8 opcode = read_pc_u8();
     switch(opcode) {
         case 0x00:
         {
@@ -6670,7 +6670,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x01:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -6797,7 +6797,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x06:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -6849,7 +6849,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x08:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7001,7 +7001,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x0E:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7078,7 +7078,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x11:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7205,7 +7205,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x16:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7257,7 +7257,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x18:
         {
-            i8 b1 = read<i8>(it);
+            i8 b1 = read_pc_i8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7409,7 +7409,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x1E:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7461,7 +7461,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x20:
         {
-            i8 b1 = read<i8>(it);
+            i8 b1 = read_pc_i8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7488,7 +7488,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x21:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7615,7 +7615,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x26:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7667,7 +7667,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x28:
         {
-            i8 b1 = read<i8>(it);
+            i8 b1 = read_pc_i8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7819,7 +7819,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x2E:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7871,7 +7871,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x30:
         {
-            i8 b1 = read<i8>(it);
+            i8 b1 = read_pc_i8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -7898,7 +7898,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x31:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -8025,7 +8025,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x36:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -8077,7 +8077,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x38:
         {
-            i8 b1 = read<i8>(it);
+            i8 b1 = read_pc_i8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -8229,7 +8229,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0x3E:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11531,7 +11531,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xC2:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11558,7 +11558,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xC3:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11585,7 +11585,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xC4:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11637,7 +11637,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xC6:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11739,7 +11739,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xCA:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11766,7 +11766,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xCC:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11793,7 +11793,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xCD:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11820,7 +11820,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xCE:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11922,7 +11922,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xD2:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -11949,7 +11949,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xD4:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12001,7 +12001,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xD6:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12103,7 +12103,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xDA:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12130,7 +12130,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xDC:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12157,7 +12157,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xDE:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12209,7 +12209,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xE0:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12274,7 +12274,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 8";
+                str += " cycles: 1";
             }
 
             if(with_flags) {
@@ -12311,7 +12311,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xE6:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12363,7 +12363,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xE8:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12415,7 +12415,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xEA:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12442,7 +12442,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xEE:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12494,7 +12494,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xF0:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12559,7 +12559,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 8";
+                str += " cycles: 1";
             }
 
             if(with_flags) {
@@ -12621,7 +12621,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xF6:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12673,7 +12673,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xF8:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12725,7 +12725,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xFA:
         {
-            u16 b1 = read<u16>(it);
+            u16 b1 = read_pc_u16();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12777,7 +12777,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
         case 0xFE:
         {
-            u8 b1 = read<u8>(it);
+            u8 b1 = read_pc_u8();
             std::string str;
             if(with_bytes) {
                 str += "[";
@@ -12829,7 +12829,7 @@ std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool wi
         }
 
         case 0xCB:
-            return disas_prefix(it, with_bytes, with_timings, with_flags);
+            return disas_prefix(with_bytes, with_timings, with_flags);
     }
 
     return "Unkown upcode " + to_hex_string(opcode);

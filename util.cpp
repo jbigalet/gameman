@@ -88,3 +88,9 @@ T read(u8** it) {
     (*it) += sizeof(T);
     return v;
 }
+
+std::string bold(std::string s, bool bold=true) {
+    if(bold)
+        return "\e[1;31m" + s  +"\e[0m";
+    return s;
+}

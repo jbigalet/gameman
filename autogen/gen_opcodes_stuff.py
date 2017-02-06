@@ -31,6 +31,9 @@ for table, ops in zip(
             size_cycles = sublines[1].split(u'\xa0\xa0')
             timings = size_cycles[1]
 
+            if opcode in ['E2', 'F2']: # wrong doc...
+                timings = "1"  # not 2
+
             read_bytes = []
 
             command_args = sublines[0].split(' ')
@@ -60,27 +63,27 @@ for table, ops in zip(
                         if 'd8' in arg:
                             read_bytes.append('u8')
                             printed_args.append('"' + arg.replace('d8', '$" + to_hex_string(b%s) + "' % len(read_bytes)) + '"')
-                            exec_val = "read_pc<u8>()"
+                            exec_val = "read_pc_u8()"
 
                         elif 'd16' in arg:
                             read_bytes.append('u16')
                             printed_args.append('"' + arg.replace('d16', '$" + to_hex_string(b%s) + "' % len(read_bytes)) + '"')
-                            exec_val = "read_pc<u16>()"
+                            exec_val = "read_pc_u16()"
 
                         elif 'a8' in arg:
                             read_bytes.append('u8')
                             printed_args.append('"' + arg.replace('a8', '$" + to_hex_string((u16)(0xff00 + b%s)) + "' % len(read_bytes)) + '"')
-                            exec_val = "0xff00+read_pc<u8>()"
+                            exec_val = "0xff00+read_pc_u8()"
 
                         elif 'a16' in arg:
                             read_bytes.append('u16')
                             printed_args.append('"' + arg.replace('a16', '$" + to_hex_string(b%s) + "' % len(read_bytes)) + '"')
-                            exec_val = "read_pc<u16>()"
+                            exec_val = "read_pc_u16()"
 
                         elif 'r8' in arg:
                             read_bytes.append('i8')
                             printed_args.append('"' + arg.replace('r8', 'PC" + to_hex_string(b%s, false, true) + "' % len(read_bytes)) + '"')
-                            exec_val = "read_pc<i8>()"
+                            exec_val = "read_pc_i8()"
 
                         else:
                             printed_args.append('"%s"' % arg)

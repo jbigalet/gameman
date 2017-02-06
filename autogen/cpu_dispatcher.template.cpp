@@ -1,6 +1,6 @@
 {{#table_kind}}
 i32 exec_op{{table_suffix}}() {
-    u8 opcode = read_pc<u8>();
+    u8 opcode = read_pc_u8();
     switch(opcode) {
         {{#opcodes}}
         case 0x{{opcode}}:

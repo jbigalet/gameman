@@ -1,5 +1,6 @@
+/* #define DISAS_EVERYTHING */
+
 #include "util.cpp"
-#include "autogen/disas.cpp"
 #include "mmu.cpp"
 #include "cpu.cpp"
 
@@ -20,28 +21,38 @@ i32 main() {
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/11-op a,(hl).gb"); */
 
 
-    u32 pos = 0;
-    for(i8 v: rom) {
-        cpu.mmu.mem[pos++] = (u8)v;
-    }
-    pos = 0;
-    for(i8 v: dmg_rom) {
-        cpu.mmu.mem[pos++] = (u8)v;
-    }
+    for(i8 v: dmg_rom) cpu.mmu.boot_rom.push_back((u8)v);
+    for(i8 v: rom)     cpu.mmu.rom.push_back((u8)v);
+
+    std::cout << "cartridge type: " << to_hex_string(cpu.mmu.rom[0x147]) << std::endl;
 
     cpu.reg.PC = 0x100;
     cpu.postboot_init();
-    /* for(int i=0 ; i<10 ; i++) { */
+    i32 c = 0;
+    /* for(int i=0 ; i<100 ; i++) { */
+    /* for(int i=0 ; i<1000 ; i++) { */
+    /* for(int i=0 ; i<10000 ; i++) { */
+    /* for(int i=0 ; i<100000 ; i++) { */
     for(int i=0 ; i<1000000 ; i++) {
     /* while(cpu.reg.PC != 0x00E9) {  // blargg's 01 infinite loop */
     /* while(true) { */
         /* if(cpu.reg.PC == 0x00E9) cpu.reg.FZ = true; */
         /* if(cpu.reg.PC == 0x00FA) cpu.reg.FZ = true; */
-        auto it = &cpu.mmu.mem[cpu.reg.PC];
-        /* std::cout << disas(&it) << std::endl; */
+#ifdef DISAS_EVERYTHING
+        u16 old_pc = cpu.reg.PC;
+        std::cout << "#" << ++c << " " << cpu.disas() << std::endl;
+        cpu.reg.PC = old_pc;
+        Registers old_regs = cpu.reg;
+#endif
+
+        cpu.mmu.history = "";
         cpu.exec_op();
-        /* cpu.reg.print(); */
-        /* std::cout << "\n\n" << std::endl; */
+
+#ifdef DISAS_EVERYTHING
+        cpu.print_reg_diff(old_regs);
+        if(cpu.mmu.history != "") std::cout << cpu.mmu.history << std::flush;
+        std::cout << "##############################################################################################################################################\n" <<  std::endl;
+#endif
     }
     /* while(it != dmg_rom.end()) */
     /*     std::cout << disas(&it) << std::endl; */

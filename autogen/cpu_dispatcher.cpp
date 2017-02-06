@@ -1,5 +1,5 @@
 i32 exec_op_prefix() {
-    u8 opcode = read_pc<u8>();
+    u8 opcode = read_pc_u8();
     switch(opcode) {
         case 0x00:
         {
@@ -1129,7 +1129,7 @@ i32 exec_op_prefix() {
         case 0xE2:
         {
             SET_const8_reg8(0x4, &reg.D);
-            return 8;
+            return 1;
         }
         case 0xE3:
         {
@@ -1209,7 +1209,7 @@ i32 exec_op_prefix() {
         case 0xF2:
         {
             SET_const8_reg8(0x6, &reg.D);
-            return 8;
+            return 1;
         }
         case 0xF3:
         {
@@ -1288,7 +1288,7 @@ i32 exec_op_prefix() {
 
 
 i32 exec_op() {
-    u8 opcode = read_pc<u8>();
+    u8 opcode = read_pc_u8();
     switch(opcode) {
         case 0x00:
         {
@@ -1297,7 +1297,7 @@ i32 exec_op() {
         }
         case 0x01:
         {
-            LD_reg16_const16(&reg.BC, read_pc<u16>());
+            LD_reg16_const16(&reg.BC, read_pc_u16());
             return 12;
         }
         case 0x02:
@@ -1322,7 +1322,7 @@ i32 exec_op() {
         }
         case 0x06:
         {
-            LD_reg8_const8(&reg.B, read_pc<u8>());
+            LD_reg8_const8(&reg.B, read_pc_u8());
             return 8;
         }
         case 0x07:
@@ -1332,7 +1332,7 @@ i32 exec_op() {
         }
         case 0x08:
         {
-            LD_mem_reg16(read_pc<u16>(), &reg.SP);
+            LD_mem_reg16(read_pc_u16(), &reg.SP);
             return 20;
         }
         case 0x09:
@@ -1362,7 +1362,7 @@ i32 exec_op() {
         }
         case 0x0E:
         {
-            LD_reg8_const8(&reg.C, read_pc<u8>());
+            LD_reg8_const8(&reg.C, read_pc_u8());
             return 8;
         }
         case 0x0F:
@@ -1377,7 +1377,7 @@ i32 exec_op() {
         }
         case 0x11:
         {
-            LD_reg16_const16(&reg.DE, read_pc<u16>());
+            LD_reg16_const16(&reg.DE, read_pc_u16());
             return 12;
         }
         case 0x12:
@@ -1402,7 +1402,7 @@ i32 exec_op() {
         }
         case 0x16:
         {
-            LD_reg8_const8(&reg.D, read_pc<u8>());
+            LD_reg8_const8(&reg.D, read_pc_u8());
             return 8;
         }
         case 0x17:
@@ -1412,7 +1412,7 @@ i32 exec_op() {
         }
         case 0x18:
         {
-            JR_const8(read_pc<i8>());
+            JR_const8(read_pc_i8());
             return 12;
         }
         case 0x19:
@@ -1442,7 +1442,7 @@ i32 exec_op() {
         }
         case 0x1E:
         {
-            LD_reg8_const8(&reg.E, read_pc<u8>());
+            LD_reg8_const8(&reg.E, read_pc_u8());
             return 8;
         }
         case 0x1F:
@@ -1452,12 +1452,12 @@ i32 exec_op() {
         }
         case 0x20:
         {
-            bool action_taken = JR_flag_const8(!reg.FZ, read_pc<i8>());
+            bool action_taken = JR_flag_const8(!reg.FZ, read_pc_i8());
             return action_taken ? 12 : 8;
         }
         case 0x21:
         {
-            LD_reg16_const16(&reg.HL, read_pc<u16>());
+            LD_reg16_const16(&reg.HL, read_pc_u16());
             return 12;
         }
         case 0x22:
@@ -1482,7 +1482,7 @@ i32 exec_op() {
         }
         case 0x26:
         {
-            LD_reg8_const8(&reg.H, read_pc<u8>());
+            LD_reg8_const8(&reg.H, read_pc_u8());
             return 8;
         }
         case 0x27:
@@ -1492,7 +1492,7 @@ i32 exec_op() {
         }
         case 0x28:
         {
-            bool action_taken = JR_flag_const8(reg.FZ, read_pc<i8>());
+            bool action_taken = JR_flag_const8(reg.FZ, read_pc_i8());
             return action_taken ? 12 : 8;
         }
         case 0x29:
@@ -1522,7 +1522,7 @@ i32 exec_op() {
         }
         case 0x2E:
         {
-            LD_reg8_const8(&reg.L, read_pc<u8>());
+            LD_reg8_const8(&reg.L, read_pc_u8());
             return 8;
         }
         case 0x2F:
@@ -1532,12 +1532,12 @@ i32 exec_op() {
         }
         case 0x30:
         {
-            bool action_taken = JR_flag_const8(!reg.FC, read_pc<i8>());
+            bool action_taken = JR_flag_const8(!reg.FC, read_pc_i8());
             return action_taken ? 12 : 8;
         }
         case 0x31:
         {
-            LD_reg16_const16(&reg.SP, read_pc<u16>());
+            LD_reg16_const16(&reg.SP, read_pc_u16());
             return 12;
         }
         case 0x32:
@@ -1562,7 +1562,7 @@ i32 exec_op() {
         }
         case 0x36:
         {
-            LD_mem_const8(reg.HL, read_pc<u8>());
+            LD_mem_const8(reg.HL, read_pc_u8());
             return 12;
         }
         case 0x37:
@@ -1572,7 +1572,7 @@ i32 exec_op() {
         }
         case 0x38:
         {
-            bool action_taken = JR_flag_const8(reg.FC, read_pc<i8>());
+            bool action_taken = JR_flag_const8(reg.FC, read_pc_i8());
             return action_taken ? 12 : 8;
         }
         case 0x39:
@@ -1602,7 +1602,7 @@ i32 exec_op() {
         }
         case 0x3E:
         {
-            LD_reg8_const8(&reg.A, read_pc<u8>());
+            LD_reg8_const8(&reg.A, read_pc_u8());
             return 8;
         }
         case 0x3F:
@@ -2262,17 +2262,17 @@ i32 exec_op() {
         }
         case 0xC2:
         {
-            bool action_taken = JP_flag_const16(!reg.FZ, read_pc<u16>());
+            bool action_taken = JP_flag_const16(!reg.FZ, read_pc_u16());
             return action_taken ? 16 : 12;
         }
         case 0xC3:
         {
-            JP_const16(read_pc<u16>());
+            JP_const16(read_pc_u16());
             return 16;
         }
         case 0xC4:
         {
-            bool action_taken = CALL_flag_const16(!reg.FZ, read_pc<u16>());
+            bool action_taken = CALL_flag_const16(!reg.FZ, read_pc_u16());
             return action_taken ? 24 : 12;
         }
         case 0xC5:
@@ -2282,7 +2282,7 @@ i32 exec_op() {
         }
         case 0xC6:
         {
-            ADD_reg8_const8(&reg.A, read_pc<u8>());
+            ADD_reg8_const8(&reg.A, read_pc_u8());
             return 8;
         }
         case 0xC7:
@@ -2302,22 +2302,22 @@ i32 exec_op() {
         }
         case 0xCA:
         {
-            bool action_taken = JP_flag_const16(reg.FZ, read_pc<u16>());
+            bool action_taken = JP_flag_const16(reg.FZ, read_pc_u16());
             return action_taken ? 16 : 12;
         }
         case 0xCC:
         {
-            bool action_taken = CALL_flag_const16(reg.FZ, read_pc<u16>());
+            bool action_taken = CALL_flag_const16(reg.FZ, read_pc_u16());
             return action_taken ? 24 : 12;
         }
         case 0xCD:
         {
-            CALL_const16(read_pc<u16>());
+            CALL_const16(read_pc_u16());
             return 24;
         }
         case 0xCE:
         {
-            ADC_reg8_const8(&reg.A, read_pc<u8>());
+            ADC_reg8_const8(&reg.A, read_pc_u8());
             return 8;
         }
         case 0xCF:
@@ -2337,12 +2337,12 @@ i32 exec_op() {
         }
         case 0xD2:
         {
-            bool action_taken = JP_flag_const16(!reg.FC, read_pc<u16>());
+            bool action_taken = JP_flag_const16(!reg.FC, read_pc_u16());
             return action_taken ? 16 : 12;
         }
         case 0xD4:
         {
-            bool action_taken = CALL_flag_const16(!reg.FC, read_pc<u16>());
+            bool action_taken = CALL_flag_const16(!reg.FC, read_pc_u16());
             return action_taken ? 24 : 12;
         }
         case 0xD5:
@@ -2352,7 +2352,7 @@ i32 exec_op() {
         }
         case 0xD6:
         {
-            SUB_const8(read_pc<u8>());
+            SUB_const8(read_pc_u8());
             return 8;
         }
         case 0xD7:
@@ -2372,17 +2372,17 @@ i32 exec_op() {
         }
         case 0xDA:
         {
-            bool action_taken = JP_flag_const16(reg.FC, read_pc<u16>());
+            bool action_taken = JP_flag_const16(reg.FC, read_pc_u16());
             return action_taken ? 16 : 12;
         }
         case 0xDC:
         {
-            bool action_taken = CALL_flag_const16(reg.FC, read_pc<u16>());
+            bool action_taken = CALL_flag_const16(reg.FC, read_pc_u16());
             return action_taken ? 24 : 12;
         }
         case 0xDE:
         {
-            SBC_reg8_const8(&reg.A, read_pc<u8>());
+            SBC_reg8_const8(&reg.A, read_pc_u8());
             return 8;
         }
         case 0xDF:
@@ -2392,7 +2392,7 @@ i32 exec_op() {
         }
         case 0xE0:
         {
-            LDH_mem_reg8(0xff00+read_pc<u8>(), &reg.A);
+            LDH_mem_reg8(0xff00+read_pc_u8(), &reg.A);
             return 12;
         }
         case 0xE1:
@@ -2403,7 +2403,7 @@ i32 exec_op() {
         case 0xE2:
         {
             LD_mem_reg8(0xff00+reg.C, &reg.A);
-            return 8;
+            return 1;
         }
         case 0xE5:
         {
@@ -2412,7 +2412,7 @@ i32 exec_op() {
         }
         case 0xE6:
         {
-            AND_const8(read_pc<u8>());
+            AND_const8(read_pc_u8());
             return 8;
         }
         case 0xE7:
@@ -2422,7 +2422,7 @@ i32 exec_op() {
         }
         case 0xE8:
         {
-            ADD_reg16_const8(&reg.SP, read_pc<u8>());
+            ADD_reg16_const8(&reg.SP, read_pc_u8());
             return 16;
         }
         case 0xE9:
@@ -2432,12 +2432,12 @@ i32 exec_op() {
         }
         case 0xEA:
         {
-            LD_mem_reg8(read_pc<u16>(), &reg.A);
+            LD_mem_reg8(read_pc_u16(), &reg.A);
             return 16;
         }
         case 0xEE:
         {
-            XOR_const8(read_pc<u8>());
+            XOR_const8(read_pc_u8());
             return 8;
         }
         case 0xEF:
@@ -2447,7 +2447,7 @@ i32 exec_op() {
         }
         case 0xF0:
         {
-            LDH_reg8_mem(&reg.A, 0xff00+read_pc<u8>());
+            LDH_reg8_mem(&reg.A, 0xff00+read_pc_u8());
             return 12;
         }
         case 0xF1:
@@ -2458,7 +2458,7 @@ i32 exec_op() {
         case 0xF2:
         {
             LD_reg8_mem(&reg.A, 0xff00+reg.C);
-            return 8;
+            return 1;
         }
         case 0xF3:
         {
@@ -2472,7 +2472,7 @@ i32 exec_op() {
         }
         case 0xF6:
         {
-            OR_const8(read_pc<u8>());
+            OR_const8(read_pc_u8());
             return 8;
         }
         case 0xF7:
@@ -2482,7 +2482,7 @@ i32 exec_op() {
         }
         case 0xF8:
         {
-            LD_reg16_const8(&reg.HL, read_pc<u8>());
+            LD_reg16_const8(&reg.HL, read_pc_u8());
             return 12;
         }
         case 0xF9:
@@ -2492,7 +2492,7 @@ i32 exec_op() {
         }
         case 0xFA:
         {
-            LD_reg8_mem(&reg.A, read_pc<u16>());
+            LD_reg8_mem(&reg.A, read_pc_u16());
             return 16;
         }
         case 0xFB:
@@ -2502,7 +2502,7 @@ i32 exec_op() {
         }
         case 0xFE:
         {
-            CP_const8(read_pc<u8>());
+            CP_const8(read_pc_u8());
             return 8;
         }
         case 0xFF:
