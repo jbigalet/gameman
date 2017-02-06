@@ -1,6 +1,6 @@
 {{#table_kind}}
-i32 exec_op{{table_suffix}}(std::vector<i8>::iterator* it) {
-    u8 opcode = read<u8>(it);
+i32 exec_op{{table_suffix}}() {
+    u8 opcode = read_pc<u8>();
     switch(opcode) {
         {{#opcodes}}
         case 0x{{opcode}}:
@@ -13,7 +13,7 @@ i32 exec_op{{table_suffix}}(std::vector<i8>::iterator* it) {
         {{/opcodes}}
 
         case 0xCB:
-            return exec_op_prefix(it);
+            return exec_op_prefix();
     }
 
     std::cout << "Unkown upcode " + to_hex_string(opcode) << std::endl;

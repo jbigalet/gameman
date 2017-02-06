@@ -34,6 +34,19 @@ struct Registers {
     DOUBLE_REG(H, L);
     u16 SP;
     u16 PC;
+
+    void print() {
+        std::string flags = FZ ? "Z" : "-";
+        flags += FN ? " N" : " -";
+        flags += FH ? " H" : " -";
+        flags += FC ? " C" : " -";
+
+        std::cout << "A: " << to_hex_string(A) << "   F: " << to_hex_string(F) << " (" << flags << ")" << std::endl;
+        std::cout << "B: " << to_hex_string(B) << "   C: " << to_hex_string(C) << std::endl;
+        std::cout << "D: " << to_hex_string(D) << "   E: " << to_hex_string(E) << std::endl;
+        std::cout << "H: " << to_hex_string(H) << "   L: " << to_hex_string(L) << std::endl;
+        std::cout << "SP: " << to_hex_string(SP) << "   PC: " << to_hex_string(PC) << std::endl;
+    }
 };
 
 struct CPU {
@@ -41,7 +54,14 @@ struct CPU {
     MMU mmu;
 
 
+
     // opcode implementation helpers
+    template<typename T>
+    T read_pc() {
+        T v = *(T*)(&mmu.mem[reg.PC]);
+        reg.PC += sizeof(T);
+        return v;
+    }
 
     void _add(u8* r, u16 toadd, bool with_carry=false) {
         u16 res = (u16)(*r) + toadd;
@@ -187,8 +207,8 @@ struct CPU {
         return val;
     }
 
-#include "cpu_prototypes.cpp"
-#include "cpu_dispatcher.cpp"
+#include "autogen/cpu_prototypes.cpp"
+#include "autogen/cpu_dispatcher.cpp"
 };
 
 
@@ -590,9 +610,9 @@ void CPU::OR_reg8(u8* r) {
 // usage: C1,D1,E1,F1
 // flags: -,-,-,-
 void CPU::POP_reg16(u16* r) {
-    mmu.write(reg.SP, (u8)(*r));
+    *r = mmu.read(reg.SP);
     reg.SP++;
-    mmu.write(reg.SP, (u8)((*r) >> 8));
+    *r |= mmu.read(reg.SP) << 8;
     reg.SP++;
 }
 

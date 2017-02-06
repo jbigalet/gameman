@@ -7,5 +7,8 @@ struct MMU {
 
     void write(u16 addr, u8 val) {
         mem[addr] = val;
+
+        if(addr == 0xff01)  // link port
+            std::cerr << val << std::flush;
     };
 };

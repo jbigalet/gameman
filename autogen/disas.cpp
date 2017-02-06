@@ -1,4 +1,4 @@
-std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
+std::string disas_prefix(u8** it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
     u8 opcode = read<u8>(it);
     switch(opcode) {
         case 0x00:
@@ -6640,7 +6640,7 @@ std::string disas_prefix(std::vector<i8>::iterator* it, bool with_bytes=true, bo
 }
 
 
-std::string disas(std::vector<i8>::iterator* it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
+std::string disas(u8** it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
     u8 opcode = read<u8>(it);
     switch(opcode) {
         case 0x00:

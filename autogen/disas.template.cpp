@@ -1,5 +1,5 @@
 {{#table_kind}}
-std::string disas{{table_suffix}}(std::vector<i8>::iterator* it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
+std::string disas{{table_suffix}}(u8** it, bool with_bytes=true, bool with_timings=true, bool with_flags=true) {
     u8 opcode = read<u8>(it);
     switch(opcode) {
         {{#opcodes}}

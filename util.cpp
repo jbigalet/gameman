@@ -81,3 +81,10 @@ T read(std::vector<i8>::iterator* it) {
     (*it) += sizeof(T);
     return v;
 }
+
+template<typename T>
+T read(u8** it) {
+    T v = *(T*)(&**it);
+    (*it) += sizeof(T);
+    return v;
+}
