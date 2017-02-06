@@ -30,9 +30,11 @@ i32 main() {
     }
 
     cpu.reg.PC = 0x100;
-    /* for(int i=0 ; i<1000000 ; i++) { */
+    cpu.postboot_init();
+    /* for(int i=0 ; i<10 ; i++) { */
+    for(int i=0 ; i<1000000 ; i++) {
     /* while(cpu.reg.PC != 0x00E9) {  // blargg's 01 infinite loop */
-    while(true) {
+    /* while(true) { */
         /* if(cpu.reg.PC == 0x00E9) cpu.reg.FZ = true; */
         /* if(cpu.reg.PC == 0x00FA) cpu.reg.FZ = true; */
         auto it = &cpu.mmu.mem[cpu.reg.PC];
