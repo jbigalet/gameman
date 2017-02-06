@@ -53,6 +53,8 @@ struct CPU {
     Registers reg;
     MMU mmu;
 
+    bool IME;  // Interrupt Master Enable Flag
+
 
     // post boot set values
     void postboot_init() {
@@ -473,6 +475,7 @@ void CPU::DEC_reg8(u8* r) {
 void CPU::DI() {
     // disable interrupts after the next command
     // TODO
+    IME = false;
     std::cout << "DI CMD" << std::endl;
 }
 
@@ -481,6 +484,7 @@ void CPU::DI() {
 void CPU::EI() {
     // enable interrupts after the next command
     // TODO
+    IME = true;
     std::cout << "EI CMD" << std::endl;
 }
 
