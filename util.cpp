@@ -94,3 +94,9 @@ std::string bold(std::string s, bool bold=true) {
         return "\e[1;31m" + s  +"\e[0m";
     return s;
 }
+
+
+std::string basename(std::string& str) {
+    return str.substr(str.find_last_of("/\\")+1);
+}
+

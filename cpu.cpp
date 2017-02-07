@@ -541,7 +541,7 @@ void CPU::DI() {
     // disable interrupts after the next command
     // TODO
     IME = false;
-    std::cout << "DI CMD" << std::endl;
+    /* std::cout << "DI CMD" << std::endl; */
 }
 
 // usage: FB
@@ -550,13 +550,13 @@ void CPU::EI() {
     // enable interrupts after the next command
     // TODO
     IME = true;
-    std::cout << "EI CMD" << std::endl;
+    /* std::cout << "EI CMD" << std::endl; */
 }
 
 // usage: 76
 // flags: -,-,-,-
 void CPU::HALT() {
-    std::cout << "HALT CMD" << std::endl;
+    /* std::cout << "HALT CMD" << std::endl; */
     // TODO handle interrupts
 }
 
