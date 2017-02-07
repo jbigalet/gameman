@@ -5279,6 +5279,32 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             return str;
         }
+        case 0xCB:
+        {
+            std::string str;
+            if(with_bytes) {
+                str += "[";
+                str += "CB ";
+                str += "CB";
+                str += "] ";
+
+                str.insert(str.size(), 12-str.size(), ' ');  // align
+            }
+
+            str += "SET 1,E";
+
+            if(with_timings) {
+                str.insert(str.size(), 40-str.size(), ' ');  // align
+                str += " cycles: 8";
+            }
+
+            if(with_flags) {
+                str.insert(str.size(), 60-str.size(), ' ');  // align
+                str += " flags: -,-,-,-";
+            }
+
+            return str;
+        }
         case 0xCC:
         {
             std::string str;
@@ -6632,8 +6658,6 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
             return str;
         }
 
-        case 0xCB:
-            return disas_prefix(with_bytes, with_timings, with_flags);
     }
 
     return "Unkown upcode " + to_hex_string(opcode);

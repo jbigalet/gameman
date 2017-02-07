@@ -1016,6 +1016,11 @@ i32 exec_op_prefix() {
             SET_const8_reg8(0x1, &reg.D);
             return 8;
         }
+        case 0xCB:
+        {
+            SET_const8_reg8(0x1, &reg.E);
+            return 8;
+        }
         case 0xCC:
         {
             SET_const8_reg8(0x1, &reg.H);
@@ -1277,8 +1282,6 @@ i32 exec_op_prefix() {
             return 8;
         }
 
-        case 0xCB:
-            return exec_op_prefix();
     }
 
     std::cout << "Unkown upcode " + to_hex_string(opcode) << std::endl;

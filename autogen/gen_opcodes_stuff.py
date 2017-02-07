@@ -25,7 +25,7 @@ for table, ops in zip(
             opcode = '{:X}{:X}'.format(irow, icol)
 
             # prefix to load the next set of opcodes
-            if opcode == 'CB':
+            if ops == opcodes and opcode == 'CB':  # only skip on the 1st table
                 continue
 
             size_cycles = sublines[1].split(u'\xa0\xa0')

@@ -12,8 +12,10 @@ i32 exec_op{{table_suffix}}() {
         }
         {{/opcodes}}
 
+        {{^prefix_table}}
         case 0xCB:
             return exec_op_prefix();
+        {{/prefix_table}}
     }
 
     std::cout << "Unkown upcode " + to_hex_string(opcode) << std::endl;

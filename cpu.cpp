@@ -42,6 +42,9 @@ struct CPU {
 
     bool IME;  // Interrupt Master Enable Flag
 
+    CPU() {
+        reset_low_F();
+    }
 
     void reset_low_F() {
         reg.b0 = false;
@@ -360,11 +363,11 @@ void CPU::ADD_reg16_const8(u16* r, u8 val) {
 void CPU::ADD_reg16_reg16(u16* to, u16* from) {
     u32 res = (u32)(*to) + (u32)(*from);
 
-    (*to) = (u16)res;
-
     reg.FN = false;
     reg.FH = ((*to) & 0xfff) + ((*from) & 0xfff) > 0x0fff;
     reg.FC = res > 0xffff;
+
+    (*to) = (u16)res;
 }
 
 // usage: C6
@@ -676,12 +679,14 @@ void CPU::LD_reg16_const16(u16* r, u16 val) {
 // usage: F8
 // flags: 0,0,H,C
 void CPU::LD_reg16_const8(u16* r, u8 val) {
+    i8 rval = (i8)val;
+
     reg.FZ = false;
     reg.FN = false;
-    reg.FH = ADD_4BIT_OVERFLOW(reg.SP, val);
-    reg.FC = ADD_8BIT_OVERFLOW(reg.SP, val);
+    reg.FH = ADD_4BIT_OVERFLOW(reg.SP, rval);
+    reg.FC = ADD_8BIT_OVERFLOW(reg.SP, rval);
 
-    (*r) = reg.SP + val;
+    (*r) = reg.SP + rval;
 }
 
 // usage: F9
@@ -855,7 +860,7 @@ void CPU::RRCA() {
 // usage: 0E
 // flags: Z,0,0,C
 void CPU::RRC_mem(u16 addr) {
-    mmu.write(addr, _rotate_left(mmu.read(addr)));
+    mmu.write(addr, _rotate_right(mmu.read(addr)));
 }
 
 // usage: 08,09,0A,0B,0C,0D,0F
@@ -988,7 +993,7 @@ void CPU::SUB_reg8(u8* r) {
 void CPU::SWAP_mem(u16 addr) {
     u8 val = mmu.read(addr);
     u8 res = (val << 4) | (val >> 4);
-    mmu.write(addr, val);
+    mmu.write(addr, res);
 
     reg.FZ = res == 0;
     reg.FN = false;

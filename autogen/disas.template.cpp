@@ -39,8 +39,10 @@ std::string disas{{table_suffix}}(bool with_bytes=true, bool with_timings=true, 
         }
         {{/opcodes}}
 
+        {{^prefix_table}}
         case 0xCB:
             return disas_prefix(with_bytes, with_timings, with_flags);
+        {{/prefix_table}}
     }
 
     return "Unkown upcode " + to_hex_string(opcode);

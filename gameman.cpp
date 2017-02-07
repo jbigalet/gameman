@@ -9,8 +9,8 @@ i32 main() {
 
     std::vector<i8> dmg_rom = slurp_file("roms/DMG_ROM.bin");
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/cpu_instrs.gb"); */
-    std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/01-special.gb");
-    /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/02-interrupts.gb"); */
+
+    /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/01-special.gb"); */
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/03-op sp,hl.gb"); */
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/04-op r,imm.gb"); */
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/05-op rp.gb"); */
@@ -20,6 +20,8 @@ i32 main() {
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/09-op r,r.gb"); */
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/10-bit ops.gb"); */
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/11-op a,(hl).gb"); */
+
+    std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/02-interrupts.gb");
 
 
     for(i8 v: dmg_rom) cpu.mmu.boot_rom.push_back((u8)v);
