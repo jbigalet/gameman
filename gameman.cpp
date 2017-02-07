@@ -18,8 +18,7 @@ void emulate(std::string rom_path) {
     for(i8 v: rom)     cpu.mmu.rom.push_back((u8)v);
 
     std::cout << "HEADER:" << std::endl;
-    std::cout << "Cartridge type: " << to_hex_string(cpu.mmu.rom[0x147]) << std::endl;
-
+    cpu.mmu.init_mbc();
     std::cout << "\nEXECUTION:" << std::endl;
 
     cpu.reg.PC = 0x100;
@@ -64,18 +63,18 @@ void emulate(std::string rom_path) {
 
 
 i32 main() {
-    /* emulate("roms/cpu_instrs/cpu_instrs.gb"); */
+    emulate("roms/cpu_instrs/cpu_instrs.gb");
 
-    emulate("roms/cpu_instrs/individual/01-special.gb");
-    emulate("roms/cpu_instrs/individual/03-op sp,hl.gb");
-    emulate("roms/cpu_instrs/individual/04-op r,imm.gb");
-    emulate("roms/cpu_instrs/individual/05-op rp.gb");
-    emulate("roms/cpu_instrs/individual/06-ld r,r.gb");
-    emulate("roms/cpu_instrs/individual/07-jr,jp,call,ret,rst.gb");
-    emulate("roms/cpu_instrs/individual/08-misc instrs.gb");
-    emulate("roms/cpu_instrs/individual/09-op r,r.gb");
-    emulate("roms/cpu_instrs/individual/10-bit ops.gb");
-    emulate("roms/cpu_instrs/individual/11-op a,(hl).gb");
+    /* emulate("roms/cpu_instrs/individual/01-special.gb"); */
+    /* emulate("roms/cpu_instrs/individual/03-op sp,hl.gb"); */
+    /* emulate("roms/cpu_instrs/individual/04-op r,imm.gb"); */
+    /* emulate("roms/cpu_instrs/individual/05-op rp.gb"); */
+    /* emulate("roms/cpu_instrs/individual/06-ld r,r.gb"); */
+    /* emulate("roms/cpu_instrs/individual/07-jr,jp,call,ret,rst.gb"); */
+    /* emulate("roms/cpu_instrs/individual/08-misc instrs.gb"); */
+    /* emulate("roms/cpu_instrs/individual/09-op r,r.gb"); */
+    /* emulate("roms/cpu_instrs/individual/10-bit ops.gb"); */
+    /* emulate("roms/cpu_instrs/individual/11-op a,(hl).gb"); */
 
     /* emulate("roms/cpu_instrs/individual/02-interrupts.gb"); */
 

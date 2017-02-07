@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <iostream>
 #include <cstdlib>
+#include <map>
 
 typedef char           i8;
 typedef unsigned char  u8;
@@ -98,5 +99,14 @@ std::string bold(std::string s, bool bold=true) {
 
 std::string basename(std::string& str) {
     return str.substr(str.find_last_of("/\\")+1);
+}
+
+
+template<typename K, typename V, typename V2>
+static V get_default(std::map<K, V> m, K key, V2 def) {
+    auto it = m.find(key);
+    if(it == m.end())
+        return (V)def;
+    return it->second;
 }
 
