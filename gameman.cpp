@@ -4,6 +4,8 @@
 #include "mmu.cpp"
 #include "cpu.cpp"
 
+static i32 total_instr_count = 0;
+
 void emulate(std::string rom_path) {
     std::cout << std::string(10, '=') << " " << basename(rom_path) << " " << std::string(10, '=') << std::endl;
 
@@ -57,6 +59,7 @@ void emulate(std::string rom_path) {
     /*     std::cout << disas(&it) << std::endl; */
 
     std::cout << std::string(30, '~') << "\n" << std::endl;
+    total_instr_count += c;
 }
 
 
@@ -75,6 +78,8 @@ i32 main() {
     emulate("roms/cpu_instrs/individual/11-op a,(hl).gb");
 
     /* emulate("roms/cpu_instrs/individual/02-interrupts.gb"); */
+
+    std::cout << "total instr count: " << total_instr_count << std::endl;
 
     return 0;
 }

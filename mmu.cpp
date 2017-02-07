@@ -1,4 +1,6 @@
-/* #define DISABLE_HISTORY */
+#ifdef DISAS_EVERYTHING
+#define ENABLE_HISTORY
+#endif
 
 struct MMU {
     u8 mem[0x10000];
@@ -9,7 +11,7 @@ struct MMU {
     std::string history;
 
     u8 read(u16 addr, bool log_history=true) {
-#ifndef DISABLE_HISTORY
+#ifdef ENABLE_HISTORY
         if(log_history)
             history += "read $" + to_hex_string(addr) + " = " + to_hex_string(mem[addr]) + "\n";
 #endif
@@ -28,7 +30,7 @@ struct MMU {
     };
 
     void write(u16 addr, u8 val, bool log_history=true) {
-#ifndef DISABLE_HISTORY
+#ifdef ENABLE_HISTORY
         if(log_history)
             history += "write $" + to_hex_string(addr) + " = " + to_hex_string(val) + "\n";
 #endif
