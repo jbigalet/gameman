@@ -103,6 +103,9 @@ struct MMU {
         mem[addr] = val;
 
         if(addr == 0xff01)  // link port
-            std::cerr << val << std::flush;
+            std::cerr << bold(std::string(1, val), true, "32") << std::flush;
+
+        /* if(addr == 0xffff) std::cout << "setting IE to " << to_bit_string(val) << std::endl; */
+        /* if(addr == 0xff0f) std::cout << "setting IF to " << to_bit_string(val) << std::endl; */
     };
 };

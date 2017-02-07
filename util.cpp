@@ -90,9 +90,9 @@ T read(u8** it) {
     return v;
 }
 
-std::string bold(std::string s, bool bold=true) {
+std::string bold(std::string s, bool bold=true, std::string color="31") {
     if(bold)
-        return "\e[1;31m" + s  +"\e[0m";
+        return "\e[1;" + color + "m" + s  +"\e[0m";
     return s;
 }
 
@@ -110,3 +110,29 @@ static V get_default(std::map<K, V> m, K key, V2 def) {
     return it->second;
 }
 
+
+
+inline bool bit_check(u8 f, u8 i) {
+    assert(i < 8);
+    return ((f >> i) & 0x1);
+}
+
+
+inline u8 bit_set(u8 f, u8 i) {
+    assert(i < 8);
+    return f | (1 << i);
+}
+
+
+inline u8 bit_reset(u8 f, u8 i) {
+    assert(i < 8);
+    return f & ~(1 << i);
+}
+
+
+std::string to_bit_string(u8 f) {
+    std::string r;
+    for(i8 i=7 ; i>=0 ; i--)
+        r += bit_check(f, i) ? "1" : "0";
+    return r;
+}

@@ -21,6 +21,7 @@ void emulate(std::string rom_path) {
     cpu.mmu.init_mbc();
     std::cout << "\nEXECUTION:" << std::endl;
 
+    bool log = false;
     cpu.reg.PC = 0x100;
     cpu.postboot_init();
     i32 c = 0;
@@ -35,13 +36,17 @@ void emulate(std::string rom_path) {
         c++;
         u16 old_pc = cpu.reg.PC;
 #ifdef DISAS_EVERYTHING
-        std::cout << "#" << c << " " << cpu.disas() << std::endl;
+        if(log) std::cout << "#" << c << " " << cpu.disas() << std::endl;
         cpu.reg.PC = old_pc;
         Registers old_regs = cpu.reg;
 #endif
 
         cpu.mmu.history = "";
-        cpu.exec_op();
+        cpu.do_cycle();
+        if(cpu.reg.PC == 0x40) {
+            /* std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl; */
+            log = true;
+        }
 
         if(old_pc == cpu.reg.PC) {
             std::cout << "\nINFINITE LOOP (after " << c << " instructions)" << std::endl;
@@ -49,9 +54,11 @@ void emulate(std::string rom_path) {
         }
 
 #ifdef DISAS_EVERYTHING
-        cpu.print_reg_diff(old_regs);
-        if(cpu.mmu.history != "") std::cout << cpu.mmu.history << std::flush;
-        std::cout << std::string(142, '#') << "\n" <<  std::endl;
+        if(log) {
+            cpu.print_reg_diff(old_regs);
+            if(cpu.mmu.history != "") std::cout << cpu.mmu.history << std::flush;
+            std::cout << std::string(142, '#') << "\n" <<  std::endl;
+        }
 #endif
     }
     /* while(it != dmg_rom.end()) */
@@ -63,7 +70,7 @@ void emulate(std::string rom_path) {
 
 
 i32 main() {
-    emulate("roms/cpu_instrs/cpu_instrs.gb");
+    /* emulate("roms/cpu_instrs/cpu_instrs.gb"); */
 
     /* emulate("roms/cpu_instrs/individual/01-special.gb"); */
     /* emulate("roms/cpu_instrs/individual/03-op sp,hl.gb"); */
@@ -76,7 +83,7 @@ i32 main() {
     /* emulate("roms/cpu_instrs/individual/10-bit ops.gb"); */
     /* emulate("roms/cpu_instrs/individual/11-op a,(hl).gb"); */
 
-    /* emulate("roms/cpu_instrs/individual/02-interrupts.gb"); */
+    emulate("roms/cpu_instrs/individual/02-interrupts.gb");
 
     std::cout << "total instr count: " << total_instr_count << std::endl;
 

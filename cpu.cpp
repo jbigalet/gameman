@@ -40,10 +40,29 @@ struct CPU {
     Registers reg;
     MMU mmu;
 
-    bool IME;  // Interrupt Master Enable Flag
+    bool IME = false;  // Interrupt Master Enable Flag
 
     CPU() {
         reset_low_F();
+    }
+
+    void do_cycle() {
+        exec_op();
+
+        // check interrupts
+int_again:
+        if(IME){
+            u8 IF = mmu.read(0xff0f);  // interrupt flag
+            u8 IE = mmu.read(0xffff);  // interrupt enable
+            for(u8 i=0 ; i<5 ; i++)
+                if(bit_check(IF, i) && bit_check(IE, i)) {
+                    /* std::cout << "int! " << (i32)i << std::endl; */
+                    IME = false;
+                    mmu.write(0xff0f, bit_reset(IF, i));  // reset IF flag
+                    CALL_const16(0x40 + (0x08*i));
+                    goto int_again;
+                }
+        }
     }
 
     void reset_low_F() {
@@ -539,7 +558,6 @@ void CPU::DEC_reg8(u8* r) {
 // flags: -,-,-,-
 void CPU::DI() {
     // disable interrupts after the next command
-    // TODO
     IME = false;
     /* std::cout << "DI CMD" << std::endl; */
 }
@@ -548,7 +566,6 @@ void CPU::DI() {
 // flags: -,-,-,-
 void CPU::EI() {
     // enable interrupts after the next command
-    // TODO
     IME = true;
     /* std::cout << "EI CMD" << std::endl; */
 }
@@ -796,6 +813,7 @@ void CPU::RET() {
 void CPU::RETI() {
     RET();
     EI();
+    /* std::cout << "RETI CMD" << std::endl; */
 }
 
 // usage: C0,C8,D0,D8
@@ -967,7 +985,7 @@ void CPU::SRL_reg8(u8* r) {
 // flags: -,-,-,-
 void CPU::STOP_const8(u8 zero) {
     check(zero == 0);
-    std::cout << "STOP CMD" << std::endl;
+    /* std::cout << "STOP CMD" << std::endl; */
 }
 
 // usage: D6
