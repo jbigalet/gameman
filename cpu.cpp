@@ -43,6 +43,12 @@ struct CPU {
     bool IME;  // Interrupt Master Enable Flag
 
 
+    void reset_low_F() {
+        reg.b0 = false;
+        reg.b1 = false;
+        reg.b2 = false;
+        reg.b3 = false;
+    }
 
     void print_reg() {
         std::string flags = reg.FZ ? "Z" : "-";
@@ -596,8 +602,10 @@ bool CPU::JP_flag_const16(bool flag, u16 addr) {
 
 // usage: E9
 // flags: -,-,-,-
-void CPU::JP_mem(u16 mem_addr) {
-    JP_const16(mmu.read(mem_addr));
+void CPU::JP_mem(u16 addr) {
+    // wrong doc =(
+    // jump to addr, not to addr fetched from mem
+    reg.PC = addr;
 }
 
 // usage: 18
@@ -745,6 +753,8 @@ void CPU::POP_reg16(u16* r) {
     reg.SP++;
     *r |= mmu.read(reg.SP) << 8;
     reg.SP++;
+
+    reset_low_F();  // in case we read to AF, as the 4 low bits must always read 0
 }
 
 // usage: C5,D5,E5,F5

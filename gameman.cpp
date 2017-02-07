@@ -8,6 +8,7 @@ i32 main() {
     CPU cpu;
 
     std::vector<i8> dmg_rom = slurp_file("roms/DMG_ROM.bin");
+    /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/cpu_instrs.gb"); */
     std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/01-special.gb");
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/02-interrupts.gb"); */
     /* std::vector<i8> rom = slurp_file("roms/cpu_instrs/individual/03-op sp,hl.gb"); */
@@ -33,14 +34,14 @@ i32 main() {
     /* for(int i=0 ; i<1000 ; i++) { */
     /* for(int i=0 ; i<10000 ; i++) { */
     /* for(int i=0 ; i<100000 ; i++) { */
-    for(int i=0 ; i<1000000 ; i++) {
+    /* for(int i=0 ; i<1000000 ; i++) { */
     /* while(cpu.reg.PC != 0x00E9) {  // blargg's 01 infinite loop */
-    /* while(true) { */
-        /* if(cpu.reg.PC == 0x00E9) cpu.reg.FZ = true; */
-        /* if(cpu.reg.PC == 0x00FA) cpu.reg.FZ = true; */
+    while(true) {
+        if(cpu.reg.PC == 0xff) break;
+        c++;
 #ifdef DISAS_EVERYTHING
         u16 old_pc = cpu.reg.PC;
-        std::cout << "#" << ++c << " " << cpu.disas() << std::endl;
+        std::cout << "#" << c << " " << cpu.disas() << std::endl;
         cpu.reg.PC = old_pc;
         Registers old_regs = cpu.reg;
 #endif
