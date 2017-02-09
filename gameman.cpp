@@ -49,10 +49,10 @@ void emulate(std::string rom_path) {
             log = true;
         }
 
-        /* if(old_pc == cpu.reg.PC && !cpu.halted) { */
-        /*     std::cout << "\nINFINITE LOOP (after " << c << " instructions)" << std::endl; */
-        /*     break; */
-        /* } */
+        if(old_pc == cpu.reg.PC && !cpu.halted) {
+            std::cout << "\nINFINITE LOOP (after " << c << " instructions)" << std::endl;
+            break;
+        }
 
 #ifdef DISAS_EVERYTHING
         if(log) {
@@ -71,7 +71,8 @@ void emulate(std::string rom_path) {
 
 
 i32 main() {
-    emulate("roms/cpu_instrs/cpu_instrs.gb");
+    /* emulate("./roms/cpu_instrs/cpu_instrs.gb"); */
+    emulate("./roms/instr_timing/instr_timing.gb");
 
     /* emulate("roms/cpu_instrs/individual/01-special.gb"); */
     /* emulate("roms/cpu_instrs/individual/02-interrupts.gb"); */

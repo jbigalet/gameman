@@ -354,7 +354,7 @@ i32 exec_op_prefix() {
         case 0x46:
         {
             BIT_const8_mem(0x0, reg.HL);
-            return 16;
+            return 12;
         }
         case 0x47:
         {
@@ -394,7 +394,7 @@ i32 exec_op_prefix() {
         case 0x4E:
         {
             BIT_const8_mem(0x1, reg.HL);
-            return 16;
+            return 12;
         }
         case 0x4F:
         {
@@ -434,7 +434,7 @@ i32 exec_op_prefix() {
         case 0x56:
         {
             BIT_const8_mem(0x2, reg.HL);
-            return 16;
+            return 12;
         }
         case 0x57:
         {
@@ -474,7 +474,7 @@ i32 exec_op_prefix() {
         case 0x5E:
         {
             BIT_const8_mem(0x3, reg.HL);
-            return 16;
+            return 12;
         }
         case 0x5F:
         {
@@ -514,7 +514,7 @@ i32 exec_op_prefix() {
         case 0x66:
         {
             BIT_const8_mem(0x4, reg.HL);
-            return 16;
+            return 12;
         }
         case 0x67:
         {
@@ -554,7 +554,7 @@ i32 exec_op_prefix() {
         case 0x6E:
         {
             BIT_const8_mem(0x5, reg.HL);
-            return 16;
+            return 12;
         }
         case 0x6F:
         {
@@ -594,7 +594,7 @@ i32 exec_op_prefix() {
         case 0x76:
         {
             BIT_const8_mem(0x6, reg.HL);
-            return 16;
+            return 12;
         }
         case 0x77:
         {
@@ -634,7 +634,7 @@ i32 exec_op_prefix() {
         case 0x7E:
         {
             BIT_const8_mem(0x7, reg.HL);
-            return 16;
+            return 12;
         }
         case 0x7F:
         {
@@ -1134,7 +1134,7 @@ i32 exec_op_prefix() {
         case 0xE2:
         {
             SET_const8_reg8(0x4, &reg.D);
-            return 1;
+            return 8;
         }
         case 0xE3:
         {
@@ -1214,7 +1214,7 @@ i32 exec_op_prefix() {
         case 0xF2:
         {
             SET_const8_reg8(0x6, &reg.D);
-            return 1;
+            return 8;
         }
         case 0xF3:
         {
@@ -2406,7 +2406,7 @@ i32 exec_op() {
         case 0xE2:
         {
             LD_mem_reg8(0xff00+reg.C, &reg.A);
-            return 1;
+            return 8;
         }
         case 0xE5:
         {
@@ -2461,7 +2461,7 @@ i32 exec_op() {
         case 0xF2:
         {
             LD_reg8_mem(&reg.A, 0xff00+reg.C);
-            return 1;
+            return 8;
         }
         case 0xF3:
         {

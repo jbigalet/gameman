@@ -31,8 +31,8 @@ for table, ops in zip(
             size_cycles = sublines[1].split(u'\xa0\xa0')
             timings = size_cycles[1]
 
-            if opcode in ['E2', 'F2']: # wrong doc...
-                timings = "1"  # not 2
+            if (ops == prefix_cb_opcodes) and opcode[0] in "4567" and opcode[1] in "6E": # wrong doc...
+                timings = "12"  # not 16
 
             read_bytes = []
 

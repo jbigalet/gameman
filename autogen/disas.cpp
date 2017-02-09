@@ -1837,7 +1837,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 16";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -2045,7 +2045,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 16";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -2253,7 +2253,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 16";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -2461,7 +2461,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 16";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -2669,7 +2669,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 16";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -2877,7 +2877,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 16";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -3085,7 +3085,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 16";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -3293,7 +3293,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 16";
+                str += " cycles: 12";
             }
 
             if(with_flags) {
@@ -5893,7 +5893,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 1";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -6309,7 +6309,7 @@ std::string disas_prefix(bool with_bytes=true, bool with_timings=true, bool with
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 1";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -12298,7 +12298,7 @@ std::string disas(bool with_bytes=true, bool with_timings=true, bool with_flags=
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 1";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
@@ -12583,7 +12583,7 @@ std::string disas(bool with_bytes=true, bool with_timings=true, bool with_flags=
 
             if(with_timings) {
                 str.insert(str.size(), 40-str.size(), ' ');  // align
-                str += " cycles: 1";
+                str += " cycles: 8";
             }
 
             if(with_flags) {
