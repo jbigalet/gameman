@@ -33,6 +33,7 @@ struct GHandler {
     i32 screen_id;
     GC gc;
     Colormap cmap;
+    Pixmap pixmap;
 
     u16 window_width;
     u16 window_height;
@@ -73,6 +74,8 @@ struct GHandler {
 
         gc = DefaultGC(display, screen_id);  // graphic context
         cmap = DefaultColormap(display, screen_id);
+
+        pixmap = XCreatePixmap(display, window, GC_WIDTH*mul, GC_HEIGHT*mul, 24);
     }
 
     ~GHandler() {
@@ -110,9 +113,10 @@ struct GHandler {
 
             XSetForeground(display, gc, c.pixel);
 
-            XFillRectangles(display, window, gc, &kv.second[0], kv.second.size());
+            XFillRectangles(display, pixmap, gc, &kv.second[0], kv.second.size());
         }
 
+        XCopyArea(display, pixmap, window, gc, 0, 0, window_width, window_height, 0, 0);
         XFlush(display);
         std::cout << "draw in " << tdiff_micro(stime, now()) << std::endl;
     }
@@ -131,6 +135,7 @@ struct GHandler {
                 case ConfigureNotify:
                     window_width = e.xconfigure.width;
                     window_height = e.xconfigure.height;
+                    pixmap = XCreatePixmap(display, window, window_width, window_height, 24);
                     break;
 
                 case KeyPress:
