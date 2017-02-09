@@ -77,14 +77,10 @@ u32 compile_shader(u32 shader_type, const i8* shader_source) {
 struct GHandler {
     Display* display;
     Window window;
-    i32 screen_id;
 
     u32 shader;
     u32 vao;
     u32 texture;
-
-    u16 window_width;
-    u16 window_height;
 
     Color fb[GC_HEIGHT][GC_WIDTH];
 
@@ -95,7 +91,7 @@ struct GHandler {
 
         display = XOpenDisplay(NULL);
         check(display != NULL);
-        screen_id = DefaultScreen(display);
+        i32 screen_id = DefaultScreen(display);
 
         i32 glx_attr[] = {
             GLX_X_RENDERABLE,   true,
@@ -204,7 +200,7 @@ struct GHandler {
         check(glewInit() == GLEW_OK);
 
         glClearColor(0.5, 0.5, 0.5, 1.);
-        /* glViewport(0, 0, 100, 100); */
+        glViewport(0, 0, mul*GC_WIDTH, mul*GC_HEIGHT);
 
 
         // setup shaders
@@ -228,6 +224,8 @@ struct GHandler {
 
         glDeleteShader(vertex_shader);
         glDeleteShader(fragment_shader);
+
+        glUseProgram(shader);
 
 
         // setup screen vao
@@ -258,12 +256,14 @@ struct GHandler {
                 glEnableVertexAttribArray(1);
 
             glBindBuffer(GL_ARRAY_BUFFER, 0);
-        glBindVertexArray(0);
 
         glGenTextures(1, &texture);
         glBindTexture(GL_TEXTURE_2D, texture);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+            glActiveTexture(GL_TEXTURE0);
+            glUniform1ui(glGetUniformLocation(shader, "tex"), 0);
     }
 
     ~GHandler() {
@@ -280,21 +280,14 @@ struct GHandler {
                 img[y][x][1] = fb[y][x].g;
                 img[y][x][2] = fb[y][x].b;
             }
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, GC_WIDTH, GC_HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, &img[0]);
 
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, texture);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, GC_WIDTH, GC_HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, &img[0]);
-
-        glUseProgram(shader);
-            glUniform1ui(glGetUniformLocation(shader, "tex"), 0);
-            glBindVertexArray(vao);
-                glDrawArrays(GL_TRIANGLES, 0, 6);
-            glBindVertexArray(0);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
         glXSwapBuffers(display, window);
-        std::cout << "draw in " << tdiff_micro(stime, now()) << std::endl;
+        /* std::cout << "draw in " << tdiff_micro(stime, now()) << std::endl; */
     }
 
     bool handle_events() {
@@ -305,14 +298,10 @@ struct GHandler {
             switch(e.type) {
                 case Expose:
                     /* draw(); */
-                    /* XFillRectangle(display, window, gc, 10, 10, 50, 50); */
                     break;
 
                 case ConfigureNotify:
-                    window_width = e.xconfigure.width;
-                    window_height = e.xconfigure.height;
-                    glViewport(0, 0, window_width, window_height);
-                    /* pixmap = XCreatePixmap(display, window, window_width, window_height, 24); */
+                    glViewport(0, 0, e.xconfigure.width, e.xconfigure.height);
                     break;
 
                 case KeyPress:
@@ -321,7 +310,10 @@ struct GHandler {
                             u8 c = (x+y)%2 == 0 ? 255 : 0;
                             fb[y][x] = Color{c, c, c};
                         }
-                    /* XDestroyWindow(display, window); */
+
+                    if(XLookupKeysym(&e.xkey, 0) == 0xff1b)  // escape
+                        XDestroyWindow(display, window);
+
                     break;
 
                 case DestroyNotify:

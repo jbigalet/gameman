@@ -51,8 +51,8 @@ struct CPU {
         reset_low_F();
     }
 
-    void do_cycle() {
-
+    bool do_cycle() {
+        bool res;
 
         u16 icount;
         if(!halted) {
@@ -136,7 +136,7 @@ struct CPU {
             mmu.write(0xff0f, IF);
             ppu.cycle_until_vblank += 70256;  // 4.194304MHz / 59.7Hz
 
-            the_ghandler.handle_events();
+            res = the_ghandler.handle_events();
             the_ghandler.draw();
         }
 
@@ -162,6 +162,8 @@ handle_interrupts:
             /* std::cout << "un-halted " << to_bit_string(mmu.read(0xff0f)) << std::endl; */
             halted = false;
         }
+
+        return res;
     }
 
     void reset_low_F() {
