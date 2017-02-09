@@ -1,5 +1,9 @@
 #include <X11/Xlib.h>
+#include <X11/Xutil.h>
 #include <X11/Xatom.h>
+#include <GL/glew.h>
+#include <GL/gl.h>
+#include <GL/glx.h>
 
 #define GC_WIDTH 160
 #define GC_HEIGHT 144
@@ -27,33 +31,138 @@ struct Point {
     u8 y;
 };
 
+const i8* vertex_shader_source = R"VSS(
+#version 330 core
+
+layout (location = 0) in vec2 pos;
+layout (location = 1) in vec2 uv_in;
+
+out vec2 uv;
+
+void main() {
+    gl_Position = vec4(pos.xy, 0.f, 1.f);
+    uv = uv_in;
+}
+)VSS";
+
+const i8* fragment_shader_source = R"VSS(
+#version 330 core
+
+uniform sampler2D tex;
+
+in vec2 uv;
+out vec4 color;
+
+void main() {
+    color = vec4(vec3(texture(tex, uv)), 1.f);
+}
+)VSS";
+
+
+u32 compile_shader(u32 shader_type, const i8* shader_source) {
+    u32 shader = glCreateShader(shader_type);
+    glShaderSource(shader, 1, &shader_source, NULL);
+    glCompileShader(shader);
+    i32 compile_res;
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &compile_res);
+    if(!compile_res) {
+        i8 compile_failure_log[512];
+        glGetShaderInfoLog(shader, 512, NULL, compile_failure_log);
+        std::cout << "shader compilation failed:\n" << compile_failure_log << std::endl;
+        unreachable();
+    }
+    return shader;
+}
+
 struct GHandler {
     Display* display;
     Window window;
     i32 screen_id;
-    GC gc;
-    Colormap cmap;
-    Pixmap pixmap;
+
+    u32 shader;
+    u32 vao;
+    u32 texture;
 
     u16 window_width;
     u16 window_height;
 
-    Color fb[GC_WIDTH][GC_HEIGHT];
+    Color fb[GC_HEIGHT][GC_WIDTH];
 
     void init(u32 mul=4) {
-        for(u8 x=0 ; x<GC_WIDTH ; x++)
-            for(u8 y=0 ; y<GC_HEIGHT ; y++)
-                fb[x][y] = Color{0, 0, 0};
+        for(u8 y=0 ; y<GC_HEIGHT ; y++)
+            for(u8 x=0 ; x<GC_WIDTH ; x++)
+                fb[y][x] = Color{0, 0, 0};
 
         display = XOpenDisplay(NULL);
         check(display != NULL);
         screen_id = DefaultScreen(display);
-        window = XCreateSimpleWindow(display,
-                                     RootWindow(display, screen_id),
-                                     0, 0,  // top left
-                                     GC_WIDTH*mul, GC_HEIGHT*mul,  // size
-                                     1, BlackPixel(display, screen_id),  // border
-                                     WhitePixel(display, screen_id));  // background
+
+        i32 glx_attr[] = {
+            GLX_X_RENDERABLE,   true,
+            GLX_DRAWABLE_TYPE,  GLX_WINDOW_BIT,
+            GLX_RENDER_TYPE,    GLX_RGBA_BIT,
+            GLX_X_VISUAL_TYPE,  GLX_TRUE_COLOR,
+            GLX_RED_SIZE,       8,
+            GLX_GREEN_SIZE,     8,
+            GLX_BLUE_SIZE,      8,
+            GLX_ALPHA_SIZE,     8,
+            GLX_DEPTH_SIZE,     24,
+            GLX_STENCIL_SIZE,   8,
+            GLX_DOUBLEBUFFER,   true,
+            0,
+        };
+
+        // get available config
+        i32 fbc_count;
+        GLXFBConfig* fbc_list = glXChooseFBConfig(display, screen_id, glx_attr, &fbc_count);
+        check(fbc_list != 0);
+
+        // choose best available config
+        i32 max_samples = -1;
+        GLXFBConfig fbc;
+        XVisualInfo* visual_info = NULL;
+        for(i32 i=0; i<fbc_count; i++) {
+            XVisualInfo *new_visual_info = glXGetVisualFromFBConfig(display, fbc_list[i]);
+            if(!new_visual_info)
+                continue;
+
+            i32 samples;
+            glXGetFBConfigAttrib(display, fbc_list[i], GLX_SAMPLES, &samples);
+            if(samples > max_samples){
+                if(visual_info)
+                    XFree(visual_info);
+
+                fbc = fbc_list[i];
+                max_samples = samples;
+                visual_info = new_visual_info;
+            }
+        }
+        XFree(fbc_list);
+
+        // create window
+        Window root_window = RootWindow(display, visual_info->screen);
+        XSetWindowAttributes window_attr = {
+            .colormap = XCreateColormap(display,
+                                        root_window,
+                                        visual_info->visual,
+                                        AllocNone),
+            .background_pixmap = 0,
+            .border_pixel = 0,
+            .event_mask = StructureNotifyMask
+        };
+
+        window = XCreateWindow(display,
+                               root_window,  // parent window
+                               0, 0,  // position
+                               GC_WIDTH*mul, GC_HEIGHT*mul,  // size
+                               1,  // border
+                               visual_info->depth,  // depth
+                               InputOutput,  // class
+                               visual_info->visual,  // visual
+                               CWBorderPixel | CWColormap | CWEventMask,  // value mask
+                               &window_attr);  // attributes
+        check(window);
+        XFree(visual_info);
 
         // change window type to dialog to get a floating window on i3
         Atom window_type_atom = XInternAtom(display, "_NET_WM_WINDOW_TYPE", false);
@@ -66,16 +175,95 @@ struct GHandler {
                         (u8*)&dialog_atom, // data
                         1); //  nelements
 
-
-        /* XClearWindow(display, window); */
+        XStoreName(display, window, "Gameman");
         XMapRaised(display, window);
-        /* XSync(display, true); */
+
+        // create glx context
+
+        // get glx context creator proc
+        typedef GLXContext (*glXCreateContextAttribsARBProc)(Display*, GLXFBConfig, GLXContext, Bool, const int*);
+        glXCreateContextAttribsARBProc glXCreateContextAttribsARB;
+        glXCreateContextAttribsARB = (glXCreateContextAttribsARBProc)glXGetProcAddressARB((GLubyte *)"glXCreateContextAttribsARB");
+
+        int context_attribs[] = {
+            GLX_CONTEXT_MAJOR_VERSION_ARB, 3,
+            GLX_CONTEXT_MINOR_VERSION_ARB, 3,
+            GLX_CONTEXT_FLAGS_ARB,         GLX_CONTEXT_FORWARD_COMPATIBLE_BIT_ARB,
+            GLX_CONTEXT_PROFILE_MASK_ARB,  GLX_CONTEXT_CORE_PROFILE_BIT_ARB,
+            0
+        };
+
+        GLXContext ctx = glXCreateContextAttribsARB(display, fbc, 0, true, context_attribs);
+        XSync(display, false);  // force sync to make the next check effective
+        check(ctx);
+
+        glXMakeCurrent(display, window, ctx);
+
         XSelectInput(display, window, ExposureMask | KeyPressMask | StructureNotifyMask);
 
-        gc = DefaultGC(display, screen_id);  // graphic context
-        cmap = DefaultColormap(display, screen_id);
+        check(glewInit() == GLEW_OK);
 
-        pixmap = XCreatePixmap(display, window, GC_WIDTH*mul, GC_HEIGHT*mul, 24);
+        glClearColor(0.5, 0.5, 0.5, 1.);
+        /* glViewport(0, 0, 100, 100); */
+
+
+        // setup shaders
+
+        u32 vertex_shader = compile_shader(GL_VERTEX_SHADER, vertex_shader_source);
+        u32 fragment_shader = compile_shader(GL_FRAGMENT_SHADER, fragment_shader_source);
+
+        shader = glCreateProgram();
+        glAttachShader(shader, vertex_shader);
+        glAttachShader(shader, fragment_shader);
+        glLinkProgram(shader);
+
+        i32 program_link_res;
+        glGetProgramiv(shader, GL_LINK_STATUS, &program_link_res);
+        if(!program_link_res) {
+            i8 link_failure_log[512];
+            glGetProgramInfoLog(shader, 512, NULL, link_failure_log);
+            std::cout << "shader program linking failed:\n" << link_failure_log << std::endl;
+            unreachable();
+        }
+
+        glDeleteShader(vertex_shader);
+        glDeleteShader(fragment_shader);
+
+
+        // setup screen vao
+
+        // 2d plane vertices with uvs
+        f32 plane_vertices[] = {
+            -1.0f,  1.0f,    0.0f, 1.0f,
+            -1.0f, -1.0f,    0.0f, 0.0f,
+            1.0f, -1.0f,     1.0f, 0.0f,
+
+            -1.0f,  1.0f,    0.0f, 1.0f,
+            1.0f, -1.0f,     1.0f, 0.0f,
+            1.0f,  1.0f,     1.0f, 1.0f
+        };
+
+        glGenVertexArrays(1, &vao);
+        u32 vbo;
+        glGenBuffers(1, &vbo);
+
+        glBindVertexArray(vao);
+            glBindBuffer(GL_ARRAY_BUFFER, vbo);
+                glBufferData(GL_ARRAY_BUFFER, sizeof(plane_vertices), &plane_vertices, GL_STATIC_DRAW);
+
+                glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4*sizeof(f32), (GLvoid*)0);
+                glEnableVertexAttribArray(0);
+
+                glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4*sizeof(f32), (GLvoid*)(2*sizeof(f32)));
+                glEnableVertexAttribArray(1);
+
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindVertexArray(0);
+
+        glGenTextures(1, &texture);
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     }
 
     ~GHandler() {
@@ -85,39 +273,27 @@ struct GHandler {
     void draw() {
         auto stime = now();
 
-        f32 ratio_x = window_width/(f32)GC_WIDTH;
-        f32 ratio_y = window_height/(f32)GC_HEIGHT;
-
-        std::map<Color, std::vector<XRectangle>> m;
-        for(u8 x=0 ; x<GC_WIDTH ; x++)
-            for(u8 y=0 ; y<GC_HEIGHT ; y++) {
-                auto it = m.find(fb[x][y]);
-                if(it == m.end())
-                    m[fb[x][y]] = std::vector<XRectangle>();
-                m[fb[x][y]].push_back( XRectangle {
-                        (i16)(x*ratio_x), (i16)(y*ratio_y), (u16)ratio_x, (u16)ratio_y
-                });
+        u8 img[GC_HEIGHT][GC_WIDTH][3];
+        for(u8 y=0 ; y<GC_HEIGHT ; y++)
+            for(u8 x=0 ; x<GC_WIDTH ; x++) {
+                img[y][x][0] = fb[y][x].r;
+                img[y][x][1] = fb[y][x].g;
+                img[y][x][2] = fb[y][x].b;
             }
 
-        /* XClearWindow(display, window); */
+        glClear(GL_COLOR_BUFFER_BIT);
 
-        for(auto& kv: m) {
-            Color pc = kv.first;
+        glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, texture);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, GC_WIDTH, GC_HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, &img[0]);
 
-            XColor c;
-            c.red = 255*(u16)pc.r;
-            c.green = 255*(u16)pc.g;
-            c.blue = 255*(u16)pc.b;
-            c.flags = DoRed | DoGreen | DoBlue;
-            XAllocColor(display, cmap, &c);
+        glUseProgram(shader);
+            glUniform1ui(glGetUniformLocation(shader, "tex"), 0);
+            glBindVertexArray(vao);
+                glDrawArrays(GL_TRIANGLES, 0, 6);
+            glBindVertexArray(0);
 
-            XSetForeground(display, gc, c.pixel);
-
-            XFillRectangles(display, pixmap, gc, &kv.second[0], kv.second.size());
-        }
-
-        XCopyArea(display, pixmap, window, gc, 0, 0, window_width, window_height, 0, 0);
-        XFlush(display);
+        glXSwapBuffers(display, window);
         std::cout << "draw in " << tdiff_micro(stime, now()) << std::endl;
     }
 
@@ -135,14 +311,15 @@ struct GHandler {
                 case ConfigureNotify:
                     window_width = e.xconfigure.width;
                     window_height = e.xconfigure.height;
-                    pixmap = XCreatePixmap(display, window, window_width, window_height, 24);
+                    glViewport(0, 0, window_width, window_height);
+                    /* pixmap = XCreatePixmap(display, window, window_width, window_height, 24); */
                     break;
 
                 case KeyPress:
-                    for(u8 x=0 ; x<GC_WIDTH ; x++)
-                        for(u8 y=0 ; y<GC_HEIGHT ; y++) {
+                    for(u8 y=0 ; y<GC_HEIGHT ; y++)
+                        for(u8 x=0 ; x<GC_WIDTH ; x++) {
                             u8 c = (x+y)%2 == 0 ? 255 : 0;
-                            fb[x][y] = Color{c, c, c};
+                            fb[y][x] = Color{c, c, c};
                         }
                     /* XDestroyWindow(display, window); */
                     break;
