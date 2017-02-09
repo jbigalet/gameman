@@ -1,5 +1,8 @@
 /* #define DISAS_EVERYTHING */
 
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+
 #include "util.cpp"
 #include "mmu.cpp"
 #include "ppu.cpp"
@@ -49,10 +52,10 @@ void emulate(std::string rom_path) {
             log = true;
         }
 
-        if(old_pc == cpu.reg.PC && !cpu.halted) {
-            std::cout << "\nINFINITE LOOP (after " << c << " instructions)" << std::endl;
-            break;
-        }
+        /* if(old_pc == cpu.reg.PC && !cpu.halted) { */
+        /*     std::cout << "\nINFINITE LOOP (after " << c << " instructions)" << std::endl; */
+            /* break; */
+        /* } */
 
 #ifdef DISAS_EVERYTHING
         if(log) {
@@ -71,6 +74,66 @@ void emulate(std::string rom_path) {
 
 
 i32 main() {
+    Display* display = XOpenDisplay(NULL);
+    check(display != NULL);
+    i32 screen_id = DefaultScreen(display);
+    Window window = XCreateSimpleWindow(display,
+                                        RootWindow(display, screen_id),
+                                        0, 0,  // top left
+                                        200, 200,  // size
+                                        1, BlackPixel(display, screen_id),  // border
+                                        WhitePixel(display, screen_id));  // background
+
+    // change window type to dialog to get a floating window on i3
+    Atom window_type_atom = XInternAtom(display, "_NET_WM_WINDOW_TYPE", false);
+    Atom dialog_atom      = XInternAtom(display, "_NET_WM_WINDOW_TYPE_DIALOG", false);
+    XChangeProperty(display,
+                    window,
+                    window_type_atom, XA_ATOM,  // property + atom type
+                    32, //  format
+                    PropModeReplace, //  mode
+                    (u8*)&dialog_atom, // data
+                    1); //  nelements
+
+
+    /* XClearWindow(display, window); */
+    XMapRaised(display, window);
+    /* XSync(display, true); */
+    XSelectInput(display, window, ExposureMask | KeyPressMask | StructureNotifyMask);
+
+    GC gc = DefaultGC(display, screen_id);  // graphic context
+
+    XEvent e;
+    bool running = true;
+    i64 a = 0;
+    while(running) {
+        std::cout << a++ << std::endl;
+        while(XEventsQueued(display, QueuedAfterFlush) > 0) {
+            XNextEvent(display, &e);
+            std::cout << "event!" << std::endl;
+            switch(e.type) {
+                case Expose:
+                    std::cout << "redraw" << std::endl;
+                    XFillRectangle(display, window, gc, 10, 10, 50, 50);
+                    break;
+                case KeyPress:
+                    /* XDestroyWindow(display, window); */
+                    XClearWindow(display, window);
+                    break;
+                case DestroyNotify:
+                    running = false;
+                    break;
+                /* case ClientMessage: */
+                /*     if(e.xclient.data.l[0] == wmDeleteMessage) */
+                /*         running = false; */
+                /*     break; */
+            }
+        }
+    }
+
+    XCloseDisplay(display);
+
+
     /* emulate("./roms/cpu_instrs/cpu_instrs.gb"); */
     emulate("./roms/instr_timing/instr_timing.gb");
 
