@@ -39,18 +39,106 @@ struct Registers {
 struct CPU {
     Registers reg;
     MMU mmu;
+    PPU ppu;
 
     bool IME = false;  // Interrupt Master Enable Flag
+    bool halted = false;
+
+    i16 cycle_until_count = 1;
+    i16 cycle_until_div = 0;
 
     CPU() {
         reset_low_F();
     }
 
     void do_cycle() {
-        exec_op();
 
-        // check interrupts
-int_again:
+
+        u16 icount;
+        if(!halted) {
+            icount = exec_op();
+        } else {
+            icount = 4;  // ...
+        }
+
+        // timer
+
+        u8 TAC = mmu.read(0xff07);  // Timer Control (bit 2 = enable ; bit 1-0 = divider)
+        if(bit_check(TAC, 2)) {
+            cycle_until_count -= icount;
+            if(cycle_until_count <= 0) {
+                i16 divider;
+                switch(TAC & 0x3) {
+                    case 0x00:
+                        divider = 1024;
+                        break;
+                    case 0x01:
+                        divider = 16;
+                        break;
+                    case 0x10:
+                        divider = 64;
+                        break;
+                    case 0x11:
+                        divider = 256;
+                        break;
+                }
+
+                u16 TIMA = mmu.read(0xff05);  // Timer Counter
+                TIMA++;
+                cycle_until_count += divider;
+
+                // handle multiple increment at once
+                // TODO hurts my eyes
+                while(cycle_until_count <= 0) {
+                    TIMA++;
+                    cycle_until_count += divider;
+                }
+
+                /* std::cout << divider << " " << TIMA << std::endl; */
+
+                bool overflow = false;
+                if(TIMA > 0xff) {
+                    u8 TMA = mmu.read(0xff06);  // Timer Modulo
+                    TIMA = TMA + (TIMA-0xff);
+                    overflow = true;
+                }
+
+                mmu.write(0xff05, TIMA);
+
+                if(overflow) {
+                    u8 IF = mmu.read(0xff0f);  // interrupt flag
+                    IF = bit_set(IF, 2);
+                    mmu.write(0xff0f, IF);
+                    /* std::cout << "TIMER OVERFLOW! IF=" << to_bit_string(IF) << std::endl; */
+                    /* std::cout << "TIMER OVERFLOW! IE=" << to_bit_string(mmu.read(0xffff)) << std::endl; */
+                    /* std::cout << "IME: " << IME << std::endl; */
+                }
+            }
+        }
+
+        // DIV
+        cycle_until_div -= icount;
+        if(cycle_until_div <= 0) {
+            u8 DIV = mmu.read(0xff04);
+            DIV++;
+            cycle_until_div += 255;
+            mmu.write(0xff04, DIV);
+        }
+
+
+
+        // vblank
+        ppu.cycle_until_vblank -= icount;
+        if(ppu.cycle_until_vblank < 0) {
+            /* std::cout << "vblank!" << std::endl; */
+            u8 IF = mmu.read(0xff0f);  // interrupt flag
+            IF = bit_set(IF, 0);
+            mmu.write(0xff0f, IF);
+            ppu.cycle_until_vblank += 70256;  // 4.194304MHz / 59.7Hz
+        }
+
+
+handle_interrupts:
         if(IME){
             u8 IF = mmu.read(0xff0f);  // interrupt flag
             u8 IE = mmu.read(0xffff);  // interrupt enable
@@ -60,8 +148,16 @@ int_again:
                     IME = false;
                     mmu.write(0xff0f, bit_reset(IF, i));  // reset IF flag
                     CALL_const16(0x40 + (0x08*i));
-                    goto int_again;
+                    goto handle_interrupts;
                 }
+        }
+
+
+
+        // check interrupts
+        if(halted && mmu.read(0xff0f) != 0) {
+            /* std::cout << "un-halted " << to_bit_string(mmu.read(0xff0f)) << std::endl; */
+            halted = false;
         }
     }
 
@@ -557,7 +653,7 @@ void CPU::DEC_reg8(u8* r) {
 // usage: F3
 // flags: -,-,-,-
 void CPU::DI() {
-    // disable interrupts after the next command
+    // disable interrupts after the next command TODO
     IME = false;
     /* std::cout << "DI CMD" << std::endl; */
 }
@@ -565,7 +661,7 @@ void CPU::DI() {
 // usage: FB
 // flags: -,-,-,-
 void CPU::EI() {
-    // enable interrupts after the next command
+    // enable interrupts after the next command TODO
     IME = true;
     /* std::cout << "EI CMD" << std::endl; */
 }
@@ -573,8 +669,8 @@ void CPU::EI() {
 // usage: 76
 // flags: -,-,-,-
 void CPU::HALT() {
-    /* std::cout << "HALT CMD" << std::endl; */
-    // TODO handle interrupts
+    /* std::cout << "HALT CMD ; IE=" << to_bit_string(mmu.read(0xff0f)) << std::endl; */
+    halted = true;
 }
 
 // usage: 34

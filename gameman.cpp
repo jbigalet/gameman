@@ -2,6 +2,7 @@
 
 #include "util.cpp"
 #include "mmu.cpp"
+#include "ppu.cpp"
 #include "cpu.cpp"
 
 static i32 total_instr_count = 0;
@@ -48,10 +49,10 @@ void emulate(std::string rom_path) {
             log = true;
         }
 
-        if(old_pc == cpu.reg.PC) {
-            std::cout << "\nINFINITE LOOP (after " << c << " instructions)" << std::endl;
-            break;
-        }
+        /* if(old_pc == cpu.reg.PC && !cpu.halted) { */
+        /*     std::cout << "\nINFINITE LOOP (after " << c << " instructions)" << std::endl; */
+        /*     break; */
+        /* } */
 
 #ifdef DISAS_EVERYTHING
         if(log) {
@@ -70,9 +71,10 @@ void emulate(std::string rom_path) {
 
 
 i32 main() {
-    /* emulate("roms/cpu_instrs/cpu_instrs.gb"); */
+    emulate("roms/cpu_instrs/cpu_instrs.gb");
 
     /* emulate("roms/cpu_instrs/individual/01-special.gb"); */
+    /* emulate("roms/cpu_instrs/individual/02-interrupts.gb"); */
     /* emulate("roms/cpu_instrs/individual/03-op sp,hl.gb"); */
     /* emulate("roms/cpu_instrs/individual/04-op r,imm.gb"); */
     /* emulate("roms/cpu_instrs/individual/05-op rp.gb"); */
@@ -82,8 +84,6 @@ i32 main() {
     /* emulate("roms/cpu_instrs/individual/09-op r,r.gb"); */
     /* emulate("roms/cpu_instrs/individual/10-bit ops.gb"); */
     /* emulate("roms/cpu_instrs/individual/11-op a,(hl).gb"); */
-
-    emulate("roms/cpu_instrs/individual/02-interrupts.gb");
 
     std::cout << "total instr count: " << total_instr_count << std::endl;
 

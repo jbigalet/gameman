@@ -100,6 +100,11 @@ struct MMU {
             }
         }
 
+        if(addr == 0xff04) {  // DIV register
+            val = 0;
+            /* std::cout << "writing to div reg" << std::endl; */
+        }
+
         mem[addr] = val;
 
         if(addr == 0xff01)  // link port
