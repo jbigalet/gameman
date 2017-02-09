@@ -135,6 +135,9 @@ struct CPU {
             IF = bit_set(IF, 0);
             mmu.write(0xff0f, IF);
             ppu.cycle_until_vblank += 70256;  // 4.194304MHz / 59.7Hz
+
+            the_ghandler.handle_events();
+            the_ghandler.draw();
         }
 
 

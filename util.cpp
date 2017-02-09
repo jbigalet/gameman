@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <map>
+#include <chrono>
 
 typedef char           i8;
 typedef unsigned char  u8;
@@ -135,4 +136,13 @@ std::string to_bit_string(u8 f) {
     for(i8 i=7 ; i>=0 ; i--)
         r += bit_check(f, i) ? "1" : "0";
     return r;
+}
+
+std::chrono::steady_clock::time_point now() {
+    return std::chrono::steady_clock::now();
+}
+
+u64 tdiff_micro(std::chrono::steady_clock::time_point start,
+                                std::chrono::steady_clock::time_point end) {
+    return std::chrono::duration_cast<std::chrono::microseconds>(end-start).count();
 }
