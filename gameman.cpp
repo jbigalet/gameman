@@ -45,8 +45,8 @@ void emulate(std::string rom_path) {
 #endif
 
         cpu.mmu.history = "";
-        if(cpu.do_cycle())
-            break;
+        if(cpu.do_cycle()) break;
+
         if(cpu.reg.PC == 0x40) {
             /* std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl; */
             log = true;
