@@ -276,9 +276,9 @@ struct GHandler {
         u8 img[GC_HEIGHT][GC_WIDTH][3];
         for(u8 y=0 ; y<GC_HEIGHT ; y++)
             for(u8 x=0 ; x<GC_WIDTH ; x++) {
-                img[y][x][0] = fb[y][x].r;
-                img[y][x][1] = fb[y][x].g;
-                img[y][x][2] = fb[y][x].b;
+                img[GC_HEIGHT-1-y][x][0] = fb[y][x].r;
+                img[GC_HEIGHT-1-y][x][1] = fb[y][x].g;
+                img[GC_HEIGHT-1-y][x][2] = fb[y][x].b;
             }
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, GC_WIDTH, GC_HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, &img[0]);
 
@@ -305,11 +305,13 @@ struct GHandler {
                     break;
 
                 case KeyPress:
-                    for(u8 y=0 ; y<GC_HEIGHT ; y++)
-                        for(u8 x=0 ; x<GC_WIDTH ; x++) {
-                            u8 c = (x+y)%2 == 0 ? 255 : 0;
-                            fb[y][x] = Color{c, c, c};
-                        }
+
+                    /* // debug: draw checkeer */
+                    /* for(u8 y=0 ; y<GC_HEIGHT ; y++) */
+                    /*     for(u8 x=0 ; x<GC_WIDTH ; x++) { */
+                    /*         u8 c = (x+y)%2 == 0 ? 255 : 0; */
+                    /*         fb[y][x] = Color{c, c, c}; */
+                    /*     } */
 
                     if(XLookupKeysym(&e.xkey, 0) == 0xff1b)  // escape
                         XDestroyWindow(display, window);

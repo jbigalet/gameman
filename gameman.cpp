@@ -24,8 +24,7 @@ void emulate(std::string rom_path) {
     std::cout << "\nEXECUTION:" << std::endl;
 
     bool log = false;
-    cpu.reg.PC = 0x100;
-    cpu.postboot_init();
+    /* cpu.postboot_init(); */
     i32 c = 0;
     /* for(int i=0 ; i<100 ; i++) { */
     /* for(int i=0 ; i<1000 ; i++) { */
@@ -55,7 +54,7 @@ void emulate(std::string rom_path) {
 
         /* if(old_pc == cpu.reg.PC && !cpu.halted) { */
         /*     std::cout << "\nINFINITE LOOP (after " << c << " instructions)" << std::endl; */
-            /* break; */
+        /*     break; */
         /* } */
 
 #ifdef DISAS_EVERYTHING
@@ -79,6 +78,7 @@ i32 main() {
 
     /* emulate("./roms/cpu_instrs/cpu_instrs.gb"); */
     emulate("./roms/instr_timing/instr_timing.gb");
+    /* emulate("./tetris.gb"); */
 
     /* emulate("roms/cpu_instrs/individual/01-special.gb"); */
     /* emulate("roms/cpu_instrs/individual/02-interrupts.gb"); */

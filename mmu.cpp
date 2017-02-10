@@ -43,6 +43,7 @@ struct MMU {
     u8 mbc_type;
     u8 ibank = 1;
     std::string history;
+    bool boot_rom_enabled = true;
 
     void init_mbc() {
         mbc_type = rom[0x147];
@@ -50,6 +51,7 @@ struct MMU {
                   << get_default(MBC_NAME, mbc_type, "UNKNOWN") << std::endl;
 
         switch(mbc_type) {
+            case 0x00:
             case 0x01:
                 ibank = 1;
                 break;
@@ -65,6 +67,10 @@ struct MMU {
         if(log_history)
             history += "read $" + to_hex_string(addr) + " = " + to_hex_string(mem[addr]) + "\n";
 #endif
+
+        if(boot_rom_enabled && addr < 0x100)
+            return boot_rom[addr];
+
 
         if(addr <= 0x3fff) {
             return rom[addr];
@@ -103,6 +109,11 @@ struct MMU {
         if(addr == 0xff04) {  // DIV register
             val = 0;
             /* std::cout << "writing to div reg" << std::endl; */
+        }
+
+        if(addr == 0xff50) {  // disable boot rom
+            boot_rom_enabled = false;
+            std::cout << "boot rom disabled" << std::endl;
         }
 
         mem[addr] = val;
