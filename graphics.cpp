@@ -77,6 +77,8 @@ u32 compile_shader(u32 shader_type, const i8* shader_source) {
 struct GHandler {
     Display* display;
     Window window;
+    GLXContext ctx;
+    XSetWindowAttributes window_attr;
 
     u32 shader;
     u32 vao;
@@ -137,7 +139,7 @@ struct GHandler {
 
         // create window
         Window root_window = RootWindow(display, visual_info->screen);
-        XSetWindowAttributes window_attr = {
+        window_attr = {
             .colormap = XCreateColormap(display,
                                         root_window,
                                         visual_info->visual,
@@ -189,7 +191,7 @@ struct GHandler {
             0
         };
 
-        GLXContext ctx = glXCreateContextAttribsARB(display, fbc, 0, true, context_attribs);
+        ctx = glXCreateContextAttribsARB(display, fbc, 0, true, context_attribs);
         XSync(display, false);  // force sync to make the next check effective
         check(ctx);
 
@@ -291,7 +293,6 @@ struct GHandler {
     }
 
     bool handle_events() {
-        bool destroy = false;
         while(XEventsQueued(display, QueuedAfterFlush) > 0) {
             XEvent e;
             XNextEvent(display, &e);
@@ -313,13 +314,17 @@ struct GHandler {
                     /*         fb[y][x] = Color{c, c, c}; */
                     /*     } */
 
-                    if(XLookupKeysym(&e.xkey, 0) == 0xff1b)  // escape
+                    if(XLookupKeysym(&e.xkey, 0) == 0xff1b){  // escape
+                        glXDestroyContext(display, ctx);
+                        XFreeColormap(display, window_attr.colormap);
                         XDestroyWindow(display, window);
+                        XCloseDisplay(display);
+                    }
 
                     break;
 
                 case DestroyNotify:
-                    destroy = true;
+                    return true;
                     break;
 
                 /* case ClientMessage: */
@@ -328,7 +333,7 @@ struct GHandler {
                 /*     break; */
             }
         }
-        return destroy;
+        return false;
     }
 };
 

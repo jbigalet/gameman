@@ -24,6 +24,7 @@ void emulate(std::string rom_path) {
     std::cout << "\nEXECUTION:" << std::endl;
 
     bool log = false;
+    cpu.reg.PC = 0xfe;  // skip boot rom
     /* cpu.postboot_init(); */
     i32 c = 0;
     /* for(int i=0 ; i<100 ; i++) { */
@@ -45,7 +46,10 @@ void emulate(std::string rom_path) {
 #endif
 
         cpu.mmu.history = "";
-        if(cpu.do_cycle()) break;
+        if(cpu.do_cycle()){
+            std::cout << "plop" << std::endl;
+            break;
+        }
 
         if(cpu.reg.PC == 0x40) {
             /* std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl; */
@@ -76,8 +80,8 @@ void emulate(std::string rom_path) {
 i32 main() {
     the_ghandler.init();
 
-    /* emulate("./roms/cpu_instrs/cpu_instrs.gb"); */
-    emulate("./roms/instr_timing/instr_timing.gb");
+    emulate("./roms/cpu_instrs/cpu_instrs.gb");
+    /* emulate("./roms/instr_timing/instr_timing.gb"); */
     /* emulate("./tetris.gb"); */
 
     /* emulate("roms/cpu_instrs/individual/01-special.gb"); */

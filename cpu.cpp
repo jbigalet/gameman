@@ -157,6 +157,7 @@ struct CPU {
             /*     } */
 
             res = the_ghandler.handle_events();
+            if(res) return true;
             the_ghandler.draw();
         }
 
@@ -170,13 +171,17 @@ struct CPU {
                 LY = 0;
             mmu.write(0xff44, LY);
 
+            u8 LCDC = mmu.read(0xff40);
+            /* check(bit_check(LCDC, 4)); */
+
             if(LY < 144) {  // draw line
                 u8 SCY = mmu.read(0xff42);
                 u8 SCX = mmu.read(0xff43);
-                u8 tile_y = (LY+SCY)/8;
-                u8 subline = (LY+SCY)%8;
+                /* std::cout << (i32)SCX << " " << (i32)SCY << std::endl; */
+                u8 tile_y = ((u8)(LY+SCY))/8;
+                u8 subline = ((u8)(LY+SCY))%8;
                 for(u8 x=0 ; x <= 20 ; x++) {
-                    u8 tile_x = x + SCX/8;
+                    u8 tile_x = ((u8)(8*x + SCX))/8;
                     u8 idx = mmu.read(0x9800 + 32*tile_y + tile_x);
                     u8 low = mmu.read(0x8000 + 16*idx + subline*2);
                     u8 high = mmu.read(0x8000 + 16*idx + subline*2 + 1);
@@ -281,38 +286,6 @@ handle_interrupts:
         reg.DE = 0x00D8;
         reg.HL = 0x014D;
         reg.SP = 0xFFFE;
-
-        mmu.mem[0xFF05] = 0x00;   // TIMA
-        mmu.mem[0xFF06] = 0x00;   // TMA
-        mmu.mem[0xFF07] = 0x00;   // TAC
-        mmu.mem[0xFF10] = 0x80;   // NR10
-        mmu.mem[0xFF11] = 0xBF;   // NR11
-        mmu.mem[0xFF12] = 0xF3;   // NR12
-        mmu.mem[0xFF14] = 0xBF;   // NR14
-        mmu.mem[0xFF16] = 0x3F;   // NR21
-        mmu.mem[0xFF17] = 0x00;   // NR22
-        mmu.mem[0xFF19] = 0xBF;   // NR24
-        mmu.mem[0xFF1A] = 0x7F;   // NR30
-        mmu.mem[0xFF1B] = 0xFF;   // NR31
-        mmu.mem[0xFF1C] = 0x9F;   // NR32
-        mmu.mem[0xFF1E] = 0xBF;   // NR33
-        mmu.mem[0xFF20] = 0xFF;   // NR41
-        mmu.mem[0xFF21] = 0x00;   // NR42
-        mmu.mem[0xFF22] = 0x00;   // NR43
-        mmu.mem[0xFF23] = 0xBF;   // NR30
-        mmu.mem[0xFF24] = 0x77;   // NR50
-        mmu.mem[0xFF25] = 0xF3;   // NR51
-        mmu.mem[0xFF26] = 0xF1;   // NR52  for GB, 0xF0 for SGB
-        mmu.mem[0xFF40] = 0x91;   // LCDC
-        mmu.mem[0xFF42] = 0x00;   // SCY
-        mmu.mem[0xFF43] = 0x00;   // SCX
-        mmu.mem[0xFF45] = 0x00;   // LYC
-        mmu.mem[0xFF47] = 0xFC;   // BGP
-        mmu.mem[0xFF48] = 0xFF;   // OBP0
-        mmu.mem[0xFF49] = 0xFF;   // OBP1
-        mmu.mem[0xFF4A] = 0x00;   // WY
-        mmu.mem[0xFF4B] = 0x00;   // WX
-        mmu.mem[0xFFFF] = 0x00;   // IE
     }
 
 
