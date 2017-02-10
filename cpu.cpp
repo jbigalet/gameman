@@ -151,11 +151,6 @@ struct CPU {
             /*             } */
             /*         } */
 
-            /* for(u8 y=0 ; y<GC_HEIGHT ; y++) */
-            /*     for(u8 x=0 ; x<GC_WIDTH ; x++){ */
-            /*         mmu.read( */
-            /*     } */
-
             res = the_ghandler.handle_events();
             if(res) return true;
             the_ghandler.draw();
@@ -172,7 +167,8 @@ struct CPU {
             mmu.write(0xff44, LY);
 
             u8 LCDC = mmu.read(0xff40);
-            /* check(bit_check(LCDC, 4)); */
+
+            /* std::cout << "LCDC: " <<  to_bit_string(LCDC) << std::endl; */
 
             if(LY < 144) {  // draw line
                 u8 SCY = mmu.read(0xff42);
@@ -200,6 +196,7 @@ handle_interrupts:
         if(IME){
             u8 IF = mmu.read(0xff0f);  // interrupt flag
             u8 IE = mmu.read(0xffff);  // interrupt enable
+            /* std::cout << "IE: " << to_bit_string(IE) << std::endl; */
             for(u8 i=0 ; i<5 ; i++)
                 if(bit_check(IF, i) && bit_check(IE, i)) {
                     /* std::cout << "int! " << (i32)i << std::endl; */
@@ -696,7 +693,9 @@ void CPU::EI() {
 // usage: 76
 // flags: -,-,-,-
 void CPU::HALT() {
-    /* std::cout << "HALT CMD ; IE=" << to_bit_string(mmu.read(0xff0f)) << std::endl; */
+    /* std::cout << "HALT CMD ; IF=" << to_bit_string(mmu.read(0xff0f)); */
+    /* std::cout << " ; IE=" << to_bit_string(mmu.read(0xffff)) << std::endl; */
+    mmu.write(0xff0f, 0);
     halted = true;
 }
 

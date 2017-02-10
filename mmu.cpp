@@ -46,6 +46,9 @@ struct MMU {
     bool boot_rom_enabled = true;
 
     void init_mbc() {
+        for(i32 i=0 ; i<0x10000 ; i++)
+            mem[i] = 0;
+
         mbc_type = rom[0x147];
         std::cout << "Cartridge type: [" << to_hex_string(mbc_type) << "] "
                   << get_default(MBC_NAME, mbc_type, "UNKNOWN") << std::endl;
@@ -121,7 +124,7 @@ struct MMU {
 
     void write_error(u16 addr) {
         std::cout << "cannot write at " << to_hex_string(addr) << std::endl;
-        unreachable();  // cannot write to rom
+        /* unreachable();  // cannot write to rom */
     }
 
     void write(u16 addr, u8 val, bool log_history=true) {
@@ -132,7 +135,8 @@ struct MMU {
 
         if(addr <= 0x7fff) {
             if(mbc_type != 0x01 || addr < 0x2000 || addr >= 0x6000) {
-                write_error(addr);
+                /* write_error(addr); */
+                return;
             } else if(addr <= 0x3fff) {
                 ibank = (ibank & 0xe0) + (val & 0x1f);  // keep 3 high bits, set the 5 low
             } else {
