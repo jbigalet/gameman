@@ -8,25 +8,21 @@
 
 static i32 total_instr_count = 0;
 
-void emulate(std::string rom_path) {
-    std::cout << std::string(10, '=') << " " << basename(rom_path) << " " << std::string(10, '=') << std::endl;
-
-    CPU cpu;
+template<typename MBC>
+void emulate_with_(std::vector<u8> rom) {
+    CPU<MBC> cpu;
 
     std::vector<i8> dmg_rom = slurp_file("roms/DMG_ROM.bin");
-    std::vector<i8> rom = slurp_file(rom_path);
 
     for(i8 v: dmg_rom) cpu.mmu.boot_rom.push_back((u8)v);
-    for(i8 v: rom)     cpu.mmu.rom.push_back((u8)v);
+    cpu.mmu.insert_cartridge(rom);
 
-    std::cout << "HEADER:" << std::endl;
-    cpu.mmu.init_mbc();
+    /* std::cout << "HEADER:" << std::endl; */
     std::cout << "\nEXECUTION:" << std::endl;
 
     /* bool log = false; */
     bool log = true;
     cpu.reg.PC = 0xfe;  // skip boot rom
-    /* cpu.postboot_init(); */
     i32 c = 0;
     /* for(int i=0 ; i<100 ; i++) { */
     /* for(int i=0 ; i<1000 ; i++) { */
@@ -75,6 +71,38 @@ void emulate(std::string rom_path) {
 
     std::cout << std::string(30, '~') << "\n" << std::endl;
     total_instr_count += c;
+}
+
+
+void emulate(std::string rom_path) {
+    std::cout << std::string(10, '=') << " " << basename(rom_path) << " " << std::string(10, '=') << std::endl;
+
+    std::vector<i8> irom = slurp_file(rom_path);
+    std::vector<u8> rom;
+    for(i8 v: irom)
+        rom.push_back((u8)v);
+
+    std::cout << "Cartridge type: [" << to_hex_string(rom[0x147]) << "] "
+              << get_default(MBC_NAME, rom[0x147], "UNKNOWN") << std::endl;
+
+    switch(rom[0x147]) {
+        case 0x00:
+            emulate_with_<ROM_ONLY>(rom);
+            break;
+        case 0x01:
+            emulate_with_<MBC1>(rom);
+            break;
+        case 0x03:
+            emulate_with_<MBC1_RAM_BATTERY>(rom);
+            break;
+        /* case 0x13: */
+        /*     emulate_with_<MBC3_RAM_BATTERY>(rom); */
+        /*     break; */
+
+        default:
+            std::cout << "unimplemented MBC type" << std::endl;
+            unreachable();
+    }
 }
 
 
