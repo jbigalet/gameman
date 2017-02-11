@@ -308,12 +308,25 @@ struct MMU {
             res = can_access_oam ? mbc.read(addr) : 0;
 
         } else if(addr == _JOYP) {  // joypad
+
             // active low for both row selection & key press
             u8 JOYP = mbc.read(_JOYP);
             if(!bit_check(JOYP, 5)) {  // select button
                 res = 0b1111;
+                if(get_default(the_ghandler.pressed_keys, KB_SPACE,     false)) res = bit_reset(res, 0);
+                if(get_default(the_ghandler.pressed_keys, KB_E,         false)) res = bit_reset(res, 1);
+                if(get_default(the_ghandler.pressed_keys, KB_BACKSPACE, false)) res = bit_reset(res, 2);
+                if(get_default(the_ghandler.pressed_keys, KB_RETURN,    false)) res = bit_reset(res, 3);
+                /* std::cout << "input: " << to_bit_string(res) << std::endl; */
+
             } else if(!bit_check(JOYP, 4)) {  // select direction
                 res = 0b1111;
+                if(get_default(the_ghandler.pressed_keys, KB_RIGHT, false)) res = bit_reset(res, 0);
+                if(get_default(the_ghandler.pressed_keys, KB_LEFT,  false)) res = bit_reset(res, 1);
+                if(get_default(the_ghandler.pressed_keys, KB_UP,    false)) res = bit_reset(res, 2);
+                if(get_default(the_ghandler.pressed_keys, KB_DOWN,  false)) res = bit_reset(res, 3);
+                /* std::cout << "input: " << to_bit_string(res) << std::endl; */
+
             } else {
                 unreachable();
             }

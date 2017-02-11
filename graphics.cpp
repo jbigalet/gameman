@@ -1,12 +1,23 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
+#include <X11/XKBlib.h>
 #include <GL/glew.h>
 #include <GL/gl.h>
 #include <GL/glx.h>
 
-#define GC_WIDTH 160
+#define GC_WIDTH  160
 #define GC_HEIGHT 144
+
+#define KB_SPACE     ((u64)(0x20))
+#define KB_E         ((u64)(0x65))
+#define KB_RETURN    ((u64)(0xff0d))
+#define KB_BACKSPACE ((u64)(0xff08))
+#define KB_ESCAPE    ((u64)(0xff1b))
+#define KB_LEFT      ((u64)(0xff51))
+#define KB_UP        ((u64)(0xff52))
+#define KB_RIGHT     ((u64)(0xff53))
+#define KB_DOWN      ((u64)(0xff54))
 
 struct Color {
     u8 r;
@@ -79,6 +90,8 @@ struct GHandler {
     Window window;
     GLXContext ctx;
     XSetWindowAttributes window_attr;
+
+    std::map<u64, bool> pressed_keys;
 
     u32 shader;
     u32 vao;
@@ -197,7 +210,12 @@ struct GHandler {
 
         glXMakeCurrent(display, window, ctx);
 
-        XSelectInput(display, window, ExposureMask | KeyPressMask | StructureNotifyMask);
+        XSelectInput(display, window, ExposureMask | KeyPressMask | KeyReleaseMask | StructureNotifyMask);
+
+        // disable key repeat
+        i32 detectable_autorepeat_supported = false;
+        check(XkbSetDetectableAutoRepeat(display, true, &detectable_autorepeat_supported));
+        check(detectable_autorepeat_supported);
 
         check(glewInit() == GLEW_OK);
 
@@ -307,20 +325,26 @@ struct GHandler {
 
                 case KeyPress:
 
-                    /* // debug: draw checkeer */
+                    /* // debug: draw checker */
                     /* for(u8 y=0 ; y<GC_HEIGHT ; y++) */
                     /*     for(u8 x=0 ; x<GC_WIDTH ; x++) { */
                     /*         u8 c = (x+y)%2 == 0 ? 255 : 0; */
                     /*         fb[y][x] = Color{c, c, c}; */
                     /*     } */
 
-                    if(XLookupKeysym(&e.xkey, 0) == 0xff1b){  // escape
+                    pressed_keys[XLookupKeysym(&e.xkey, 0)] = true;
+
+                    if(XLookupKeysym(&e.xkey, 0) == KB_ESCAPE){  // escape
                         glXDestroyContext(display, ctx);
                         XFreeColormap(display, window_attr.colormap);
                         XDestroyWindow(display, window);
                         XCloseDisplay(display);
                     }
 
+                    break;
+
+                case KeyRelease:
+                    pressed_keys[XLookupKeysym(&e.xkey, 0)] = false;
                     break;
 
                 case DestroyNotify:
