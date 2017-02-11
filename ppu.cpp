@@ -72,8 +72,8 @@ struct PPU {
                             /* for(u16 y=0 ; y<18 ; y++) */
                             /*     for(u16 x=0 ; x<20 ; x++) */
                             /*         for(u16 iline=0 ; iline<8 ; iline++){ */
-                            /*             u8 low = mmu.read(_VRAM_START + 16*(20*y+x) + 2*iline); */
-                            /*             u8 high = mmu.read(_VRAM_START + 16*(20*y+x) + 2*iline + 1); */
+                            /*             u8 low = mmu->read(_VRAM_START + 16*(20*y+x) + 2*iline); */
+                            /*             u8 high = mmu->read(_VRAM_START + 16*(20*y+x) + 2*iline + 1); */
                             /*             /1* u8 low = mmu.read(0x8410 + 2*iline); *1/ */
                             /*             /1* u8 high = mmu.read(0x8410 + 2*iline + 1); *1/ */
                             /*             for(u8 icol=0 ; icol<8 ; icol++) { */
@@ -93,25 +93,46 @@ struct PPU {
 
                         if(!vblank) {  // draw line TODO sprites TODO check
                             assert(mmu->can_access_oam && mmu->can_access_vram);
+
+                            // TODO window
+                            // TODO sprites
+
+                            u8 LCDC = mmu->read(_LCDC);
+                            u16 bck_index_start = bit_check(LCDC, 3) ? 0x9C00 : 0x9800;
+                            bool tile_data_at_8000 = bit_check(LCDC, 4);  // if not, starts at 9000 & index is signed
+                            u16 tile_start = tile_data_at_8000 ? 0x8000 : 0x9000;
+
+                            // background palette
+                            u8 BGP = mmu->read(_BGP);
+                            std::vector<Color> palette;
+                            for(u8 bit=0 ; bit<8 ; bit+=2) {
+                                u8 val = (BGP >> bit) & 0b11;
+                                u8 g = 255-85*val;
+                                palette.push_back(Color{g,g,g});
+                                std::cout << (u32)g << " ";
+                            }
+                            std::cout << std::endl;
+
                             u8 SCY = mmu->read(_SCY);
                             u8 SCX = mmu->read(_SCX);
                             u8 tile_y = ((u8)(LY+SCY))/8;
                             u8 subline = ((u8)(LY+SCY))%8;
                             for(u8 x=0 ; x < 20 ; x++) {
                                 u8 tile_x = ((u8)(8*x + SCX))/8;
-                                u8 idx = mmu->read(0x9800 + 32*tile_y + tile_x);
-                                u8 low = mmu->read(_VRAM_START + 16*idx + subline*2);
-                                u8 high = mmu->read(_VRAM_START + 16*idx + subline*2 + 1);
+                                u16 idx_idx = bck_index_start + 32*tile_y + tile_x;
+                                i16 idx = tile_data_at_8000 ? mmu->read(idx_idx) : (i8)mmu->read(idx_idx);
+                                u16 tile_info_start = tile_start + 16*idx + subline*2;
+                                u8 low = mmu->read(tile_info_start);
+                                u8 high = mmu->read(tile_info_start + 1);
                                 for(u8 icol=0 ; icol<8 ; icol++) {
                                     u8 val = bit_check(low, icol) | (bit_check(high, icol) << 1);
-                                    u8 g = 85*val;
                                     u8 xidx = (u8)(8*x+7-icol);
-                                    the_ghandler.fb[LY][xidx] = Color{g,g,g};
+                                    the_ghandler.fb[LY][xidx] = palette[val];
                                 }
                             }
                         }
 
-                        // TODO LYC
+                        // TODO LYC + other STAT stuff
 
                         mmu->write(_LY, LY);
                     }

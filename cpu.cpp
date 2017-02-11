@@ -674,7 +674,7 @@ struct CPU {
     // flags: -,-,-,-
     // timings: 4
     void HALT() {
-        std::cout << "HALT CMD ; IF=" << to_bit_string(mmu.read(0xff0f));
+        /* std::cout << "HALT CMD ; IF=" << to_bit_string(mmu.read(0xff0f)) << std::endl; */
         /* std::cout << " ; IE=" << to_bit_string(mmu.read(0xffff)) << std::endl; */
         mmu.write(0xff0f, 0);  // TODO not sure // not write_mem cause not actually taking cycles
         halted = true;
