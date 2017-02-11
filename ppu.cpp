@@ -22,8 +22,8 @@ struct PPU {
 
     bool active = true;
     bool vblank = false;
-    PPU_Mode current_mode;  // <=> STATE[0-1] || vblank, cf PPU_Mode
-    i16 current_mode_remaining_cycles;
+    PPU_Mode current_mode = MODE_HBLANK;  // <=> STATE[0-1] || vblank, cf PPU_Mode
+    i16 current_mode_remaining_cycles = 0;
 
     void enable() {
         active = true;
@@ -97,7 +97,7 @@ struct PPU {
                             u8 SCX = mmu->read(_SCX);
                             u8 tile_y = ((u8)(LY+SCY))/8;
                             u8 subline = ((u8)(LY+SCY))%8;
-                            for(u8 x=0 ; x <= 20 ; x++) {
+                            for(u8 x=0 ; x < 20 ; x++) {
                                 u8 tile_x = ((u8)(8*x + SCX))/8;
                                 u8 idx = mmu->read(0x9800 + 32*tile_y + tile_x);
                                 u8 low = mmu->read(_VRAM_START + 16*idx + subline*2);
@@ -105,7 +105,8 @@ struct PPU {
                                 for(u8 icol=0 ; icol<8 ; icol++) {
                                     u8 val = bit_check(low, icol) | (bit_check(high, icol) << 1);
                                     u8 g = 85*val;
-                                    the_ghandler.fb[LY][(u8)(SCX+8*x+7-icol)] = Color{g,g,g};
+                                    u8 xidx = (u8)(8*x+7-icol);
+                                    the_ghandler.fb[LY][xidx] = Color{g,g,g};
                                 }
                             }
                         }

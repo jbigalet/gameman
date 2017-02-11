@@ -105,11 +105,14 @@ void emulate(std::string rom_path) {
 i32 main() {
     the_ghandler.init();
 
-    emulate("./roms/cpu_instrs/cpu_instrs.gb");
+    /* emulate("./roms/cpu_instrs/cpu_instrs.gb"); */
     /* emulate("./roms/instr_timing/instr_timing.gb"); */
     /* emulate("./roms/mem_timing/mem_timing.gb"); */
     /* emulate("./roms/mem_timing/individual/02-write_timing.gb"); */
     /* emulate("./roms/mem_timing-2/mem_timing.gb"); */
+    emulate("./roms/mem_timing-2/rom_singles/01-read_timing.gb");
+    /* emulate("./roms/mem_timing-2/rom_singles/02-write_timing.gb"); */
+    /* emulate("./roms/mem_timing-2/rom_singles/03-modify_timing.gb"); */
 
     /* emulate("./tetris.gb"); */
     /* emulate("./sml.gb"); */

@@ -19,6 +19,35 @@
 #define _WY         0xFF4A
 #define _WX         0xFF4B
 
+#define _TIMA       0xFF05
+#define _TMA        0xFF06
+#define _TAC        0xFF07
+#define _NR10       0xFF10
+#define _NR11       0xFF11
+#define _NR12       0xFF12
+#define _NR14       0xFF14
+#define _NR21       0xFF16
+#define _NR22       0xFF17
+#define _NR24       0xFF19
+#define _NR30       0xFF1A
+#define _NR31       0xFF1B
+#define _NR32       0xFF1C
+#define _NR33       0xFF1E
+#define _NR41       0xFF20
+#define _NR42       0xFF21
+#define _NR43       0xFF22
+#define _NR44       0xFF23
+#define _NR50       0xFF24
+#define _NR51       0xFF25
+#define _NR52       0xFF26
+#define _BGP        0xFF47
+#define _OBP0       0xFF48
+#define _OBP1       0xFF49
+
+
+
+/* #define SLOG(X) if(addr == X) std::cout << #X " is now " << to_bit_string(val) << std::endl */
+#define SLOG(X) if(addr == X && read(addr) != val) std::cout << #X " is now " << to_bit_string(val) << std::endl
 
 static std::map<u8, std::string> MBC_NAME = {
     { 0x00, "ROM ONLY" },
@@ -229,37 +258,37 @@ struct MMU {
     }
 
     void postboot_init() {
-        mbc.mem[0xFF05] = 0x00;   // TIMA
-        mbc.mem[0xFF06] = 0x00;   // TMA
-        mbc.mem[0xFF07] = 0x00;   // TAC
-        mbc.mem[0xFF10] = 0x80;   // NR10
-        mbc.mem[0xFF11] = 0xBF;   // NR11
-        mbc.mem[0xFF12] = 0xF3;   // NR12
-        mbc.mem[0xFF14] = 0xBF;   // NR14
-        mbc.mem[0xFF16] = 0x3F;   // NR21
-        mbc.mem[0xFF17] = 0x00;   // NR22
-        mbc.mem[0xFF19] = 0xBF;   // NR24
-        mbc.mem[0xFF1A] = 0x7F;   // NR30
-        mbc.mem[0xFF1B] = 0xFF;   // NR31
-        mbc.mem[0xFF1C] = 0x9F;   // NR32
-        mbc.mem[0xFF1E] = 0xBF;   // NR33
-        mbc.mem[0xFF20] = 0xFF;   // NR41
-        mbc.mem[0xFF21] = 0x00;   // NR42
-        mbc.mem[0xFF22] = 0x00;   // NR43
-        mbc.mem[0xFF23] = 0xBF;   // NR30
-        mbc.mem[0xFF24] = 0x77;   // NR50
-        mbc.mem[0xFF25] = 0xF3;   // NR51
-        mbc.mem[0xFF26] = 0xF1;   // NR52  for GB, 0xF0 for SGB
-        mbc.mem[0xFF40] = 0x91;   // LCDC
-        mbc.mem[0xFF42] = 0x00;   // SCY
-        mbc.mem[0xFF43] = 0x00;   // SCX
-        mbc.mem[0xFF45] = 0x00;   // LYC
-        mbc.mem[0xFF47] = 0xFC;   // BGP
-        mbc.mem[0xFF48] = 0xFF;   // OBP0
-        mbc.mem[0xFF49] = 0xFF;   // OBP1
-        mbc.mem[0xFF4A] = 0x00;   // WY
-        mbc.mem[0xFF4B] = 0x00;   // WX
-        mbc.mem[0xFFFF] = 0x00;   // IE
+        mbc.mem[_TIMA] = 0x00;
+        mbc.mem[_TMA]  = 0x00;
+        mbc.mem[_TAC]  = 0x00;
+        mbc.mem[_NR10] = 0x80;
+        mbc.mem[_NR11] = 0xBF;
+        mbc.mem[_NR12] = 0xF3;
+        mbc.mem[_NR14] = 0xBF;
+        mbc.mem[_NR21] = 0x3F;
+        mbc.mem[_NR22] = 0x00;
+        mbc.mem[_NR24] = 0xBF;
+        mbc.mem[_NR30] = 0x7F;
+        mbc.mem[_NR31] = 0xFF;
+        mbc.mem[_NR32] = 0x9F;
+        mbc.mem[_NR33] = 0xBF;
+        mbc.mem[_NR41] = 0xFF;
+        mbc.mem[_NR42] = 0x00;
+        mbc.mem[_NR43] = 0x00;
+        mbc.mem[_NR44] = 0xBF;
+        mbc.mem[_NR50] = 0x77;
+        mbc.mem[_NR51] = 0xF3;
+        mbc.mem[_NR52] = 0xF1;  // for GB, 0xF0 for SGB
+        mbc.mem[_LCDC] = 0x91;
+        mbc.mem[_SCY]  = 0x00;
+        mbc.mem[_SCX]  = 0x00;
+        mbc.mem[_LYC]  = 0x00;
+        mbc.mem[_BGP]  = 0xFC;
+        mbc.mem[_OBP0] = 0xFF;
+        mbc.mem[_OBP1] = 0xFF;
+        mbc.mem[_WY]   = 0x00;
+        mbc.mem[_WX]   = 0x00;
+        mbc.mem[_IE]   = 0x00;
     }
 
     u8 read(u16 addr, bool log_history=true) {
@@ -304,9 +333,9 @@ struct MMU {
             return;
         }
 
-        if(addr == _LCDC) {
-            /* std::cout << "LCDC is now " << to_bit_string(val) << std::endl; */
-        }
+        /* SLOG(_LCDC); */
+        SLOG(_IE);
+        SLOG(_IF);
 
         if(!can_access_vram && addr >= _VRAM_START && addr <= _VRAM_END) {
             std::cout << "trying to write in vram at " << to_hex_string(addr) << std::endl;
