@@ -24,6 +24,8 @@
 #define _TMA        0xFF06
 #define _TAC        0xFF07
 
+#define _JOYP       0xFF00
+
 #define _NR10       0xFF10
 #define _NR11       0xFF11
 #define _NR12       0xFF12
@@ -298,10 +300,24 @@ struct MMU {
 
         if(boot_rom_enabled && addr < 0x100) {
             res = boot_rom[addr];
+
         } else if(addr >= _VRAM_START && addr <= _VRAM_END) {
             res = can_access_vram ? mbc.read(addr) : 0;
+
         } else if(addr >= _OAM_START && addr <= _OAM_END) {
             res = can_access_oam ? mbc.read(addr) : 0;
+
+        } else if(addr == _JOYP) {  // joypad
+            // active low for both row selection & key press
+            u8 JOYP = mbc.read(_JOYP);
+            if(!bit_check(JOYP, 5)) {  // select button
+                res = 0b1111;
+            } else if(!bit_check(JOYP, 4)) {  // select direction
+                res = 0b1111;
+            } else {
+                unreachable();
+            }
+
         } else {
             res = mbc.read(addr);
         }
@@ -335,9 +351,14 @@ struct MMU {
             return;
         }
 
+        if(addr == _JOYP) {  // joypad
+            mbc.mem[addr] = val & 0xf0;  // drop 4 low bits which arent allowed to be set
+            return;
+        }
+
         /* SLOG(_LCDC); */
-        SLOG(_IE);
-        SLOG(_IF);
+        /* SLOG(_IE); */
+        /* SLOG(_IF); */
 
         if(!can_access_vram && addr >= _VRAM_START && addr <= _VRAM_END) {
             std::cout << "trying to write in vram at " << to_hex_string(addr) << std::endl;

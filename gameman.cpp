@@ -129,6 +129,7 @@ i32 main() {
     /* emulate("./sml.gb"); */
     /* emulate("./sml2.gb"); */
     /* emulate("./pokemon_red.gb"); */
+    /* emulate("./dm.gb"); */
 
     /* emulate("roms/cpu_instrs/individual/01-special.gb"); */
     /* emulate("roms/cpu_instrs/individual/02-interrupts.gb"); */

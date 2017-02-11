@@ -134,6 +134,7 @@ struct CPU {
         }
 
         // handle interrupts
+        bool interrupt_handled = false;
         if(IME){
             u8 IF = mmu.read(_IF);  // interrupt flag
             u8 IE = mmu.read(_IE);  // interrupt enable
@@ -144,14 +145,17 @@ struct CPU {
                     IME = false;
                     mmu.write(_IF, bit_reset(IF, i));  // reset IF flag
                     CALL_const16(0x40 + (0x08*i));  // TODO side effects as this update the cycle count ?
+                    interrupt_handled = true;
                     break;
                 }
         }
 
-        if(!halted)
-            exec_op();
-        else
-            cycle_count_advance(1);  // update timer even when halted
+        if(!interrupt_handled) {
+            if(!halted)
+                exec_op();
+            else
+                cycle_count_advance(1);  // update timer even when halted
+        }
 
         return last_op_cycles;
     }
@@ -670,7 +674,7 @@ struct CPU {
     // flags: -,-,-,-
     // timings: 4
     void HALT() {
-        /* std::cout << "HALT CMD ; IF=" << to_bit_string(mmu.read(0xff0f)); */
+        std::cout << "HALT CMD ; IF=" << to_bit_string(mmu.read(0xff0f));
         /* std::cout << " ; IE=" << to_bit_string(mmu.read(0xffff)) << std::endl; */
         mmu.write(0xff0f, 0);  // TODO not sure // not write_mem cause not actually taking cycles
         halted = true;
@@ -1153,7 +1157,7 @@ struct CPU {
     // timings: 4
     void STOP_const8(u8 zero) {
         check(zero == 0);
-        /* std::cout << "STOP CMD" << std::endl; */
+        std::cout << "STOP CMD" << std::endl;
         /* unreachable(); */
     }
 
