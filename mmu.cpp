@@ -5,6 +5,21 @@
 #define _IF         0xFF0F
 #define _IE         0xFFFF
 
+#define _VRAM_START 0x8000
+#define _VRAM_END   0x9FFF
+#define _OAM_START  0xFE00
+#define _OAM_END    0xFE9F
+
+#define _LCDC       0xFF40
+#define _STAT       0xFF41
+#define _SCY        0xFF42
+#define _SCX        0xFF43
+#define _LY         0xFF44
+#define _LYC        0xFF45
+#define _WY         0xFF4A
+#define _WX         0xFF4B
+
+
 static std::map<u8, std::string> MBC_NAME = {
     { 0x00, "ROM ONLY" },
     { 0x01, "MBC1" },
@@ -150,6 +165,9 @@ struct MMU {
     std::vector<u8> boot_rom;
     bool boot_rom_enabled = true;
 
+    bool can_access_vram = true;
+    bool can_access_oam = true;
+
     void insert_cartridge(std::vector<u8> rom) {
         mbc.rom = rom;
 
@@ -247,10 +265,15 @@ struct MMU {
     u8 read(u16 addr, bool log_history=true) {
         u8 res;
 
-        if(boot_rom_enabled && addr < 0x100)
+        if(boot_rom_enabled && addr < 0x100) {
             res = boot_rom[addr];
-        else
+        } else if(addr >= _VRAM_START && addr <= _VRAM_END) {
+            res = can_access_vram ? mbc.read(addr) : 0;
+        } else if(addr >= _OAM_START && addr <= _OAM_END) {
+            res = can_access_oam ? mbc.read(addr) : 0;
+        } else {
             res = mbc.read(addr);
+        }
 
 #ifdef ENABLE_HISTORY
         if(log_history)
@@ -278,6 +301,20 @@ struct MMU {
         if(addr == 0xff01) {  // link port
             std::cerr << bold(std::string(1, val), true, "32") << std::flush;
             mbc.mem[addr] = val;
+            return;
+        }
+
+        if(addr == _LCDC) {
+            /* std::cout << "LCDC is now " << to_bit_string(val) << std::endl; */
+        }
+
+        if(!can_access_vram && addr >= _VRAM_START && addr <= _VRAM_END) {
+            std::cout << "trying to write in vram at " << to_hex_string(addr) << std::endl;
+            return;
+        }
+
+        if(!can_access_oam && addr >= _OAM_START && addr <= _OAM_END) {
+            std::cout << "trying to write in oam at " << to_hex_string(addr) << std::endl;
             return;
         }
 
