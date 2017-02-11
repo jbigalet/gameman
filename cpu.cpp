@@ -40,7 +40,7 @@ template<typename MBC>
 struct CPU {
     Registers reg;
     MMU<MBC> mmu;
-    PPU ppu;
+    PPU<MBC> ppu;
 
     bool IME = false;  // Interrupt Master Enable Flag
     bool halted = false;
@@ -50,11 +50,10 @@ struct CPU {
 
     CPU() {
         reset_low_F();
+        ppu.mmu = &mmu;
     }
 
-    bool do_cycle() {
-        bool res;
-
+    void do_cycle() {
         u16 icount;
         if(!halted) {
             icount = exec_op();
@@ -126,74 +125,10 @@ struct CPU {
             mmu.write(0xff04, DIV);
         }
 
+        ppu.update(icount);
 
 
-        // vblank
-        ppu.cycle_until_vblank -= icount;
-        if(ppu.cycle_until_vblank < 0) {
-            /* std::cout << "vblank!" << std::endl; */
-            u8 IF = mmu.read(0xff0f);  // interrupt flag
-            IF = bit_set(IF, 0);
-            mmu.write(0xff0f, IF);
-            ppu.cycle_until_vblank += 70256;  // 4.194304MHz / 59.7Hz
-
-            /* // debug: draw tiles */
-            /* for(u16 y=0 ; y<18 ; y++) */
-            /*     for(u16 x=0 ; x<20 ; x++) */
-            /*         for(u16 iline=0 ; iline<8 ; iline++){ */
-            /*             u8 low = mmu.read(0x8000 + 16*(20*y+x) + 2*iline); */
-            /*             u8 high = mmu.read(0x8000 + 16*(20*y+x) + 2*iline + 1); */
-            /*             /1* u8 low = mmu.read(0x8410 + 2*iline); *1/ */
-            /*             /1* u8 high = mmu.read(0x8410 + 2*iline + 1); *1/ */
-            /*             for(u8 icol=0 ; icol<8 ; icol++) { */
-            /*                 u8 val = bit_check(low, icol) | (bit_check(high, icol) << 1); */
-            /*                 u8 g = 85*val; */
-            /*                 the_ghandler.fb[8*y+iline][8*x+7-icol] = Color{g, g, g}; */
-            /*             } */
-            /*         } */
-
-            res = the_ghandler.handle_events();
-            if(res) return true;
-            the_ghandler.draw();
-        }
-
-
-        ppu.cycle_until_next_line -= icount;
-        if(ppu.cycle_until_next_line < 0){
-            ppu.cycle_until_next_line += 456;
-            u8 LY = mmu.read(0xff44);
-            LY++;
-            if(LY > 153)
-                LY = 0;
-            mmu.write(0xff44, LY);
-
-            u8 LCDC = mmu.read(0xff40);
-
-            /* std::cout << "LCDC: " <<  to_bit_string(LCDC) << std::endl; */
-
-            if(LY < 144) {  // draw line
-                u8 SCY = mmu.read(0xff42);
-                u8 SCX = mmu.read(0xff43);
-                /* std::cout << (i32)SCX << " " << (i32)SCY << std::endl; */
-                u8 tile_y = ((u8)(LY+SCY))/8;
-                u8 subline = ((u8)(LY+SCY))%8;
-                for(u8 x=0 ; x <= 20 ; x++) {
-                    u8 tile_x = ((u8)(8*x + SCX))/8;
-                    u8 idx = mmu.read(0x9800 + 32*tile_y + tile_x);
-                    u8 low = mmu.read(0x8000 + 16*idx + subline*2);
-                    u8 high = mmu.read(0x8000 + 16*idx + subline*2 + 1);
-                    for(u8 icol=0 ; icol<8 ; icol++) {
-                        u8 val = bit_check(low, icol) | (bit_check(high, icol) << 1);
-                        u8 g = 85*val;
-                        the_ghandler.fb[LY][(u8)(SCX+8*x+7-icol)] = Color{g,g,g};
-                    }
-                }
-            }
-        }
-
-
-
-handle_interrupts:
+        // handle interrupts
         if(IME){
             u8 IF = mmu.read(0xff0f);  // interrupt flag
             u8 IE = mmu.read(0xffff);  // interrupt enable
@@ -203,8 +138,8 @@ handle_interrupts:
                     /* std::cout << "int! " << (i32)i << std::endl; */
                     IME = false;
                     mmu.write(0xff0f, bit_reset(IF, i));  // reset IF flag
-                    CALL_const16(0x40 + (0x08*i));
-                    goto handle_interrupts;
+                    CALL_const16(0x40 + (0x08*i));  // TODO update cycle count
+                    break;
                 }
         }
 
@@ -215,8 +150,6 @@ handle_interrupts:
             /* std::cout << "un-halted " << to_bit_string(mmu.read(0xff0f)) << std::endl; */
             halted = false;
         }
-
-        return res;
     }
 
     void reset_low_F() {

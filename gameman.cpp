@@ -32,7 +32,7 @@ void emulate_with_(std::vector<u8> rom) {
     while(true) {
         /* std::cout << "plop" << std::endl; */
 
-        if(cpu.reg.PC == 0xff) break;
+        /* if(cpu.reg.PC == 0xff) break; */
         c++;
         u16 old_pc = cpu.reg.PC;
 #ifdef DISAS_EVERYTHING
@@ -42,10 +42,7 @@ void emulate_with_(std::vector<u8> rom) {
 #endif
 
         cpu.mmu.history = "";
-        if(cpu.do_cycle()){
-            std::cout << "plop" << std::endl;
-            break;
-        }
+        cpu.do_cycle();
 
         if(cpu.reg.PC == 0x40) {
             /* std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl; */

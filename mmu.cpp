@@ -2,6 +2,9 @@
 #define ENABLE_HISTORY
 #endif
 
+#define _IF         0xFF0F
+#define _IE         0xFFFF
+
 static std::map<u8, std::string> MBC_NAME = {
     { 0x00, "ROM ONLY" },
     { 0x01, "MBC1" },
@@ -280,4 +283,8 @@ struct MMU {
 
         mbc.write(addr, val);
     };
+
+    void set_bit(u16 addr, u8 bit) {
+        write(addr, bit_set(read(addr), bit));
+    }
 };
