@@ -39,10 +39,15 @@ static std::map<u8, std::string> MBC_NAME = {
 struct MBC_base {
     u8 mem[0x10000];
     std::vector<u8> rom;
+    std::vector<u8> ram;
 
     MBC_base() {
         for(i32 i=0 ; i<0x10000 ; i++)
             mem[i] = 0;
+    }
+
+    void set_ram_size(u32 ram_size) {
+        ram.resize(ram_size, 0x00);
     }
 };
 
@@ -66,30 +71,66 @@ struct ROM_ONLY : MBC_base {
 
 struct MBC1 : MBC_base {
     u8 ibank = 1;
+    u8 iram = 0;
+    bool ram_enabled = false;
+    bool ram_banking_mode = false;  // as opposed to rom_banking_mode
 
     u8 read(u16 addr) {
-        if(addr <= 0x3fff)
+        // TODO doc
+        if(addr <= 0x3fff)  // rom bank 0
             return rom[addr];
 
-        if(addr <= 0x7fff) {
+        if(addr <= 0x7fff) {  // rom bank n
             /* std::cout << "from bank #" << ibank << std::endl; */
-            u32 bank_start = addr-0x4000;
-            return rom[bank_start + ((u16)ibank)*0x4000];
+            u32 bank_offset = addr-0x4000;
+            u32 idx = bank_offset + ((u16)ibank)*0x4000;
+            check(idx >= 0 && idx < rom.size());
+            return rom[idx];
+        }
+
+        if(addr >= 0xA000 && addr <= 0xBFFF) {
+            if(ram_enabled) {
+                /* std::cout << "from rank bank #" << iram << std::endl; */
+                u32 bank_offset = addr-0xA000;
+                u32 idx = bank_offset + ((u16)iram)*0x2000;
+                check(idx >= 0 && idx < ram.size());
+                return ram[idx];
+            }
+
+            return 0x00;
         }
 
         return mem[addr];
     }
 
     void write(u16 addr, u8 val) {
-        if(addr <= 0x7fff) {
-            if(addr <= 0x3fff)
-                ibank = (ibank & 0xe0) + (val & 0x1f);  // keep 3 high bits, set the 5 low
-            else
+        // TODO doc
+        if(addr <= 0x1fff) {
+            ram_enabled = (val & 0x0f) == 0x0a;
+            std::cout << "ram enabled: " << ram_enabled << std::endl;
+        } else if(addr <= 0x3fff) {
+            if(val == 0x00) val = 0x01;
+            ibank = (ibank & 0xE0) + (val & 0x1f);  // keep 3 high bits, set the 5 low
+        } else if(addr <= 0x5fff) {
+            if(ram_banking_mode) {
+                std::cout << "changing ram bank to #" << (u32)val << std::endl;
+                iram = val;
+            } else {
                 ibank = (ibank & 0x1f) + (val & 0xe0);  // keep 5 low bits, set the 3 high
-            return;
+            }
+        } else if(addr <= 0x7fff) {
+            check(val <= 0x01);
+            ram_banking_mode = val == 0x01;
+        } else if(addr >= 0xA000 && addr <= 0xBFFF) {
+            if(ram_enabled) {
+                u32 bank_offset = addr-0xA000;
+                u32 idx = bank_offset + ((u16)iram)*0x2000;
+                check(idx >= 0 && idx < ram.size());
+                ram[idx] = val;
+            }
+        } else {
+            mem[addr] = val;
         }
-
-        mem[addr] = val;
     }
 };
 
@@ -108,6 +149,62 @@ struct MMU {
 
     void insert_cartridge(std::vector<u8> rom) {
         mbc.rom = rom;
+
+        std::cout << "HEADER:" << std::endl;
+
+        u32 rom_size;
+        u8 rom_size_byte = mbc.rom[0x148];
+        if(rom_size_byte <= 0x08) {
+            rom_size = 32000 << rom_size_byte;
+        } else {
+            switch(rom_size_byte) {
+                case 0x52:
+                    rom_size = 1152000;
+                    break;
+                case 0x53:
+                    rom_size = 1280000;
+                    break;
+                case 0x54:
+                    rom_size = 1536000;
+                    break;
+                default:
+                    std::cout << "unknown rom size byte: " << to_hex_string(rom_size_byte) << std::endl;
+                    unreachable();
+                    rom_size = 0;
+            }
+        }
+        std::cout << "ROM size: " << rom_size;
+        std::cout << " (" << (rom_size/16000) << " banks)" << std::endl;
+
+        u32 ram_size;
+        u8 ram_size_byte = mbc.rom[0x149];
+        switch(ram_size_byte) {
+            case 0x00:
+                ram_size = 0;
+                break;
+            case 0x01:
+                ram_size = 1 << 11;  // ~2k
+                break;
+            case 0x02:
+                ram_size = 1 << 13;  // ~8k
+                break;
+            case 0x03:
+                ram_size = 1 << 15;  // ~32k
+                break;
+            case 0x04:
+                ram_size = 1 << 17;  // ~128k
+                break;
+            case 0x05:
+                ram_size = 1 << 16;  // ~64k
+                break;
+            default:
+                std::cout << "unknown ram size byte: " << to_hex_string(ram_size_byte) << std::endl;
+                unreachable();
+                ram_size = 0;
+        }
+        std::cout << "RAM size: " << ram_size;
+        std::cout << " (" << (ram_size/8000) << " banks)" << std::endl;
+        mbc.set_ram_size(ram_size);
     }
 
     void postboot_init() {

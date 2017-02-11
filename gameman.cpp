@@ -17,7 +17,6 @@ void emulate_with_(std::vector<u8> rom) {
     for(i8 v: dmg_rom) cpu.mmu.boot_rom.push_back((u8)v);
     cpu.mmu.insert_cartridge(rom);
 
-    /* std::cout << "HEADER:" << std::endl; */
     std::cout << "\nEXECUTION:" << std::endl;
 
     /* bool log = false; */
