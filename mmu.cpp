@@ -19,9 +19,11 @@
 #define _WY         0xFF4A
 #define _WX         0xFF4B
 
+#define _DIV        0xFF04
 #define _TIMA       0xFF05
 #define _TMA        0xFF06
 #define _TAC        0xFF07
+
 #define _NR10       0xFF10
 #define _NR11       0xFF11
 #define _NR12       0xFF12

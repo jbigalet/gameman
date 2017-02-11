@@ -29,6 +29,8 @@ void emulate_with_(std::vector<u8> rom) {
     /* for(int i=0 ; i<100000 ; i++) { */
     /* for(int i=0 ; i<1000000 ; i++) { */
     /* while(cpu.reg.PC != 0x00E9) {  // blargg's 01 infinite loop */
+    auto tstart = now();
+    u32 last_cycles = 0;
     while(true) {
         /* std::cout << "plop" << std::endl; */
 
@@ -42,7 +44,14 @@ void emulate_with_(std::vector<u8> rom) {
 #endif
 
         cpu.mmu.history = "";
-        cpu.do_cycle();
+        last_cycles += cpu.do_cycle();
+
+        if(tdiff_micro(tstart, now()) > 1000000) {
+            std::cout.imbue(std::locale(""));
+            std::cout << "last second: " << last_cycles << " ops" << std::endl;
+            tstart = now();
+            last_cycles = 0;
+        }
 
         if(cpu.reg.PC == 0x40) {
             /* std::cout << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl; */
