@@ -34,11 +34,6 @@ for table, ops in zip(
             if (ops == prefix_cb_opcodes) and opcode[0] in "4567" and opcode[1] in "6E": # wrong doc...
                 timings = "12"  # not 16
 
-            # if ops == opcodes:
-            #     if opcode == "B6":
-            #         print timings
-            #         timings = "24"
-
             read_bytes = []
 
             command_args = sublines[0].split(' ')

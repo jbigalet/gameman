@@ -45,7 +45,7 @@ struct CPU {
     bool IME = false;  // Interrupt Master Enable Flag
     bool halted = false;
 
-    i32 cycle_until_count = 1;
+    i32 cycle_until_count = 0;
     i32 cycle_until_div = 0;
 
     CPU() {
@@ -54,80 +54,13 @@ struct CPU {
     }
 
     u16 do_cycle() {
-        u16 icount;
-        if(!halted) {
-            icount = exec_op();
-        } else {
-            icount = 4;  // ...
+        i16 cycles = 0;
+
+        // check interrupts
+        if(halted && mmu.read(0xff0f) != 0) {
+            /* std::cout << "un-halted " << to_bit_string(mmu.read(0xff0f)) << std::endl; */
+            halted = false;
         }
-
-        // timer
-
-        u8 TAC = mmu.read(_TAC);  // Timer Control (bit 2 = enable ; bit 1-0 = divider)
-        if(bit_check(TAC, 2)) {
-            cycle_until_count -= icount;
-            if(cycle_until_count <= 0) {
-                i16 divider;
-                switch(TAC & 0x03) {
-                    case 0x00:
-                        divider = 1024;
-                        break;
-                    case 0x01:
-                        divider = 16;
-                        break;
-                    case 0x02:
-                        divider = 64;
-                        break;
-                    case 0x03:
-                        divider = 256;
-                        break;
-                    default:
-                        std::cout << "TAC: " << to_bit_string(TAC) << std::endl;
-                        unreachable();
-                }
-
-                u16 TIMA = mmu.read(_TIMA);  // Timer Counter
-                TIMA++;
-                cycle_until_count += divider;
-
-                // handle multiple increment at once
-                // TODO hurts my eyes
-                while(cycle_until_count <= 0) {
-                    TIMA++;
-                    cycle_until_count += divider;
-                }
-
-                /* std::cout << divider << " " << TIMA << std::endl; */
-
-                bool overflow = false;
-                if(TIMA > 0xff) {
-                    u8 TMA = mmu.read(_TMA);  // Timer Modulo
-                    TIMA = TMA + (TIMA-0xff);
-                    overflow = true;
-                }
-
-                mmu.write(_TIMA, TIMA);
-
-                if(overflow) {
-                    mmu.set_bit(_IF, 2);
-                    /* std::cout << "TIMER OVERFLOW! IF=" << to_bit_string(IF) << std::endl; */
-                    /* std::cout << "TIMER OVERFLOW! IE=" << to_bit_string(mmu.read(0xffff)) << std::endl; */
-                    /* std::cout << "IME: " << IME << std::endl; */
-                }
-            }
-        }
-
-        // DIV
-        cycle_until_div -= icount;
-        if(cycle_until_div <= 0) {
-            u8 DIV = mmu.read(_DIV);
-            DIV++;
-            cycle_until_div += 255;
-            mmu.write(0xff04, DIV);
-        }
-
-        ppu.update(icount);
-
 
         // handle interrupts
         if(IME){
@@ -139,20 +72,87 @@ struct CPU {
                     /* std::cout << "int! " << (i32)i << std::endl; */
                     IME = false;
                     mmu.write(_IF, bit_reset(IF, i));  // reset IF flag
-                    CALL_const16(0x40 + (0x08*i));  // TODO update cycle count
+                    CALL_const16(0x40 + (0x08*i));
+                    cycles = 24;  // TODO not sure
                     break;
                 }
         }
 
-
-
-        // check interrupts
-        if(halted && mmu.read(0xff0f) != 0) {
-            /* std::cout << "un-halted " << to_bit_string(mmu.read(0xff0f)) << std::endl; */
-            halted = false;
+        if(cycles == 0) {
+            if(!halted) {
+                cycles = exec_op();
+            } else {
+                cycles = 1;  // ...
+            }
         }
 
-        return icount;
+        // timer
+
+        u8 TAC = mmu.read(_TAC);  // Timer Control (bit 2 = enable ; bit 1-0 = divider)
+        if(bit_check(TAC, 2)) {
+            cycle_until_count -= cycles;
+            if(cycle_until_count < 0) {
+                i16 divider;
+                switch(TAC & 0b11) {
+                    case 0b00:
+                        divider = 1024;
+                        break;
+                    case 0b01:
+                        divider = 16;
+                        break;
+                    case 0b10:
+                        divider = 64;
+                        break;
+                    case 0b11:
+                        divider = 256;
+                        break;
+                    default:
+                        std::cout << "TAC: " << to_bit_string(TAC) << std::endl;
+                        unreachable();
+                }
+
+                u16 TIMA = (u16)mmu.read(_TIMA);  // Timer Counter
+
+                // handle multiple increment at once
+                while(cycle_until_count < 0) {
+                    TIMA++;
+                    cycle_until_count += divider;
+                }
+
+                /* std::cout << divider << " " << TIMA << std::endl; */
+
+                bool overflow = false;
+                if(TIMA > 0xff) {
+                    u8 TMA = mmu.read(_TMA);  // Timer Modulo
+                    TIMA = TMA + (TIMA-0x100);
+                    overflow = true;
+                }
+
+                /* std::cout << divider << " " << TIMA << std::endl; */
+
+                mmu.write(_TIMA, TIMA & 0xff);
+
+                if(overflow) {
+                    mmu.set_bit(_IF, 2);
+                    /* std::cout << "TIMER OVERFLOW! IF=" << to_bit_string(IF) << std::endl; */
+                    /* std::cout << "TIMER OVERFLOW! IE=" << to_bit_string(mmu.read(0xffff)) << std::endl; */
+                    /* std::cout << "IME: " << IME << std::endl; */
+                }
+            }
+        }
+
+        // DIV
+        cycle_until_div -= cycles;
+        if(cycle_until_div < 0) {
+            u8 DIV = mmu.read(_DIV);
+            DIV++;
+            cycle_until_div += 256;
+            mmu.write(_DIV, DIV);
+        }
+
+        ppu.update(cycles);
+
+        return cycles;
     }
 
     void reset_low_F() {
