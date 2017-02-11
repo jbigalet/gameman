@@ -5,7 +5,7 @@ void exec_op{{table_suffix}}() {
         {{#opcodes}}
         case 0x{{opcode}}:
         {
-            cycle_count_advance({{special_timings}});
+            /* cycle_count_advance({{special_timings}}); */
             {{#call_funcs}}
             {{{func}}};
             {{/call_funcs}}

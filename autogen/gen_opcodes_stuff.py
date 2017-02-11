@@ -170,6 +170,7 @@ for table, ops in zip(
                 prototypes[proto_name] = {
                     'usage': [opcode],
                     'flags': raw_flags,
+                    'timings': timings,
                 }
             else:  # check flags & add to usage
 
@@ -178,6 +179,10 @@ for table, ops in zip(
                     print prototypes[proto_name]
                     print opcode + " => " + raw_flags
                     raise RuntimeError('A prototype cant have different set of flags')
+                if prototypes[proto_name]['timings'] != timings and opcode not in ['F1', 'EA', 'FA']:
+                    print prototypes[proto_name]
+                    print opcode + " => " + timings
+                    raise RuntimeError('A prototype cant have different set of timings')
                 prototypes[proto_name]['usage'].append(opcode)
 
             call_funcs = [call_func]
@@ -225,7 +230,7 @@ for fname in ['disas', 'cpu_dispatcher']:
     with open('%s.cpp' % fname, 'w') as f:
         f.write(rendered)
 
-proto_funcs = ["// usage: %s\n// flags: %s\n%s" % (','.join(p['usage']), p['flags'], pfunc)
+proto_funcs = ["// usage: %s\n// flags: %s\n// timings: %s\n%s" % (','.join(p['usage']), p['flags'], p['timings'], pfunc)
                for pfunc, p in sorted(prototypes.items(), key=lambda p: p[0].split(' ', 1)[1])]
 with open('cpu_prototypes.cpp', 'w') as f:
     f.write('\n\n'.join(proto_funcs))

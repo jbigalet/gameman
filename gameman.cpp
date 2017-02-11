@@ -119,13 +119,13 @@ i32 main() {
     /* emulate("./roms/mem_timing/mem_timing.gb"); */
     /* emulate("./roms/mem_timing/individual/01-read_timing.gb"); */
     /* emulate("./roms/mem_timing/individual/02-write_timing.gb"); */
-    emulate("./roms/mem_timing/individual/03-modify_timing.gb");
+    /* emulate("./roms/mem_timing/individual/03-modify_timing.gb"); */
     /* emulate("./roms/mem_timing-2/mem_timing.gb"); */
     /* emulate("./roms/mem_timing-2/rom_singles/01-read_timing.gb"); */
     /* emulate("./roms/mem_timing-2/rom_singles/02-write_timing.gb"); */
     /* emulate("./roms/mem_timing-2/rom_singles/03-modify_timing.gb"); */
 
-    /* emulate("./tetris.gb"); */
+    emulate("./tetris.gb");
     /* emulate("./sml.gb"); */
     /* emulate("./sml2.gb"); */
     /* emulate("./pokemon_red.gb"); */
