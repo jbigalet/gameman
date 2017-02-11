@@ -56,7 +56,7 @@ void CALL_const16(u16);
 
 // usage: C4,CC,D4,DC
 // flags: -,-,-,-
-bool CALL_flag_const16(bool,u16);
+void CALL_flag_const16(bool,u16);
 
 // usage: 3F
 // flags: -,0,0,C
@@ -124,7 +124,7 @@ void JP_const16(u16);
 
 // usage: C2,CA,D2,DA
 // flags: -,-,-,-
-bool JP_flag_const16(bool,u16);
+void JP_flag_const16(bool,u16);
 
 // usage: E9
 // flags: -,-,-,-
@@ -136,7 +136,7 @@ void JR_const8(i8);
 
 // usage: 20,28,30,38
 // flags: -,-,-,-
-bool JR_flag_const8(bool,i8);
+void JR_flag_const8(bool,i8);
 
 // usage: E0
 // flags: -,-,-,-
@@ -240,7 +240,7 @@ void RETI();
 
 // usage: C0,C8,D0,D8
 // flags: -,-,-,-
-bool RET_flag(bool);
+void RET_flag(bool);
 
 // usage: 17
 // flags: 0,0,0,C

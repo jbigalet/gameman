@@ -45,6 +45,7 @@ struct CPU {
     bool IME = false;  // Interrupt Master Enable Flag
     bool halted = false;
 
+    i16 last_op_cycles = 0;
     i32 cycle_until_count = 0;
     i32 cycle_until_div = 0;
 
@@ -53,38 +54,8 @@ struct CPU {
         ppu.mmu = &mmu;
     }
 
-    u16 do_cycle() {
-        i16 cycles = 0;
-
-        // check interrupts
-        if(halted && mmu.read(0xff0f) != 0) {
-            /* std::cout << "un-halted " << to_bit_string(mmu.read(0xff0f)) << std::endl; */
-            halted = false;
-        }
-
-        // handle interrupts
-        if(IME){
-            u8 IF = mmu.read(0xff0f);  // interrupt flag
-            u8 IE = mmu.read(0xffff);  // interrupt enable
-            /* std::cout << "IE: " << to_bit_string(IE) << std::endl; */
-            for(u8 i=0 ; i<5 ; i++)
-                if(bit_check(IF, i) && bit_check(IE, i)) {
-                    /* std::cout << "int! " << (i32)i << std::endl; */
-                    IME = false;
-                    mmu.write(_IF, bit_reset(IF, i));  // reset IF flag
-                    CALL_const16(0x40 + (0x08*i));
-                    cycles = 24;  // TODO not sure
-                    break;
-                }
-        }
-
-        if(cycles == 0) {
-            if(!halted) {
-                cycles = exec_op();
-            } else {
-                cycles = 1;  // ...
-            }
-        }
+    void cycle_count_advance(i16 cycles) {
+        last_op_cycles = cycles;
 
         // timer
 
@@ -151,8 +122,39 @@ struct CPU {
         }
 
         ppu.update(cycles);
+    }
 
-        return cycles;
+
+    u16 do_cycle() {
+
+        // check interrupts to un-halt
+        if(halted && mmu.read(0xff0f) != 0) {
+            /* std::cout << "un-halted " << to_bit_string(mmu.read(0xff0f)) << std::endl; */
+            halted = false;
+        }
+
+        // handle interrupts
+        if(IME){
+            u8 IF = mmu.read(_IF);  // interrupt flag
+            u8 IE = mmu.read(_IE);  // interrupt enable
+            /* std::cout << "IE: " << to_bit_string(IE) << std::endl; */
+            for(u8 i=0 ; i<5 ; i++)
+                if(bit_check(IF, i) && bit_check(IE, i)) {
+                    /* std::cout << "int! " << (i32)i << std::endl; */
+                    IME = false;
+                    mmu.write(_IF, bit_reset(IF, i));  // reset IF flag
+                    CALL_const16(0x40 + (0x08*i));
+                    /* cycles = 24;  // TODO not sure */
+                    break;
+                }
+        }
+
+        if(!halted)
+            exec_op();
+        else
+            cycle_count_advance(1);  // update timer even when halted
+
+        return last_op_cycles;
     }
 
     void reset_low_F() {
@@ -506,9 +508,8 @@ struct CPU {
 
     // usage: C4,CC,D4,DC
     // flags: -,-,-,-
-    bool CALL_flag_const16(bool flag, u16 addr) {
-        if(flag) CALL_const16(addr);
-        return flag;
+    void CALL_flag_const16(bool flag, u16 addr) {
+        CALL_const16(addr);
     }
 
     // usage: 3F
@@ -671,9 +672,8 @@ struct CPU {
 
     // usage: C2,CA,D2,DA
     // flags: -,-,-,-
-    bool JP_flag_const16(bool flag, u16 addr) {
+    void JP_flag_const16(bool flag, u16 addr) {
         if(flag) JP_const16(addr);
-        return flag;
     }
 
     // usage: E9
@@ -692,9 +692,8 @@ struct CPU {
 
     // usage: 20,28,30,38
     // flags: -,-,-,-
-    bool JR_flag_const8(bool flag, i8 offset) {
+    void JR_flag_const8(bool flag, i8 offset) {
         if(flag) JR_const8(offset);
-        return flag;
     }
 
     // usage: E0
@@ -874,9 +873,8 @@ struct CPU {
 
     // usage: C0,C8,D0,D8
     // flags: -,-,-,-
-    bool RET_flag(bool flag) {
+    void RET_flag(bool flag) {
         if(flag) RET();
-        return flag;
     }
 
     // usage: 17

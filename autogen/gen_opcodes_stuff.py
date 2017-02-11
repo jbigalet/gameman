@@ -156,16 +156,14 @@ for table, ops in zip(
             func_name = '_'.join([command_args[0]] + [ea['type'] for ea in exec_args])
             call_func = "%s(%s)" % (func_name, ', '.join([ea['value'] for ea in exec_args]))
             if '/' in timings:
-                call_func = "bool action_taken = %s" % call_func
-                special_timings = "action_taken ? %s : %s" % tuple(timings.split('/'))
-                proto_rtype = 'bool'
+                if exec_args[0]['type'] != 'flag':
+                    raise NotImplementedError("Cannot infer custom timing if the 1st arg is not a flag")
+                special_timings = "%s ? %s : %s" % ((exec_args[0]['value'],) + tuple(timings.split('/')))
             else:
                 special_timings = timings
-                proto_rtype = 'void'
 
-            proto_name = ("%s %s(%s);" \
-                          % (proto_rtype,
-                             func_name,
+            proto_name = ("void %s(%s);" \
+                          % (func_name,
                              ','.join([ea['realtype'] for ea in exec_args])))
 
             if not proto_name in prototypes:

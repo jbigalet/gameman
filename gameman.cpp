@@ -30,7 +30,7 @@ void emulate_with_(std::vector<u8> rom) {
     /* for(int i=0 ; i<1000000 ; i++) { */
     /* while(cpu.reg.PC != 0x00E9) {  // blargg's 01 infinite loop */
     auto tstart = now();
-    u32 last_cycles = 0;
+    i32 last_cycles = 0;
     while(true) {
         /* std::cout << "plop" << std::endl; */
 
@@ -119,8 +119,9 @@ i32 main() {
     /* emulate("./roms/mem_timing/mem_timing.gb"); */
     /* emulate("./roms/mem_timing/individual/01-read_timing.gb"); */
     /* emulate("./roms/mem_timing/individual/02-write_timing.gb"); */
+    emulate("./roms/mem_timing/individual/03-modify_timing.gb");
     /* emulate("./roms/mem_timing-2/mem_timing.gb"); */
-    emulate("./roms/mem_timing-2/rom_singles/01-read_timing.gb");
+    /* emulate("./roms/mem_timing-2/rom_singles/01-read_timing.gb"); */
     /* emulate("./roms/mem_timing-2/rom_singles/02-write_timing.gb"); */
     /* emulate("./roms/mem_timing-2/rom_singles/03-modify_timing.gb"); */
 
