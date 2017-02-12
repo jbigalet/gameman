@@ -386,6 +386,8 @@ struct MMU {
         /* SLOG(_LCDC); */
         /* SLOG(_IE); */
         /* SLOG(_IF); */
+        /* SLOG(_SCX); */
+        /* SLOG(_SCY); */
 
         if(!can_access_vram && addr >= _VRAM_START && addr <= _VRAM_END) {
             std::cout << "trying to write in vram at " << to_hex_string(addr) << std::endl;

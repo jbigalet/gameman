@@ -82,6 +82,10 @@ struct PPU {
 
         current_mode_remaining_cycles -= cycle_count;
         if(current_mode_remaining_cycles < 0) {
+
+            // TODO some STAT conditions makes next condition to be ignored
+            u8 STAT = mmu->read(_STAT);
+
             // do stuff + switch mode
             switch(current_mode) {
                 case MODE_HBLANK:  // end of line, go to next one
@@ -114,7 +118,13 @@ struct PPU {
                             assert(mmu->can_access_oam && mmu->can_access_vram);
                             the_ghandler.draw();
 
-                            mmu->set_bit(_IF, 0);  // vblank interrupt
+                            mmu->set_bit(_IF, 0);  // VBLANK interrupt
+
+                            if(bit_check(STAT, 4)) // STAT VBLANK interrupt
+                                mmu->set_bit(_IF, 1);
+
+                            if(bit_check(STAT, 5)) // STAT OAM interrupt  (that also needs to happen at the start of vblank)
+                                mmu->set_bit(_IF, 1);
                         }
 
                         if(!vblank) {  // draw line TODO sprites TODO check
@@ -134,6 +144,7 @@ struct PPU {
 
                             u8 SCY = mmu->read(_SCY);
                             u8 SCX = mmu->read(_SCX);
+                            /* std::cout << "SCX: " << (i32)SCX << std::endl; */
                             u8 tile_y = ((u8)(LY+SCY))/8;
                             u8 subline = ((u8)(LY+SCY))%8;
                             for(u8 x=0 ; x < 20 ; x++) {
@@ -214,11 +225,26 @@ struct PPU {
                                 }
                             }
 
+
+                            if(bit_check(STAT, 5)) // STAT OAM interrupt
+                                mmu->set_bit(_IF, 1);
+
                         }  // end (!vblank) <=> hblank
 
-                        // TODO LYC + other STAT stuff
-
                         mmu->write(_LY, LY);
+
+                        u8 LYC = mmu->read(_LYC);
+                        if(LY == LYC && bit_check(STAT, 6)) // STAT LY==LYC interrupt
+                            mmu->set_bit(_IF, 1);
+
+                        // set STAT coincidence flag (0:LY!=LYC, 1:LY==LYC)
+                        if(LY == LYC && !bit_check(STAT, 2))
+                            STAT = bit_set(STAT, 2);
+                        if(LY != LYC && bit_check(STAT, 2))
+                            STAT = bit_reset(STAT, 2);
+
+                        current_mode = MODE_HBLANK;
+                        current_mode_remaining_cycles += 204;
                     }
 
                     current_mode = MODE_OAM;
@@ -233,12 +259,14 @@ struct PPU {
                 case MODE_OAM_VRAM:
                     current_mode = MODE_HBLANK;
                     current_mode_remaining_cycles += 204;
+
+                    if(!vblank && bit_check(STAT, 3)) // STAT HBLANK interrupt
+                        mmu->set_bit(_IF, 1);
                     break;
 
                 default: unreachable();
             }
 
-            u8 STAT = mmu->read(_STAT);
             u8 new_mode = vblank ? 1 : current_mode;
             STAT = (STAT & (~0x03)) | new_mode;
             mmu->write(_STAT, STAT);
