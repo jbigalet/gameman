@@ -156,11 +156,11 @@ struct PPU {
                                 if(LY+16 >= pos_y && LY+8 < pos_y) {
                                     u8 pos_x = mmu->read(_OAM_START + isprite*4+1);
                                     u8 tile_idx = mmu->read(_OAM_START + isprite*4+2);
-                                    bool flags = mmu->read(_OAM_START + isprite*4+3);
+                                    u8 flags = mmu->read(_OAM_START + isprite*4+3);
 
                                     u8 palette_bank = bit_check(flags, 4);
-                                    bool y_flip = bit_check(flags, 5);
-                                    bool x_flip = bit_check(flags, 6);
+                                    bool x_flip = bit_check(flags, 5);
+                                    bool y_flip = bit_check(flags, 6);
                                     bool behind_background = bit_check(flags, 7);
 
                                     Sprite sprite = {
@@ -186,11 +186,13 @@ struct PPU {
                                 for(Sprite s: todraw) {
                                     /* std::cout << "looking at sprite at pos " << (u32)s.pos_x << std::endl; */
                                     if(x+8 >= s.pos_x && x < s.pos_x) {
-                                        // TODO mirror
                                         // TODO palette
                                         // TODO behind / above background
                                         u8 tile_x = x+8 - s.pos_x;
+                                        if(!s.x_flip) tile_x = 7-tile_x;
+                                        /* if(s.x_flip) std::cout << "plop" << std::endl; */
                                         u8 tile_y = LY+16 - s.pos_y;
+                                        if(s.y_flip) tile_y = 7-tile_y;
                                         u16 tile_info_start = _VRAM_START + 16*s.tile_idx + tile_y*2;
                                         u8 low = mmu->read(tile_info_start);
                                         u8 high = mmu->read(tile_info_start + 1);

@@ -373,14 +373,14 @@ struct MMU {
         if(addr == _DMA) {  // DMA transfer
             // TODO do this over 160us, where the cpu cannot access mem outside of ff80-fffe
             u16 start = ((u16)val) << 8;
-            /* std::cout << "DMA transfer =) from " << (u32)start << std::endl; */
+            std::cout << "DMA transfer =) from " << (u32)start << std::endl;
             for(u16 i=0 ; i<=0x9f ; i++)
-                write(_OAM_START+i, read(start+i));
+                mbc.write(_OAM_START+i, mbc.read(start+i));  // direct mbc calls to bypass cpu oam access check
             return;
         }
 
         /* if(addr >= _OAM_START && addr <= _OAM_END && val != 0) { */
-        /*     std::cout << "trying to write in oam at " << to_hex_string(addr) << " = " << (u32)val << std::endl; */
+        /*     std::cout << "writing in oam at " << to_hex_string(addr) << " = " << (u32)val << std::endl; */
         /* } */
 
         /* SLOG(_LCDC); */
