@@ -147,17 +147,19 @@ struct PPU {
                             /* std::cout << "SCX: " << (i32)SCX << std::endl; */
                             u8 tile_y = ((u8)(LY+SCY))/8;
                             u8 subline = ((u8)(LY+SCY))%8;
-                            for(u8 x=0 ; x < 20 ; x++) {
-                                u8 tile_x = ((u8)(8*x + SCX))/8;
+                            u8 x = 0;
+                            while(x < 160) {
+                                u8 tile_x = ((u8)(x+SCX))/8;
+                                u8 col_offset = ((u8)(x+SCX))%8;
                                 u16 idx_idx = bck_index_start + 32*tile_y + tile_x;
                                 i16 idx = tile_data_at_8000 ? mmu->read(idx_idx) : (i8)mmu->read(idx_idx);
                                 u16 tile_info_start = tile_start + 16*idx + subline*2;
                                 u8 low = mmu->read(tile_info_start);
                                 u8 high = mmu->read(tile_info_start + 1);
-                                for(u8 icol=0 ; icol<8 ; icol++) {
-                                    u8 val = bit_check(low, icol) | (bit_check(high, icol) << 1);
-                                    u8 xidx = (u8)(8*x+7-icol);
-                                    the_ghandler.fb[LY][xidx] = palette[val];
+                                for(u8 icol=col_offset ; icol<8 ; icol++) {
+                                    u8 val = bit_check(low, 7-icol) | (bit_check(high, 7-icol) << 1);
+                                    the_ghandler.fb[LY][x] = palette[val];
+                                    x++;
                                 }
                             }
 
