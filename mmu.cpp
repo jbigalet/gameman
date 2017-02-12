@@ -200,7 +200,7 @@ struct MMU {
     bool boot_rom_enabled = true;
 
     bool can_access_vram = true;
-    bool can_access_oam = true;
+    bool can_access_oam =  true;
 
     void insert_cartridge(std::vector<u8> rom) {
         mbc.rom = rom;
@@ -388,6 +388,7 @@ struct MMU {
         /* SLOG(_IF); */
         /* SLOG(_SCX); */
         /* SLOG(_SCY); */
+        /* SLOG(_STAT); */
 
         if(!can_access_vram && addr >= _VRAM_START && addr <= _VRAM_END) {
             std::cout << "trying to write in vram at " << to_hex_string(addr) << std::endl;

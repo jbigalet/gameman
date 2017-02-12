@@ -114,7 +114,7 @@ void emulate(std::string rom_path) {
 i32 main() {
     the_ghandler.init();
 
-    /* emulate("./roms/cpu_instrs/cpu_instrs.gb"); */
+    emulate("./roms/cpu_instrs/cpu_instrs.gb");
     /* emulate("./roms/instr_timing/instr_timing.gb"); */
     /* emulate("./roms/mem_timing/mem_timing.gb"); */
     /* emulate("./roms/mem_timing/individual/01-read_timing.gb"); */
@@ -124,9 +124,12 @@ i32 main() {
     /* emulate("./roms/mem_timing-2/rom_singles/01-read_timing.gb"); */
     /* emulate("./roms/mem_timing-2/rom_singles/02-write_timing.gb"); */
     /* emulate("./roms/mem_timing-2/rom_singles/03-modify_timing.gb"); */
+    /* emulate("./roms/dmg_sound/dmg_sound.gb"); */
+    /* emulate("./roms/dmg_sound/rom_singles/01-registers.gb"); */
+    /* emulate("./roms/dmg_sound-2/dmg_sound.gb"); */
 
     /* emulate("./tetris.gb"); */
-    emulate("./sml.gb");
+    /* emulate("./sml.gb"); */
     /* emulate("./sml2.gb"); */
     /* emulate("./pokemon_red.gb"); */
     /* emulate("./dm.gb"); */

@@ -244,9 +244,6 @@ struct PPU {
                             STAT = bit_set(STAT, 2);
                         if(LY != LYC && bit_check(STAT, 2))
                             STAT = bit_reset(STAT, 2);
-
-                        current_mode = MODE_HBLANK;
-                        current_mode_remaining_cycles += 204;
                     }
 
                     current_mode = MODE_OAM;
@@ -272,6 +269,8 @@ struct PPU {
             u8 new_mode = vblank ? 1 : current_mode;
             STAT = (STAT & (~0x03)) | new_mode;
             mmu->write(_STAT, STAT);
+
+            /* std::cout << "current mode " << (u32)new_mode << std::endl; */
 
             mmu->can_access_oam =  vblank || current_mode == MODE_HBLANK;
             mmu->can_access_vram = vblank || current_mode != MODE_OAM_VRAM;

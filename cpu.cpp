@@ -141,7 +141,7 @@ struct CPU {
             /* std::cout << "IE: " << to_bit_string(IE) << std::endl; */
             for(u8 i=0 ; i<5 ; i++)
                 if(bit_check(IF, i) && bit_check(IE, i)) {
-                    /* std::cout << "int! " << (i32)i << std::endl; */
+                    /* std::cout << "interrupt! " << (i32)i << std::endl; */
                     IME = false;
                     mmu.write(_IF, bit_reset(IF, i));  // reset IF flag
                     CALL_const16(0x40 + (0x08*i));  // TODO side effects as this update the cycle count ?
