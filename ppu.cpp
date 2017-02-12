@@ -16,6 +16,21 @@ enum PPU_Mode {
     MODE_OAM_VRAM = 3
 };
 
+struct Sprite {
+    u8 pos_y;
+    u8 pos_x;
+    u8 tile_idx;
+
+    u8 palette_bank;
+    bool y_flip;
+    bool x_flip;
+    bool behind_background;
+
+    bool operator<(const Sprite& s) const {
+        return pos_x < s.pos_x;
+    }
+};
+
 template<typename MBC>
 struct PPU {
     MMU<MBC>* mmu;
@@ -95,7 +110,8 @@ struct PPU {
                             assert(mmu->can_access_oam && mmu->can_access_vram);
 
                             // TODO window
-                            // TODO sprites
+
+                            // background
 
                             u8 LCDC = mmu->read(_LCDC);
                             u16 bck_index_start = bit_check(LCDC, 3) ? 0x9C00 : 0x9800;
@@ -109,9 +125,9 @@ struct PPU {
                                 u8 val = (BGP >> bit) & 0b11;
                                 u8 g = 255-85*val;
                                 palette.push_back(Color{g,g,g});
-                                std::cout << (u32)g << " ";
+                                /* std::cout << (u32)g << " "; */
                             }
-                            std::cout << std::endl;
+                            /* std::cout << std::endl; */
 
                             u8 SCY = mmu->read(_SCY);
                             u8 SCX = mmu->read(_SCX);
@@ -130,7 +146,67 @@ struct PPU {
                                     the_ghandler.fb[LY][xidx] = palette[val];
                                 }
                             }
-                        }
+
+                            // sprites
+                            // TODO enable / disable sprites
+
+                            std::vector<Sprite> todraw;
+                            for(u16 isprite=0 ; isprite < 40 ; isprite++) {
+                                u8 pos_y = mmu->read(_OAM_START + isprite*4);
+                                if(LY+16 >= pos_y && LY+8 < pos_y) {
+                                    u8 pos_x = mmu->read(_OAM_START + isprite*4+1);
+                                    u8 tile_idx = mmu->read(_OAM_START + isprite*4+2);
+                                    bool flags = mmu->read(_OAM_START + isprite*4+3);
+
+                                    u8 palette_bank = bit_check(flags, 4);
+                                    bool y_flip = bit_check(flags, 5);
+                                    bool x_flip = bit_check(flags, 6);
+                                    bool behind_background = bit_check(flags, 7);
+
+                                    Sprite sprite = {
+                                        pos_y,
+                                        pos_x,
+                                        tile_idx,
+                                        palette_bank,
+                                        y_flip,
+                                        x_flip,
+                                        behind_background
+                                    };
+
+                                    todraw.push_back(sprite);
+                                }
+                            }
+
+                            // sort by priority & remove the 11+th sprites
+                            std::stable_sort(todraw.begin(), todraw.end());
+                            if(todraw.size() > 10)
+                                todraw.erase(todraw.begin()+10, todraw.end());
+
+                            for(u8 x=0 ; x<160 ; x++) {
+                                for(Sprite s: todraw) {
+                                    /* std::cout << "looking at sprite at pos " << (u32)s.pos_x << std::endl; */
+                                    if(x+8 >= s.pos_x && x < s.pos_x) {
+                                        // TODO mirror
+                                        // TODO palette
+                                        // TODO behind / above background
+                                        u8 tile_x = x+8 - s.pos_x;
+                                        u8 tile_y = LY+16 - s.pos_y;
+                                        u16 tile_info_start = _VRAM_START + 16*s.tile_idx + tile_y*2;
+                                        u8 low = mmu->read(tile_info_start);
+                                        u8 high = mmu->read(tile_info_start + 1);
+                                        u8 val = bit_check(low, tile_x) | (bit_check(high, tile_x) << 1);
+
+                                        if(val == 0)  // transparent
+                                            continue;
+
+                                        u8 g = 255-85*val;
+                                        the_ghandler.fb[LY][x] = Color{g,g,g};
+                                        break;
+                                    }
+                                }
+                            }
+
+                        }  // end (!vblank) <=> hblank
 
                         // TODO LYC + other STAT stuff
 

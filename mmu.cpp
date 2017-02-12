@@ -25,6 +25,7 @@
 #define _TAC        0xFF07
 
 #define _JOYP       0xFF00
+#define _DMA        0xFF46
 
 #define _NR10       0xFF10
 #define _NR11       0xFF11
@@ -368,6 +369,19 @@ struct MMU {
             mbc.mem[addr] = val & 0xf0;  // drop 4 low bits which arent allowed to be set
             return;
         }
+
+        if(addr == _DMA) {  // DMA transfer
+            // TODO do this over 160us, where the cpu cannot access mem outside of ff80-fffe
+            u16 start = ((u16)val) << 8;
+            /* std::cout << "DMA transfer =) from " << (u32)start << std::endl; */
+            for(u16 i=0 ; i<=0x9f ; i++)
+                write(_OAM_START+i, read(start+i));
+            return;
+        }
+
+        /* if(addr >= _OAM_START && addr <= _OAM_END && val != 0) { */
+        /*     std::cout << "trying to write in oam at " << to_hex_string(addr) << " = " << (u32)val << std::endl; */
+        /* } */
 
         /* SLOG(_LCDC); */
         /* SLOG(_IE); */

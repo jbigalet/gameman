@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <map>
 #include <chrono>
+#include <algorithm>
 
 typedef char           i8;
 typedef unsigned char  u8;
