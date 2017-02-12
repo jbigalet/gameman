@@ -35,6 +35,10 @@ struct Color {
     bool operator<(const Color& c) const {
         return rgb() < c.rgb();
     }
+
+    bool is_white() {
+        return r == 255 && g == 255 && b == 255;
+    }
 };
 
 struct Point {

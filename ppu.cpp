@@ -55,6 +55,17 @@ struct PPU {
         mmu->can_access_vram = true;
     }
 
+    std::vector<Color> read_palette(u16 addr) {
+        u8 p = mmu->read(addr);
+        std::vector<Color> palette;
+        for(u8 bit=0 ; bit<8 ; bit+=2) {
+            u8 val = (p >> bit) & 0b11;
+            u8 g = 255-85*val;
+            palette.push_back(Color{g,g,g});
+        }
+        return palette;
+    }
+
     void update(u16 cycle_count) {
         // TODO handle variable mode cycles
         // atm we use 204, 4560, 80 & 172  (=456 line cycles)
@@ -119,15 +130,7 @@ struct PPU {
                             u16 tile_start = tile_data_at_8000 ? 0x8000 : 0x9000;
 
                             // background palette
-                            u8 BGP = mmu->read(_BGP);
-                            std::vector<Color> palette;
-                            for(u8 bit=0 ; bit<8 ; bit+=2) {
-                                u8 val = (BGP >> bit) & 0b11;
-                                u8 g = 255-85*val;
-                                palette.push_back(Color{g,g,g});
-                                /* std::cout << (u32)g << " "; */
-                            }
-                            /* std::cout << std::endl; */
+                            std::vector<Color> palette = read_palette(_BGP);
 
                             u8 SCY = mmu->read(_SCY);
                             u8 SCX = mmu->read(_SCX);
@@ -182,15 +185,15 @@ struct PPU {
                             if(todraw.size() > 10)
                                 todraw.erase(todraw.begin()+10, todraw.end());
 
+                            // read both palettes
+                            std::vector<Color> palette0 = read_palette(_OBP0);
+                            std::vector<Color> palette1 = read_palette(_OBP1);
+
                             for(u8 x=0 ; x<160 ; x++) {
                                 for(Sprite s: todraw) {
-                                    /* std::cout << "looking at sprite at pos " << (u32)s.pos_x << std::endl; */
                                     if(x+8 >= s.pos_x && x < s.pos_x) {
-                                        // TODO palette
-                                        // TODO behind / above background
                                         u8 tile_x = x+8 - s.pos_x;
                                         if(!s.x_flip) tile_x = 7-tile_x;
-                                        /* if(s.x_flip) std::cout << "plop" << std::endl; */
                                         u8 tile_y = LY+16 - s.pos_y;
                                         if(s.y_flip) tile_y = 7-tile_y;
                                         u16 tile_info_start = _VRAM_START + 16*s.tile_idx + tile_y*2;
@@ -198,12 +201,15 @@ struct PPU {
                                         u8 high = mmu->read(tile_info_start + 1);
                                         u8 val = bit_check(low, tile_x) | (bit_check(high, tile_x) << 1);
 
-                                        if(val == 0)  // transparent
+                                        if(val == 0)  // transparent - not drawn, check next sprite
                                             continue;
 
-                                        u8 g = 255-85*val;
-                                        the_ghandler.fb[LY][x] = Color{g,g,g};
-                                        break;
+                                        // behind background & pixel is not white => not draw, check next sprite
+                                        if(s.behind_background && !the_ghandler.fb[LY][x].is_white())
+                                            continue;
+
+                                        the_ghandler.fb[LY][x] = s.palette_bank == 0 ? palette0[val] : palette1[val];
+                                        break;  // won the priority, go to next pixel
                                     }
                                 }
                             }
